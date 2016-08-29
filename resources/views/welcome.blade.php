@@ -1,7 +1,4 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Laravel</title>
+        @extends('master.blade')
 
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 
@@ -41,5 +38,4 @@
                 <div class="title">Laravel 5</div>
             </div>
         </div>
-    </body>
-</html>
+

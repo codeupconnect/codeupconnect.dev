@@ -136,7 +136,10 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+<<<<<<< HEAD
         Laravel\Socialite\SocialiteServiceProvider::class,
+=======
+>>>>>>> aebf721db10f39fd2afb61f64ec6237e95a4bd6f
 
         /*
          * Application Service Providers...
@@ -193,7 +196,10 @@ return [
         'URL'       => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
+<<<<<<< HEAD
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+=======
+>>>>>>> aebf721db10f39fd2afb61f64ec6237e95a4bd6f
 
     ],
 

@@ -7,3 +7,5 @@
 */
 
 Route::get('/', 'HomeController@showWelcome');
+
+// Authentication:

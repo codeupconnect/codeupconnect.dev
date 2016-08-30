@@ -14,16 +14,16 @@ class CreateProjectsTable extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('client_name', 50);
+            $table->string('client_name');
             $table->string('site_url');
-            $table->text('description');
+            $table->longText('description');
             $table->date('start_date');
             $table->date('end_date');
-            $table->string('email')->unique();;
+            $table->string('email');
             $table->string('status');
-            $table->string('preferred_tech', 100);
+            $table->longText('preferred_tech');
             $table->integer('phone');
-            $table->integer('preferred_person');
+            $table->string('point_person');
             $table->timestamps();
         });
     }

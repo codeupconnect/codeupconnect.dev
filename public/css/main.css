@@ -1,0 +1,20 @@
+body { 
+	padding-top: 70px;
+
+}
+
+.navbar-default {
+	background-color:#614051;
+
+  
+ }
+
+ .navbar-default .navbar-nav>li>a, .navbar-default .navbar-brand {
+ 	color: #7BA04E;
+ }
+
+
+/*
+ .navbar-custom {
+	color: #333333;
+ }*/

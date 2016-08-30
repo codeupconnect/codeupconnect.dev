@@ -12,20 +12,18 @@ class CreateProjectsTable extends Migration
      */
     public function up()
     {
-        Schema::create('posts', function (Blueprint $table) {
+        Schema::create('projects', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('client_name');
+            $table->string('client_name', 50);
             $table->string('site_url');
-            $table->string('description');
-            $table->string('start_date');
-            $table->string('end_date');
-            $table->string('email');
+            $table->text('description');
+            $table->date('start_date');
+            $table->date('end_date');
+            $table->string('email')->unique();;
             $table->string('status');
-            $table->string('preferred_tech');
+            $table->string('preferred_tech', 100);
             $table->integer('phone');
             $table->integer('preferred_person');
-            // $table->integer('created_by')->unsigned();
-            // $table->foreign('created_by')->references('id')->on('users');
             $table->timestamps();
         });
     }
@@ -37,6 +35,6 @@ class CreateProjectsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('projects');
     }
 }

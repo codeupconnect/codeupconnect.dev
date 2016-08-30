@@ -15,6 +15,7 @@ class CreateTeamMembersTable extends Migration
         Schema::create('team_members', function (Blueprint $table) {
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
+            $table->string('role', 3);
             $table->integer('team_id')->unsigned();
             $table->foreign('team_id')->references('id')->on('team');
         });

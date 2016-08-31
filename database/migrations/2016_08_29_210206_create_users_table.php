@@ -17,7 +17,7 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('nickname')->unique();
             $table->string('github_id')->unique();
-            $table->string("user['url']")->unique();
+            $table->string("url")->unique();
             $table->string('email')->unique();
             $table->string('level');
             $table->string('proficiencies');

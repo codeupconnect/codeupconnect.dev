@@ -49,7 +49,7 @@
 					<li><a href="#">Logout</a></li>
 					<li role="separator" class="divider"></li>
 
-			@endif
+			@else
 
 				<li>
 					<div class="white-text">
@@ -59,6 +59,7 @@
         				</a>
         			</div>
     			</li>
+    		@endif
 				
 				  </ul>
 				</li>

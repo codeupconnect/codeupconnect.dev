@@ -16,6 +16,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/account', function () {
+    return view('user');
+});
+Route::get('/edit-account', function () {
     return view('editaccount');
 });
 Route::get('/editproject', function () {

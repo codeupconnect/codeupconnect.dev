@@ -8,7 +8,7 @@
 		<link href="/css/main.css" rel="stylesheet">
 
 		<!-- Fonts -->
-		<link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Antic+Slab" rel="stylesheet">
 
 		<title>CodeupConnect</title>
 	

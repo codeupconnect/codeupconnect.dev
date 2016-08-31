@@ -24,11 +24,32 @@ class AuthController extends Controller
      *
      * @return Response
      */
+
+    public function login()
+    {
+        $data = handleProviderCallback();
+        $user = findOrCreateUser($data);
+    }
+
+    private function findOrCreateUser($githubUser)
+    {
+        if ($authUser = User::where('github_id', $githubUser->id)->first()) {
+            return $authUser;
+        }
+
+        return User::create([
+            'name' => $githubUser->name,
+            'email' => $githubUser->email,
+            'github_id' => $githubUser->id,
+            'avatar' => $githubUser->avatar
+        ]);
+    }
+
     public function handleProviderCallback()
     {
         $user = Socialite::driver('github')->user();
 
-        return view('auth', compact('user'));
+        return $user;
     }
 
 }

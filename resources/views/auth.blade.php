@@ -2,7 +2,7 @@
 
 @section('content')
 
-	@foreach ($userData as $data)
+	@foreach ($_SESSION as $data)
 		{{ $data }}
 	@endforeach
 

@@ -73,7 +73,6 @@ class AuthController extends Controller
         }
         $authUser = $this->findOrCreateUser($user);
         $this->login($authUser);
-        dd($_SESSION);
-        return Redirect::to('auth');
+        return view('auth');
     }
 }

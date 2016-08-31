@@ -54,9 +54,10 @@ class AuthController extends Controller
 
         return User::create([
             'name' => $githubUser->name,
+            'nickname' => $githubUser->nickname,
+            'url' => $githubUser->user['url'],
             'email' => $githubUser->email,
             'github_id' => $githubUser->id,
-            'avatar' => $githubUser->avatar
         ]);
     }
 
@@ -67,6 +68,11 @@ class AuthController extends Controller
     //     return $user;
     // }
 
+    // protected function login($authUser)
+    // {
+    //     $_SESSION = $authUser['login']
+    // }
+
     public function handleProviderCallback()
     {
         try {
@@ -74,12 +80,9 @@ class AuthController extends Controller
         } catch (Exception $e) {
             return Redirect::to('auth/github');
         }
-
         $authUser = $this->findOrCreateUser($user);
-        dd($authUser);
-
-        Auth::login($authUser, true);
+        dd($user);
+        // $this->login($authUser);
         return Redirect::to('auth');
     }
-
 }

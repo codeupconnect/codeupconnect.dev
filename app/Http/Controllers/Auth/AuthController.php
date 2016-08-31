@@ -37,15 +37,6 @@ class AuthController extends Controller
         return true;
     }
 
-    public function login()
-    {
-        //this function doesn't work
-        $data = handleProviderCallback();
-
-        //temporarily return view as well as $user
-        return view('auth')->with($userData);
-    }
-
     private function findOrCreateUser($githubUser)
     {
         if ($authUser = User::where('github_id', $githubUser->id)->first()) {
@@ -68,10 +59,10 @@ class AuthController extends Controller
     //     return $user;
     // }
 
-    // protected function login($authUser)
-    // {
-    //     $_SESSION = $authUser['login']
-    // }
+    protected function login($authUser)
+    {
+        $_SESSION = $authUser['attributes'];
+    }
 
     public function handleProviderCallback()
     {
@@ -81,8 +72,8 @@ class AuthController extends Controller
             return Redirect::to('auth/github');
         }
         $authUser = $this->findOrCreateUser($user);
-        dd($user);
-        // $this->login($authUser);
+        $this->login($authUser);
+        dd($_SESSION);
         return Redirect::to('auth');
     }
 }

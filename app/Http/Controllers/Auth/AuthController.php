@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Http\Controllers\Controller;
 use Socialite;
+use Laravel\Socialite\AbstractUser;
 
 class AuthController extends Controller
 {
@@ -11,14 +13,6 @@ class AuthController extends Controller
      *
      * @return Response
      */
-
-    public function showLogin() {
-        return view('login');
-    }
-
-    public function showConfirmation() {
-        return view('auth');
-    }
 
     public function redirectToProvider()
     {
@@ -34,29 +28,7 @@ class AuthController extends Controller
     {
         $user = Socialite::driver('github')->user();
 
-        // $user->token;
+        return view('auth', compact('user'));
     }
 
-    public function displayData()
-    {
-        $user = Socialite::driver('github')->user();
-
-        // OAuth Two Providers
-        $token = $user->token;
-        $refreshToken = $user->refreshToken; // not always provided
-        $expiresIn = $user->expiresIn;
-
-        // OAuth One Providers
-        $token = $user->token;
-        $tokenSecret = $user->tokenSecret;
-
-        // All Providers
-        $user->getId();
-        $user->getNickname();
-        $user->getName();
-        $user->getEmail();
-        $user->getAvatar();
-
-        var_dump($user);
-    }
 }

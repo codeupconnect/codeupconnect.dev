@@ -50,10 +50,10 @@
 					<li role="separator" class="divider"></li>
 
 			@endif
-			
+
 				<li>
 					<div class="white-text">
-			  			<a class="btn btn-block btn-social btn-lg btn-github">
+			  			<a href="/login" class="btn btn-block btn-social btn-lg btn-github">
           				<i class="fa fa-github"></i>
           				Sign in with Github
         				</a>

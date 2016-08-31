@@ -36,3 +36,6 @@ Route::get('/submit', function () {
 Route::get('/featured', function () {
     return view('featuredproject');
 });
+Route::get('/showusers', function () {
+    return view('showusers');
+});

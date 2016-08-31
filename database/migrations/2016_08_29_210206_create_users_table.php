@@ -14,14 +14,14 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('github')->unique();
+            $table->string('name');
+            $table->string('github_id')->unique();
             $table->string('email')->unique();
             $table->string('level');
             $table->string('proficiencies');
             $table->string('active_project');
             $table->string('resume_url');
-            $table->nullableTimestamp('queue');
-            $table->timestamps();
+            $table->nullableTimestamps();
         });
     }
 

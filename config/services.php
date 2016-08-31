@@ -38,6 +38,6 @@ return [
     'github' => [
     'client_id' => '3c25aec002c53c5cdb31',
     'client_secret' => '6f0e41d1184bd40337622ba959a67d898943ebe2',
-    'redirect' => 'http://codeupconnect.com/auth',
+    'redirect' => 'http://codeupconnect.dev/auth',
 ],
 ];

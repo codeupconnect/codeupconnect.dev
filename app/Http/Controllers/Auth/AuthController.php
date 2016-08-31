@@ -61,7 +61,8 @@ class AuthController extends Controller
 
     protected function login($authUser)
     {
-        $_SESSION = $authUser['attributes'];
+        // This isn't working... lesson says something about using $request->session?
+        session()->put($authUser['attributes']);
     }
 
     public function handleProviderCallback()

@@ -3,17 +3,17 @@
 @section('content')
 
 <div class="container">
-    <div class="row user-menu-container square">
+    <div class="row user-menu-container square" >
         <div class="col-md-7 user-details">
         	<div class="row coralbg white">
         	<div class="col-md-6 no-pad">
                 <div class="user-image">
-                    <img src="https://farm7.staticflickr.com/6163/6195546981_200e87ddaf_b.jpg" class="img-responsive thumbnail">
+                    <img src="/giphy.gif">
                 </div>
             </div>
             
                 <div class="col-md-6 no-pad">
-                    <div class="user-pad">
+                    <div class="user-pad profile-font text-center">
                         <h3>(user's name)</h3>
                         <h4 class="white"><i class="fa fa-check-circle-o"></i> (freelancer/alumni)</h4>
                         <h4 class="white"><i class="fa fa-github"></i> (github user)</h4>
@@ -22,11 +22,11 @@
                 </div>
                 
             </div>
-            <div class="row overview">
-                <div class="container">
-                	<div class="col-md-12">Preferences</div>
+            <div class="row overview profile-font">
+             
+                	<h3 class="user-pad text-center" id="preference">Preferences</h3>
                 </div>
-            </div>
+           
         </div>
         
         <div class="col-md-4">

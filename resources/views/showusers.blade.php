@@ -4,18 +4,22 @@
 
 	 <div class="container">
 	 	<div class="row">
-	 		<div class="col-sm-4" data-value="{{ dd(session()) }}">
-	 			<p class="{{ session()->get('key') }}">
-	 			</div>
+	 		<div class="col-sm-4" data-value="{{ session('nickname') }}">
+	 			<h1 class="{{ session('nickname') }}"> {{session('nickname')}} </h1>
+	 		</div>
+	 		<div class="col-sm-4" data-value="{{ session('nickname') }}">
+	 			<h1 class="{{ session('nickname') }}"> {{session('nickname')}} </h1>
+	 		</div>
+	 	</div>
 
 	 <script type="text/javascript">
 
 
 
-	 	// var name = $(.'data-value').val();
-	 	// console.log(name);
+	 	var name = $('.data-value').val();
+	 	console.log(name);
 
-	 	// $.getJSON('https://api.github.com/users/octocat' + name, function (data) {
+	 	// $.getJSON('https://api.github.com/users/' + name, function (data) {
  
    //          // do all this on success       
    //          var items = [],

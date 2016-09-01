@@ -63,7 +63,6 @@ class ProjectsController extends Controller
         $project->point_person = $request->point_person;
         $project->save();
         $request->session()->flash('message', 'Thank you! Your project is being reviewed by our team of devs! We will follow up soon.');
-        Log::info($request->all());
         return redirect()->action("HomeController@index");
     }
 

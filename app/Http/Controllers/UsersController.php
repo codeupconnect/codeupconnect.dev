@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use DB;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -16,9 +17,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        // $user = App\User::with('level')->findOrFail($id);
-        // $user = App\User::findOrFail($id);
-        return view('showusers');
+        return view('welcome');
     }
 
     /**
@@ -50,7 +49,9 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        return $user;
+        $user = DB::table('users')->where('id', $id)->first();
+        return view('showusers', ['user' => $user]);
+
     }
 
     /**

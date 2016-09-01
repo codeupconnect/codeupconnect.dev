@@ -16,7 +16,7 @@ class ProjectsController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except('showCompleted');
     }
 
     // viewable only to users, not outside clients
@@ -76,6 +76,16 @@ class ProjectsController extends Controller
 
     // for user and team view
     public function show($id)
+    {
+        $project = Project::find($id);
+        if(!$project) {
+            Log::info("Project $id cannot be found");
+            abort(404);
+        }
+        return view("projects.show")->with('project', $project);
+    }
+
+     public function showCompleted($id)
     {
         $project = Project::find($id);
         if(!$project) {

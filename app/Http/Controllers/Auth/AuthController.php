@@ -72,7 +72,6 @@ class AuthController extends Controller
     public function logout()
     {
         session()->flush();
-        dd(session()->all());
         return redirect()->action('UsersController@index');
     }
 }

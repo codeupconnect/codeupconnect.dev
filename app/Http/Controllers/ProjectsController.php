@@ -16,7 +16,7 @@ class ProjectsController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except('showCompleted');
     }
 
     // viewable only to users, not outside clients
@@ -63,7 +63,6 @@ class ProjectsController extends Controller
         $project->point_person = $request->point_person;
         $project->save();
         $request->session()->flash('message', 'Thank you! Your project is being reviewed by our team of devs! We will follow up soon.');
-        Log::info($request->all());
         return redirect()->action("HomeController@index");
     }
 
@@ -74,9 +73,44 @@ class ProjectsController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    // for user and team view
+    // One Project that is Viewable by Public
     public function show($id)
     {
+        $project = Project::find($id);
+        if ($project->status == 'complete') {
+            return view("project.show")->with('project', $project);
+        } else {
+            Log::info("Project $id cannot be found");
+            abort(404);
+        }
+    }
+
+
+
+    public function showUnapproved($id)
+    {
+        $projects = DB::table('projects')->where('status', 'approved')->get();
+        $project = Project::find($id);
+        if(!$project) {
+            Log::info("Project $id cannot be found");
+            abort(404);
+        }
+        return view("projects.show")->with('project', $project);
+    }
+
+     public function showApproved($id)
+    {
+        $project = Project::find($id);
+        if(!$project) {
+            Log::info("Project $id cannot be found");
+            abort(404);
+        }
+        return view("projects.show")->with('project', $project);
+    }
+
+     public function showCompleted($id)
+    {
+        $projects = DB::table('projects')->where('status', 'complete')->get();
         $project = Project::find($id);
         if(!$project) {
             Log::info("Project $id cannot be found");

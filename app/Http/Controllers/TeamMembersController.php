@@ -14,9 +14,32 @@ class TeamMembersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+
     public function index()
     {
-        //
+        // team lead plus invite and join from other queue members 
+        // designate as FE, BE, Full Support
+        // 
+        $teamMembers = DB::table('users')->get();
+        return view('teamMembers.index', ['teamMembers' => $teamMembers]);
+        
+        $titles = DB::table('roles')->lists('title');
+
+        foreach ($titles as $title) {
+            echo $title;
+        }
+
+        foreach ($projects as $project) {
+            if (TeamMembers::user_id ===){
+
+            }
+        }
+        return view("teamproject.index")->with("teamproject", $teamproject);
     }
 
     /**
@@ -26,7 +49,17 @@ class TeamMembersController extends Controller
      */
     public function create()
     {
-        //
+        $team = Team::create([
+            "name" => "Internal team"
+        ]);
+
+        Auth::user()->attachTeam( $team );
+
+        Teamwork::inviteToTeam( $email, $team, function( $invite )
+        {
+            // Send email to user / let them know that they got invited
+        });
+
     }
 
     /**

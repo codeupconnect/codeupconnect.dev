@@ -11,11 +11,11 @@
 						<img src="/giphy.gif">
 					</div>
 				</div>
-				<div class="col-xs-6 no-pad">
+				<div class="col-xs-6 no-pad" id="user-info" data-value="{{ $user->url }}">
 					<div class="user-pad profile-font text-center">
 						<h3>(user's name)</h3>
 						<h4><i class="fa fa-check-circle-o"></i> (freelancer/alumni)</h4>
-						<h4><i class="fa fa-github"></i> (github user)</h4>
+						<i class="fa fa-github"></i><h4 id="github-id"> (github user)</h4>
 					</div>
 				</div>
 			</div>
@@ -45,4 +45,22 @@
 		</div>
 	</div>
 </div>
+
+@section('bottom-scripts')
+	<script>
+
+		// Get API url from user-info data-value
+		var api = $('#user-info').data();
+		// api['value'] is now the string we are looking for
+
+	 	$.getJSON(api['value'], function (data) {
+            console.log(data);
+
+            // Enter #id that should be targeted, and data['value'] that should be inserted
+	        $('#github-id').text(data['login']);
+        });
+
+
+	</script>
+@stop
 		

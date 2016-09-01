@@ -14,7 +14,7 @@ a{
 }
 
 .navbar-default {
-	background-color:#4D528C;
+	background-color:#2785B8;
 	font-family: 'Antic Slab', serif;
  }
 
@@ -27,6 +27,7 @@ a{
 
 .btn-social{
 	position:relative;
+  margin-top:1.5px;
 	padding-left:44px;
 	text-align:left;
 	white-space:nowrap;

@@ -12,18 +12,18 @@
 					</div>
 				</div>
 				<div class="col-xs-6 no-pad" id="user-info" data-value="{{ $user->url }}">
-					<div class="user-pad profile-font text-center">
+					<div class="user-pad font text-center">
 						<h3>(user's name)</h3>
 						<h4><i class="fa fa-check-circle-o"></i> (freelancer/alumni)</h4>
 						<i class="fa fa-github"></i><h4 id="github-id"> (github user)</h4>
 					</div>
 				</div>
 			</div>
-			<div class="row overview profile-font">
+			<div class="row overview font text-center">
 				<h3 class="user-pad">Preferences</h3>
 			</div>
 		</div>
-		<div class="col-xs-4">
+		<div class="col-xs-4 font">
 			<div>
 				<h3>Current Project:</h3>
 				<ul class="user-menu-list">
@@ -39,7 +39,7 @@
 	<div class="row">
 		<div class="col-xs-7 lavbg" id="user-portfolio">
 			<div class="row">
-				<div class="user-pad profile-font"><h3 class="user-pad">CodeupConnect Portfolio</h3>
+				<div class="user-pad font text-center"><h3 class="user-pad">CodeupConnect Portfolio</h3>
 				</div>
 			</div>
 		</div>

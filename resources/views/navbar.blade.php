@@ -22,6 +22,7 @@
 				<li><a href="#">Featured Freelancers</a></li>
 				<li><a>|</a></li>
 				<li><button type="button" class="btn btn-default navbar-btn">Make a Request!</button></li>
+				<li><a href="{{ action('Auth\AuthController@logout') }}">Logout!</a></li>
 			  </ul>
 
 			  		

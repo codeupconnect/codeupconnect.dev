@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\HomeController;
 use Socialite;
 use Laravel\Socialite\AbstractUser;
 

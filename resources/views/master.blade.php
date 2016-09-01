@@ -19,16 +19,17 @@
 	
 		@yield('content')
 
-
 		@include('footer')
+
 		
 
 		
 		<!-- Scripts -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-		<script   src="https://code.jquery.com/jquery-3.1.0.slim.min.js"   integrity="sha256-cRpWjoSOw5KcyIOaZNo4i6fZ9tKPhYYb6i5T9RSVJG8="   crossorigin="anonymous"></script>
 		<script src="/js/bootstrap.min.js"></script>
-		<script src="/js/common.js"></script>
+		<script src="/js/common.js"></script>	
+		
+		@yield('bottom-scripts')
 		
 	</body>
 

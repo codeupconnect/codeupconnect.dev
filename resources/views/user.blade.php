@@ -13,7 +13,7 @@
 				</div>
 				<div class="col-xs-6 no-pad" id="user-info" data-value="{{ $user->url }}">
 					<div class="user-pad font text-center">
-						<h3>(user's name)</h3>
+						<h3 id="name"></h3>
 						<h4><i class="fa fa-check-circle-o"></i> (freelancer/alumni)</h4>
 						<i class="fa fa-github"></i><h4 id="github-id"> (github user)</h4>
 					</div>
@@ -58,6 +58,7 @@
 
             // Enter #id that should be targeted, and data['value'] that should be inserted
 	        $('#github-id').text(data['login']);
+	        $('#name').text(data['name']);
         });
 
 

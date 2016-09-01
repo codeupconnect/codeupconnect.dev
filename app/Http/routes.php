@@ -9,6 +9,8 @@
 
 Route::get('/', 'HomeController@showWelcome');
 Route::get('auth/login', 'Auth\AuthController@redirectToProvider');
+Route::get('/login', 'Auth\AuthController@redirectToProvider');
+Route::get('/logout', 'Auth\AuthController@logout');
 Route::get('auth', 'Auth\AuthController@handleProviderCallback');
 Route::resource('users', 'UsersController');
 

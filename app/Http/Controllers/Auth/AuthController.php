@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\HomeController;
 use Socialite;
 use Laravel\Socialite\AbstractUser;
 
@@ -65,6 +66,13 @@ class AuthController extends Controller
             'login_' . md5("Illuminate\Auth\Guard") => $authUser->id,
         ]);
         //dd(session()->all());
+        return redirect()->action('UsersController@index');
+    }
+
+    public function logout()
+    {
+        session()->flush();
+        dd(session()->all());
         return redirect()->action('UsersController@index');
     }
 }

@@ -7,6 +7,10 @@ a{
   color:#fff;
 }
 
+.font{
+  font-family: 'Antic Slab', serif;
+}
+
 /*Navigation Bar*/
 
 .navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-header>a:hover{
@@ -183,7 +187,7 @@ div.user-menu div.user-menu-content:not(.active){
 }
 
 .profile-font{
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: 'Antic Slab', serif;
   text-align: center;
 }
 

@@ -19,7 +19,8 @@ class CreateUsersTable extends Migration
             $table->string('github_id')->unique();
             $table->string("url")->unique();
             $table->string('email')->nullable()->unique();
-            $table->string('level');
+            $table->boolean('is_admin');
+            $table->boolean('is_freelancer');
             $table->string('proficiencies');
             $table->string('active_project');
             $table->string('resume_url');

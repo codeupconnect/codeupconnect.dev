@@ -22,7 +22,8 @@ class ProjectsController extends Controller
     // viewable only to users, not outside clients
     public function index()
     {
-        $projects = $approvedProjects->orderBy('projects.created_at', 'DESC')->paginate(10);
+        $projects = DB::table('projects')->where('status', 'approved')->get();
+        $projects = $projects->orderBy('projects.created_at', 'DESC')->paginate(10);
         return view("projects.index")->with("projects", $projects);
     }
 

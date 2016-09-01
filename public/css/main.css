@@ -1,33 +1,29 @@
 body { 
 	padding-top: 70px;
-	background-color: #471A41;
-
+	background-color: #464646;
 }
 
 a{
   color:#fff;
 }
 
+/*Navigation Bar*/
+
+.navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-header>a:hover{
+  color: #E6DAE8;
+}
+
 .navbar-default {
-	background-color:#578E71;
+	background-color:#4D528C;
 	font-family: 'Antic Slab', serif;
-	opacity: .8;
-
- }
-
- .navbar-btn {
- 	font-family: 'Antic Slab', serif;
-
  }
 
  .navbar-default .navbar-nav>li>a, .navbar-default .navbar-brand {
  	font-family: 'Antic Slab', serif;
-  color:#fff;
+  color: white;
  }
 
-.white-text{
-	color: white;
-}
+/*Github Button*/
 
 .btn-social{
 	position:relative;
@@ -118,22 +114,16 @@ a{
   border-color:rgba(0,0,0,0.2);
 }
 
+/*User Profile*/
 
-
-/* -- color classes -- */
-.coralbg {
+.lavbg {
     background-color: #E6DAE8;
 } 
 
-.coral {
+.lav {
     color: #FA396f;
 }
 
-
-
-
-
-/* -- The "User's Menu Container" specific elements. Custom container for the snippet -- */
 div.user-menu-container {
   z-index: 10;
   background-color: #fff;
@@ -145,14 +135,6 @@ div.user-menu-container {
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
 }
 
-
-
-
-
-
-
-
-/* -- The main tab & content styling of the vertical buttons info-- */
 div.user-menu-content {
     color: #323232;
 }
@@ -164,6 +146,7 @@ ul.user-menu-list {
     padding: 10px;
     border: 1px solid #eee;
 }
+
 ul.user-menu-list>li {
     padding-bottom: 8px;
     text-align: center;
@@ -172,10 +155,6 @@ ul.user-menu-list>li {
 div.user-menu div.user-menu-content:not(.active){
   display: none;
 }
-
-
-
-/* -- Custom classes for the snippet, won't effect any existing bootstrap classes of your site, but can be reused. -- */
 
 .user-pad {
     padding: 20px 25px;
@@ -188,7 +167,6 @@ div.user-menu div.user-menu-content:not(.active){
 }
 
 .user-details {
-    background: #61CEBB;
     min-height: 333px;
 }
 
@@ -203,12 +181,21 @@ div.user-menu div.user-menu-content:not(.active){
     margin: 10px 0 0 0;
 }
 
-
-
-
 .profile-font{
   font-family: 'Open Sans Condensed', sans-serif;
+  text-align: center;
 }
+
+.teal{
+  background: #61CEBB;
+}
+
+#user-portfolio{
+  min-height: 200px;
+  margin-top: 20px;
+  margin-left: 20%;
+}
+
 
 
 

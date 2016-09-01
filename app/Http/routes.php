@@ -10,6 +10,8 @@
 Route::get('/', 'HomeController@showWelcome');
 Route::get('/login', 'Auth\AuthController@redirectToProvider');
 Route::get('/auth', 'Auth\AuthController@handleProviderCallback');
+Route::resource('users', 'UsersController');
+
 
 //temporary routes
 Route::get('/', function () {
@@ -35,7 +37,4 @@ Route::get('/submit', function () {
 });
 Route::get('/featured', function () {
     return view('featuredproject');
-});
-Route::get('/showusers', function () {
-    return view('showusers');
 });

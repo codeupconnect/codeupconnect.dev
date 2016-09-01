@@ -29,7 +29,7 @@
 		</div>
 	<hr>
 		<div class="row">
-			<div class="col-lg-12">
+			<div class="col-xs-12">
 				<ul class="nav nav-pills nav-justified">
 					<li><a href="/">CodeupConnect</a></li>
 					<li><a href="#">Codeup</a></li>

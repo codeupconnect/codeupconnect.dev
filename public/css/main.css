@@ -4,19 +4,25 @@ body {
 
 }
 
+a{
+  color:#fff;
+}
+
 .navbar-default {
 	background-color:#578E71;
 	font-family: 'Antic Slab', serif;
 	opacity: .8;
+
  }
 
  .navbar-btn {
  	font-family: 'Antic Slab', serif;
+
  }
 
  .navbar-default .navbar-nav>li>a, .navbar-default .navbar-brand {
- 	color: #FFFFFF;
  	font-family: 'Antic Slab', serif;
+  color:#fff;
  }
 
 .white-text{
@@ -108,12 +114,11 @@ body {
 	background-image:none;
 }
 .btn-github.disabled,.btn-github[disabled],fieldset[disabled] .btn-github,.btn-github.disabled:hover,.btn-github[disabled]:hover,fieldset[disabled] .btn-github:hover,.btn-github.disabled:focus,.btn-github[disabled]:focus,fieldset[disabled] .btn-github:focus,.btn-github.disabled:active,.btn-github[disabled]:active,fieldset[disabled] .btn-github:active,.btn-github.disabled.active,.btn-github[disabled].active,fieldset[disabled] .btn-github.active{
-	background-color:#444;border-color:rgba(0,0,0,0.2);
+	background-color:#444;
+  border-color:rgba(0,0,0,0.2);
 }
 
-.square, .btn {
-    border-radius: 0px;
-}
+
 
 /* -- color classes -- */
 .coralbg {
@@ -124,13 +129,7 @@ body {
     color: #FA396f;
 }
 
-.turqbg {
-    background-color: #46D8D2;
-}
 
-.turq {
-    color: #46D8D2;
-}
 
 
 
@@ -146,68 +145,13 @@ div.user-menu-container {
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
 }
 
-div.user-menu-container .btn-lg {
-    padding: 0px 12px;
-}
 
-div.user-menu-container h4 {
-    font-weight: 300;
-    color: #8b8b8b;
-}
 
-div.user-menu-container a, div.user-menu-container .btn  {
-    transition: 1s ease;
-}
 
-div.user-menu-container .thumbnail {
-   width:100%;
-   min-height:200px;
-   border: 0px!important;
-   padding: 0px;
-   border-radius: 0;
-   border: 0px!important;
-}
 
-/* -- Vertical Button Group -- */
-div.user-menu-container .btn-group-vertical {
-    display: block;
-}
 
-div.user-menu-container .btn-group-vertical>a {
-    padding: 20px 25px;
-    background-color: #46D8D2;
-    color: white;
-    border-color: #fff;
-}
 
-div.btn-group-vertical>a:hover {
-    color: white;
-    border-color: white;
-}
 
-div.btn-group-vertical>a.active {
-    background: #FA396F;
-    box-shadow: none;
-    color: white;
-}
-/* -- Individual button styles of vertical btn group -- */
-div.user-menu-btns {
-    padding-right: 0;
-    padding-left: 0;
-    padding-bottom: 0;
-}
-
-div.user-menu-btns div.btn-group-vertical>a.active:after{
-  content: '';
-  position: absolute;
-  left: 100%;
-  top: 50%;
-  margin-top: -13px;
-  border-left: 0;
-  border-bottom: 13px solid transparent;
-  border-top: 13px solid transparent;
-  border-left: 10px solid #46D8D2;
-}
 /* -- The main tab & content styling of the vertical buttons info-- */
 div.user-menu-content {
     color: #323232;
@@ -229,9 +173,7 @@ div.user-menu div.user-menu-content:not(.active){
   display: none;
 }
 
-/* -- The btn stylings for the btn icons -- */
-.btn-label {position: relative;left: -12px;display: inline-block;padding: 6px 12px;background: rgba(0,0,0,0.15);border-radius: 3px 0 0 3px;}
-.btn-labeled {padding-top: 0;padding-bottom: 0;}
+
 
 /* -- Custom classes for the snippet, won't effect any existing bootstrap classes of your site, but can be reused. -- */
 
@@ -262,16 +204,15 @@ div.user-menu div.user-menu-content:not(.active){
 }
 
 
-.square, .btn {
-    border-radius: 0px!important;
+
+
+.profile-font{
+  font-family: 'Open Sans Condensed', sans-serif;
 }
 
-/* -- media query for user profile image -- */
-@media (max-width: 767px) {
-    .user-image {
-        max-height: 400px;
-    }
-}
+
+
+
 
 
 

@@ -50,7 +50,7 @@ class UsersController extends Controller
     public function show($id)
     {
         $user = DB::table('users')->where('id', $id)->first();
-        return view('showusers', ['user' => $user]);
+        return view('user', ['user' => $user]);
 
     }
 

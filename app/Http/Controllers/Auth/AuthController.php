@@ -52,19 +52,6 @@ class AuthController extends Controller
         ]);
     }
 
-    // public function handleProviderCallback()
-    // {
-    //     $user = Socialite::driver('github')->user();
-
-    //     return $user;
-    // }
-
-    protected function login($authUser)
-    {
-        // This isn't working... lesson says something about using $request->session?
-        session()->put($authUser['attributes']);
-    }
-
     public function handleProviderCallback()
     {
         try {
@@ -73,7 +60,8 @@ class AuthController extends Controller
             return Redirect::to('auth/github');
         }
         $authUser = $this->findOrCreateUser($user);
-        $this->login($authUser);
+        // $this->login($authUser);
+        session(['nickname' => $authUser['nickname']]);
         return view('auth');
     }
 }

@@ -8,7 +8,7 @@ class AdminAuthenticate
 {
     /**
      * Handle an incoming request.
-     *
+     * 
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next
      * @return mixed
@@ -28,7 +28,7 @@ class AdminAuthenticate
         {
             if (!$this->is_admin)
             {
-                return view("projects.index");
+                return redirect()->action('HomeController@showWelcome');
             }
         }
         return $next($request);

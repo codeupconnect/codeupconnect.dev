@@ -61,7 +61,10 @@ class AuthController extends Controller
         }
         $authUser = $this->findOrCreateUser($user);
         // $this->login($authUser);
-        session(['nickname' => $authUser['nickname']]);
-        return view('auth');
+        session([
+            'login_' . md5("Illuminate\Auth\Guard") => $authUser->id,
+        ]);
+        //dd(session()->all());
+        return redirect()->action('UsersController@index');
     }
 }

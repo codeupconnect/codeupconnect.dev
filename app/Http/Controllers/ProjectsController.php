@@ -9,24 +9,11 @@ use App\Http\Controllers\Controller;
 
 class ProjectsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function __construct()
     {
         $this->middleware('auth')->except('showCompleted');
     }
-
-    // viewable only to users, not outside clients
-    public function index()
-    {
-        $projects = DB::table('projects')->where('status', 'approved')->get();
-        $projects = $projects->orderBy('projects.created_at', 'DESC')->paginate(10);
-        return view("projects.index")->with("projects", $projects);
-    }
-
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -36,7 +23,7 @@ class ProjectsController extends Controller
     // form page for clients to submit
     public function create()
     {
-        return view("projects.create");
+        return view("public.create");
     }
 
     /**
@@ -67,55 +54,6 @@ class ProjectsController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-
-    // One Project that is Viewable by Public
-    public function show($id)
-    {
-        $project = Project::find($id);
-        if ($project->status == 'complete') {
-            return view("project.show")->with('project', $project);
-        } else {
-            Log::info("Project $id cannot be found");
-            abort(404);
-        }
-    }
-
-
-
-    public function showUnapproved()
-    {
-        $project = Project::find();
-        if ($project->status == 'unapproved') {
-            return view("project.show")->with('project', $project);
-        } else {
-            abort(404);
-    }
-
-     public function showApproved()
-    {
-         $project = Project::find();
-        if ($project->status == 'complete') {
-            return view("project.show")->with('project', $project);
-        } else {
-            abort(404);
-    }
-
-     public function showCompleted()
-    {
-        $projects = DB::table('projects')
-        $project = Project::find()->where('status', 'complete')->get();
-        if(!$project) {
-            abort(404);
-        }
-        return view("projects.show")->with('project', $project);
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -123,6 +61,7 @@ class ProjectsController extends Controller
      */
 
     // view for admin
+    // admin can edit, reject or approve
     public function edit($id)
     {
         $project = Project::findorFail($id);
@@ -130,9 +69,8 @@ class ProjectsController extends Controller
             Log::info("Post with ID $id cannot be found");
             abort(404);
         }
-        return view("projects.edit")->with('project', $project);
+        return view("admin.editproject")->with('project', $project);
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -187,5 +125,44 @@ class ProjectsController extends Controller
         $project->delete();
         return redirect()->action("ProjectsController@index");
     }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+
+    // Main projects view for alumni.
+    // Once project is approved, it is viewable by all alumni. 
+    // At this point projects are either unassigned or assigned - pending team member
+    public function index()
+    {
+        $projects = DB::table('projects')->where('status', 'approved')->get();
+        $projects = $projects->orderBy('projects.created_at', 'DESC')->paginate(10);
+        return view("alumni.index")->with("projects", $projects);
+    }
+    
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+
+    // Show all completed projects to public.
+     public function showComplete()
+    {
+        $projects = Project::where('status' ,'complete')->get();
+        return view("public.show")->with('projects', $projects);
+    }
+    
+    // One Project that is viewed when clicked
+    public function showProject($id)
+    {
+        $project = Project::find($id);
+        return view("project.show")->with('project', $project);
+    }
+
+
 
 }

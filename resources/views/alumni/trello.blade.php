@@ -10,7 +10,7 @@
 	      	    <select class="form-control" id="boards"></select>		        
 	      	</div>		      
 	    </form>
-	    <div id="labels"></div>
+	    <div id="lists"></div>
     	  </div> 
 		    
 	</div> 
@@ -29,17 +29,6 @@
 			{ 
 				console.log('Failed authentication'); 
 			};
-		
-	    var loadedBoards = function(boards) 
-	    {		      
-	    	$.each(boards, function(index, value) 
-	    	{		        
-	    		$('#boards')		          
-	    		.append($("<option></option>")		          
-	    		.attr("value",value.id)		          
-	    		.text(value.name)); 		      
-	    	});		    
-	    };		    
 
 		// Get the users boards		      
 		var loadBoards = function() 
@@ -51,33 +40,63 @@
 			);		    
 		};
 
-		var loadedLabels = function(labels) 
+		// Show user's boards
+	    var loadedBoards = function(boards) 
+	    {		      
+	    	$.each(boards, function(index, value) 
+	    	{		        
+	    		$('#boards')		          
+	    		.append($("<option></option>")		          
+	    		.attr("value",value.id)		          
+	    		.text(value.name)); 		      
+	    	});		    
+	    };		    
+
+	    $('#boards').change(function() 
+	    {
+	    //	Clear loaded lists
+	    	$('#lists').empty();
+
+	    // Get selected board id
+	   		var boardId = $("option:selected", this).val();
+
+    	// Get the selected board's lists
+	     	Trello.get(
+	        	'/boards/' + boardId + '/lists',
+	        	loadedLists,
+	       		function() { console.log("Failed to load lists"); }
+	      	);
+	    });
+
+		// Show selected board's lists
+		var loadedLists = function(lists) 
 		{
-			console.log(labels);
-      		$.each(labels, function(index, label) 
+      		$.each(lists, function(index, list) 
       		{
-        		var label = $("<p><span class='badge' style='background:" + label.color + ";'>" + label.uses + "</span> " + label.id + "</p>");
-        		$('#labels').append(label);
+        		var listText = $("<div class='col-sm-3 list.name';>" + list.name + "</div>");
+        		$('#lists').append(listText);
+        		Trello.get(
+        			'/lists/' + list.id + '/cards',
+        			loadCards,
+		       		function() { console.log("Failed to load cards"); }
+        		);
       		});
     	};
 
+    	var loadCards = function(cards)
+    	{
+    		$.each(cards, function(index, card) 
+    		{
+    			var cardText = $("<br>" + card.name + "</div>");
+	    		dump(card.name);	
+    		});
+    	}
+
+    	// Test code
     	var dump = function(data)
     	{
     		console.log(data);
     	}
-
-	    $('#boards').change(function() 
-	    {
-	    	var boardId = $("option:selected", this).val();
-	    	$('#labels').empty();
-
-	      
-	      	Trello.get(
-	        	'/boards/' + boardId,
-	        	dump,
-	       		function() { console.log("Failed to load labels"); }
-	      	);
-	    });
 
 		Trello.authorize({
 		  type: 'popup',

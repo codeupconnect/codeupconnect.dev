@@ -6,7 +6,7 @@
 |--------------------------------------------------------------------------
 */
 Route::resource('users', 'UsersController');
-Route::resource('trello', 'UsersController');
+Route::resource('trello', 'ApiController');
 
 Route::get('/', 'HomeController@showWelcome');
 Route::get('auth/login', 'Auth\AuthController@redirectToProvider');

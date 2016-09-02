@@ -57,7 +57,7 @@ class UsersController extends Controller
     public function show($id)
     {
         $user = DB::table('users')->where('id', $id)->first();
-        return view('user', ['user' => $user]);
+        return view('alumni.user', ['user' => $user]);
 
     }
 

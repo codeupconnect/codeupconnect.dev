@@ -19,49 +19,36 @@ class TeamMembersController extends Controller
         $this->middleware('auth');
     }
 
-
-    public function index()
+    // alums can see other users that have indicated they are ready to work on a project as freelancer
+    // once an alumni claims a project they will need to view queue to form team
+    public function queue()
     {
-        // team lead plus invite and join from other queue members 
-        // designate as FE, BE, Full Support
-        // 
-        $teamMembers = DB::table('users')->get();
-        return view('teamMembers.index', ['teamMembers' => $teamMembers]);
-        
-        $titles = DB::table('roles')->lists('title');
-
-        foreach ($titles as $title) {
-            echo $title;
-        }
-
-        foreach ($projects as $project) {
-            if (TeamMembers::user_id ===){
-
-            }
-        }
-        return view("teamproject.index")->with("teamproject", $teamproject);
+        $users = User::where('is_freelancer' ,'true')->get();
+        return view("alumni.queue")->with('users', $users);
     }
+
+    // invite someone to work a project 
+    public function invite()
+        // mailgun
+
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
     {
-        $team = Team::create([
-            "name" => "Internal team"
-        ]);
-
-        Auth::user()->attachTeam( $team );
-
-        Teamwork::inviteToTeam( $email, $team, function( $invite )
-        {
-            // Send email to user / let them know that they got invited
-        });
-
+        $team = Team::create( ...assigned
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -70,7 +57,18 @@ class TeamMembersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $project = Project::findorFail($id);
+        if(!$project) {
+            Log::info("Project with ID $id cannot be found");
+            abort(404);
+        }
+        $this->validate($request, Project::$rules);
+        $team->user_id = $request->user_id;
+        $team->project_id = $request->project_id;
+        $team->role = $request->role;
+
+        $request->session()->flash('message', 'Your team is set.');
+        return redirect()->action("ProjectsController@index");
     }
 
     /**
@@ -84,16 +82,6 @@ class TeamMembersController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.

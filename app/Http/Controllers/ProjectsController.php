@@ -87,33 +87,29 @@ class ProjectsController extends Controller
 
 
 
-    public function showUnapproved($id)
+    public function showUnapproved()
     {
-        $projects = DB::table('projects')->where('status', 'approved')->get();
-        $project = Project::find($id);
-        if(!$project) {
-            Log::info("Project $id cannot be found");
+        $project = Project::find();
+        if ($project->status == 'unapproved') {
+            return view("project.show")->with('project', $project);
+        } else {
             abort(404);
-        }
-        return view("projects.show")->with('project', $project);
     }
 
-     public function showApproved($id)
+     public function showApproved()
     {
-        $project = Project::find($id);
-        if(!$project) {
-            Log::info("Project $id cannot be found");
+         $project = Project::find();
+        if ($project->status == 'complete') {
+            return view("project.show")->with('project', $project);
+        } else {
             abort(404);
-        }
-        return view("projects.show")->with('project', $project);
     }
 
-     public function showCompleted($id)
+     public function showCompleted()
     {
-        $projects = DB::table('projects')->where('status', 'complete')->get();
-        $project = Project::find($id);
+        $projects = DB::table('projects')
+        $project = Project::find()->where('status', 'complete')->get();
         if(!$project) {
-            Log::info("Project $id cannot be found");
             abort(404);
         }
         return view("projects.show")->with('project', $project);

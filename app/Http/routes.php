@@ -17,26 +17,26 @@ Route::get('trello', 'ApiController@trello');
 
 //temporary routes
 Route::get('/', function () {
-    return view('welcome');
+    return view('public.welcome');
 });
 Route::get('/account', function () {
-    return view('user');
+    return view('alumni.user');
 });
 Route::get('/edit-account', function () {
-    return view('editaccount');
+    return view('alumni.editaccount');
 });
 Route::get('/editproject', function () {
-    return view('editproject');
+    return view('admin.editproject');
 });
 Route::get('/queue', function () {
-    return view('queue');
+    return view('alumni.queue');
 });
 Route::get('/closeproject', function () {
-    return view('closeproject');
+    return view('admin.closeproject');
 });
 Route::get('/submit', function () {
-    return view('clientform');
+    return view('public.clientform');
 });
 Route::get('/featured', function () {
-    return view('featuredproject');
+    return view('public.featuredproject');
 });

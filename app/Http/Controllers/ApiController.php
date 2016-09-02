@@ -12,7 +12,7 @@ class ApiController extends Controller
     
     public static function trello()
     {
-        return view('trello');
+        return view('alumni.trello');
     }
 
     /**

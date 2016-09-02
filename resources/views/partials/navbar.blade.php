@@ -8,18 +8,17 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#">CodeupConnect</a>
+			<a class="navbar-brand">CodeupConnect</a>
 		</div>
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="navbar-collapse collapse">
 			<ul class="nav navbar-nav">
-				<li><a href="#">Mission </a></li>
+				<li data-slide="2"><a id="menu-link-2" href="#slide-2" title="Next Section">Mission </a></li>
 				<li><a>|</a></li>
-				<li><a href="#">Portfolio</a></li>
+				<li data-slide="3"><a id="menu-link-3" href="#slide-3" title="Next Section">Portfolio</a></li>
 				<li><a>|</a></li>
-				<li><a href="#">Featured Freelancers</a></li>
-				<li><a>|</a></li>
+				<li data-slide="4"><a id="menu-link-4" href="#slide-4" title="Next Section">Featured Freelancers</a></li>
 				<li><button type="button" class="btn btn-default navbar-btn">Make a Request!</button></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">

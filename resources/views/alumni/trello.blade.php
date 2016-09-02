@@ -10,11 +10,10 @@
 	      	    <select class="form-control" id="boards"></select>		        
 	      	</div>		      
 	    </form>
-	    <div id="lists"></div>
-    	  </div> 
+	    <div id="lists">
+	    </div>
+    </div> 
 		    
-	</div> 
-
 @section('bottom-scripts')
 
 	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
@@ -66,29 +65,34 @@
 	        	loadedLists,
 	       		function() { console.log("Failed to load lists"); }
 	      	);
+
+
 	    });
+
+	    // Global Scope Variable to Recieve List Name
+    	var listName;
 
 		// Show selected board's lists
 		var loadedLists = function(lists) 
 		{
       		$.each(lists, function(index, list) 
       		{
-        		var listText = $("<div class='col-sm-3 list.name';>" + list.name + "</div>");
+        		var listText = $("<div class='col-sm-3';><table><tr><th>" + list.name + "</tr></th><td id='" + list.name + "'></td></div>");
+        		listName = list.name;
         		$('#lists').append(listText);
-        		Trello.get(
-        			'/lists/' + list.id + '/cards',
-        			loadCards,
-		       		function() { console.log("Failed to load cards"); }
-        		);
+
       		});
     	};
 
+
+    	// Not Working.
+    	// Show Cards from selected list
     	var loadCards = function(cards)
     	{
     		$.each(cards, function(index, card) 
     		{
     			var cardText = $("<br>" + card.name + "</div>");
-	    		dump(card.name);	
+    			$("#"+listName).append(cardText);
     		});
     	}
 

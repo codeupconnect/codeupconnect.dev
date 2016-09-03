@@ -13,8 +13,7 @@
 		<!-- Fonts -->
 		<link href="https://fonts.googleapis.com/css?family=Antic+Slab" rel="stylesheet">
 
-
-		
+		@yield('head-includes')		
 
 		<title>CodeupConnect</title>
 	
@@ -26,10 +25,7 @@
 		@yield('content')
 
 		@include('partials.footer')
-
-		
-
-		
+	
 		<!-- Scripts -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 		<script src="/js/bootstrap.min.js"></script>

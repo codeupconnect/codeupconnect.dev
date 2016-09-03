@@ -1,5 +1,9 @@
 @extends('layout.master')
 
+@section('head-includes')
+
+	<link href="/css/trello.css" rel="stylesheet">
+
 @section('content')
     
     <div class="container">		      
@@ -14,6 +18,8 @@
 	    </div>
     </div> 
 		    
+
+
 @section('bottom-scripts')
 
 	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
@@ -82,7 +88,11 @@
         		listIds.push(list.id);
 
         		// Create div with table for each list, with name in table head 
-        		var listText = $("<div class='col-sm-3'><table><thead><tr><th>" + list.name + "</th></tr></thead><tbody id='" + list.id + "'></tbody></table></div>");
+        		var listText = 
+        		$("<div class='col-sm-3 lists'>
+        			<textarea id='newCard" + list.id + "'></textarea>
+        			<table><thead><tr><th>" + list.name + "</th></tr></thead>
+        			<tbody id='" + list.id + "'></tbody></table></div>");
         		$('#lists').append(listText);
 
         		
@@ -101,7 +111,6 @@
 	      	}
     	};
 
-    	// Not Working.
     	// Show Cards from selected list
     	var loadCards = function(cards)
     	{
@@ -113,6 +122,18 @@
     			$("#"+card.idList).append(cardText);
     		});
     	}
+
+    	var myList = 'ID';
+		var creationSuccess = function(data) {
+			console.log('Card created successfully. Data returned:' + JSON.stringify(data));
+		};
+		var newCard = {
+			name: 'New Test Card', 
+			desc: 'This is the description of our new card.',
+		  	idList: myList,
+		  	pos: 'top'
+		};
+		Trello.post('/cards/', newCard, creationSuccess);
 
     	// Test code
     	var dump = function(data)

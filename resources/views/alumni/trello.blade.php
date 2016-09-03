@@ -70,29 +70,47 @@
 	    });
 
 	    // Global Scope Variable to Recieve List Name
-    	var listName;
+    	var listIds = new Array();
 
 		// Show selected board's lists
 		var loadedLists = function(lists) 
 		{
+			// Get each list data asynchronously
       		$.each(lists, function(index, list) 
       		{
-        		var listText = $("<div class='col-sm-3';><table><tr><th>" + list.name + "</tr></th><td id='" + list.name + "'></td></div>");
-        		listName = list.name;
+      			// Add ID and Name to arrays
+        		listIds.push(list.id);
+
+        		// Create div with table for each list, with name in table head 
+        		var listText = $("<div class='col-sm-3'><table><thead><tr><th>" + list.name + "</th></tr></thead><tbody id='" + list.id + "'></tbody></table></div>");
         		$('#lists').append(listText);
 
+        		
       		});
-    	};
 
+      		// Get cards for each list
+      		for (i=0; i<listIds.length; i++)
+      		{
+				$("#"+listIds[i]).empty();    			
+	      		var url = '/lists/' + listIds[i] + '/cards';
+	      		Trello.get(
+		        		url,
+	    	    		loadCards,
+	       				function() { console.log("Failed to load lists"); }
+	      			);
+	      	}
+    	};
 
     	// Not Working.
     	// Show Cards from selected list
     	var loadCards = function(cards)
     	{
+    		// Loop through each card
     		$.each(cards, function(index, card) 
     		{
-    			var cardText = $("<br>" + card.name + "</div>");
-    			$("#"+listName).append(cardText);
+    			//console.log(index, card, listIds[index]);
+    			var cardText = "<tr><td>" + card.name + "</td></tr>";
+    			$("#"+card.idList).append(cardText);
     		});
     	}
 

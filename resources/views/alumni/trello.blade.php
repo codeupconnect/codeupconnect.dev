@@ -14,10 +14,6 @@
 	      	    <select class="form-control" id="boards"></select>		        
 	      	</div>		      
 	    </form>
-	    <input class="field" type="text">
-	    <input class="field" type="text">
-	    <input class="field" type="text">
-	    <input class="field" type="text">
 	    <div id="lists">
 	    </div>
     </div> 
@@ -121,31 +117,48 @@
     		// Loop through each card
     		$.each(cards, function(index, card) 
     		{
-    			var cardText = "<tr><td>" + card.name + "</td></tr>";
+    			var cardText = "<tr><td id='" + card.id + "'>" + card.name + "</td></tr>";
     			$("#"+card.idList).append(cardText);
+    			$("#"+card.id).click(function() 
+    			{
+    				// Change text to input
+    				$('#'+card.id).html("<textarea>"+ card.name + "</textarea>");
+    				$("#"+card.id).off();
+    				// Put listener on textarea
+    				$(document).on('change', 'textarea', function() 
+    				{
+    					dump($(this).val());
+    					$('textarea').off();
+    				});
+    				// and refresh page
+    			});
     		});
     	}
 
-    	// Create Listener to Allow Car Creation
+    	// Create Listener to Allow Card Creation
     	$(document).on('change', '.newCard', function() 
-		    	{
-			    	var listId = $(this).attr('data-id');
-					var creationSuccess = function(data) {
-						console.log('Card created successfully. Data returned:' + JSON.stringify(data));
-				     	Trello.get(
-	        				'/boards/' + boardId + '/lists',
-	        				loadedLists,
-	       					function() { console.log("Failed to load lists"); }
-	      				);
-					};
-					var newCard = {
-						name: $(this).val(), 
-						desc: 'This is the description of our new card.',
-					  	idList: listId,
-					  	pos: 'top'
-					};
-					Trello.post('/cards/', newCard, creationSuccess);
-				});
+    	{
+	    	var listId = $(this).attr('data-id');
+	    	// Reload Lists After Creation
+			var creationSuccess = function(data) {
+		     	Trello.get(
+    				'/boards/' + boardId + '/lists',
+    				loadedLists,
+   					function() { console.log("Failed to load lists"); }
+  				);
+			};
+			// Create New Card
+			var newCard = {
+				name: $(this).val(), 
+				desc: 'This is the description of our new card.',
+			  	idList: listId,
+			  	pos: 'top'
+			};
+			Trello.post('/cards/', newCard, creationSuccess);
+		});
+
+		// Create Listener to allow Card Edit
+
 
     	// Test code
     	function dump(data)

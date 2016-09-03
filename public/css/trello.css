@@ -1,5 +1,4 @@
 #lists {
-	
 	margin-left: -10px;
 	margin-right: -10px;
 }
@@ -8,4 +7,10 @@
 	margin: auto;
 	margin: 5px;
 	background-color: #fff;
+}
+
+td {
+    border-style: solid;
+    border-width: medium;
+    margin-top: 5px;
 }

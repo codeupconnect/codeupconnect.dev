@@ -14,6 +14,10 @@
 	      	    <select class="form-control" id="boards"></select>		        
 	      	</div>		      
 	    </form>
+	    <input class="field" type="text">
+	    <input class="field" type="text">
+	    <input class="field" type="text">
+	    <input class="field" type="text">
 	    <div id="lists">
 	    </div>
     </div> 
@@ -25,6 +29,10 @@
 	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 	<script src="https://api.trello.com/1/client.js?key=06255aa30ed43a51b57297877330a541"></script>
 	<script>
+
+	    // Global Scope Variables
+    	var listIds = new Array();
+    	var boardId;
 		
 		var authenticationSuccess = function() 
 			{ 
@@ -63,7 +71,7 @@
 	    	$('#lists').empty();
 
 	    // Get selected board id
-	   		var boardId = $("option:selected", this).val();
+	   		boardId = $("option:selected", this).val();
 
     	// Get the selected board's lists
 	     	Trello.get(
@@ -75,9 +83,6 @@
 
 	    });
 
-	    // Global Scope Variable to Recieve List Name
-    	var listIds = new Array();
-
 		// Show selected board's lists
 		var loadedLists = function(lists) 
 		{
@@ -88,13 +93,12 @@
         		listIds.push(list.id);
 
         		// Create div with table for each list, with name in table head 
+        		//-Invalid or unexpected token-
         		var listText = 
-        		$("<div class='col-sm-3 lists'>
-        			<textarea id='newCard" + list.id + "'></textarea>
-        			<table><thead><tr><th>" + list.name + "</th></tr></thead>
-        			<tbody id='" + list.id + "'></tbody></table></div>");
-        		$('#lists').append(listText);
+	    
+        		$("<div class='col-sm-3 lists'><input type='text' class='newCard' data-id='" + list.id + "'><table><thead><tr><th>" + list.name + "</th></tr></thead><tbody id='" + list.id + "'></tbody></table></div>");
 
+        		$('#lists').append(listText);
         		
       		});
 
@@ -117,26 +121,34 @@
     		// Loop through each card
     		$.each(cards, function(index, card) 
     		{
-    			//console.log(index, card, listIds[index]);
     			var cardText = "<tr><td>" + card.name + "</td></tr>";
     			$("#"+card.idList).append(cardText);
     		});
     	}
 
-    	var myList = 'ID';
-		var creationSuccess = function(data) {
-			console.log('Card created successfully. Data returned:' + JSON.stringify(data));
-		};
-		var newCard = {
-			name: 'New Test Card', 
-			desc: 'This is the description of our new card.',
-		  	idList: myList,
-		  	pos: 'top'
-		};
-		Trello.post('/cards/', newCard, creationSuccess);
+    	// Create Listener to Allow Car Creation
+    	$(document).on('change', '.newCard', function() 
+		    	{
+			    	var listId = $(this).attr('data-id');
+					var creationSuccess = function(data) {
+						console.log('Card created successfully. Data returned:' + JSON.stringify(data));
+				     	Trello.get(
+	        				'/boards/' + boardId + '/lists',
+	        				loadedLists,
+	       					function() { console.log("Failed to load lists"); }
+	      				);
+					};
+					var newCard = {
+						name: $(this).val(), 
+						desc: 'This is the description of our new card.',
+					  	idList: listId,
+					  	pos: 'top'
+					};
+					Trello.post('/cards/', newCard, creationSuccess);
+				});
 
     	// Test code
-    	var dump = function(data)
+    	function dump(data)
     	{
     		console.log(data);
     	}

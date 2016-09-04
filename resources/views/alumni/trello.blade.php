@@ -32,15 +32,23 @@
 		
 		var authenticationSuccess = function() 
 			{ 
-				console.log('Successful authentication'); 
+				dump('Successful authentication'); 
 			};
 		var authenticationFailure = function() 
 			{ 
-				console.log('Failed authentication'); 
+				dump('Failed authentication'); 
 			};
 
+		// Load board upon selection from dropdown
+	    $('#boards').change(function() 
+	    {
+	    	// Get selected board id and load boards
+	   		boardId = $("option:selected", this).val();
+	    	loadBoard();
+	    });
+
 		// Get the users boards		      
-		var loadBoards = function() 
+		var loadAllBoards = function() 
 		{		      
 			Trello.get(
 				'/members/me/boards/',		        
@@ -52,8 +60,14 @@
 		// Show user's boards
 	    var loadedBoards = function(boards) 
 	    {		      
+	    	// Create Intro Item
+    		$('#boards')
+    		.append($("<option></option>")
+    		.text("Select a Board:")); 
+
+    		// Populate Board Selection Menu	
 	    	$.each(boards, function(index, value) 
-	    	{		        
+	    	{	
 	    		$('#boards')		          
 	    		.append($("<option></option>")		          
 	    		.attr("value",value.id)		          
@@ -61,27 +75,24 @@
 	    	});		    
 	    };		    
 
-	    $('#boards').change(function() 
+
+	    function loadBoard()
 	    {
 	    //	Clear loaded lists
 	    	$('#lists').empty();
-
-	    // Get selected board id
-	   		boardId = $("option:selected", this).val();
 
     	// Get the selected board's lists
 	     	Trello.get(
 	        	'/boards/' + boardId + '/lists',
 	        	loadedLists,
-	       		function() { console.log("Failed to load lists"); }
+	       		function() { dump("Failed to load lists"); }
 	      	);
-
-
-	    });
+	    }
 
 		// Show selected board's lists
 		var loadedLists = function(lists) 
 		{
+			listIds = [];
 			// Get each list data asynchronously
       		$.each(lists, function(index, list) 
       		{
@@ -92,7 +103,7 @@
         		//-Invalid or unexpected token-
         		var listText = 
 	    
-        		$("<div class='col-sm-3 lists'><input type='text' class='newCard' data-id='" + list.id + "'><table><thead><tr><th>" + list.name + "</th></tr></thead><tbody id='" + list.id + "'></tbody></table></div>");
+        		$("<div class='col-sm-3 lists'><input type='text' placeholder='Create New Card' class='newCard' data-id='" + list.id + "'><table><thead><tr><th>" + list.name + "</th></tr></thead><tbody id='" + list.id + "'></tbody></table></div>");
 
         		$('#lists').append(listText);
         		
@@ -114,23 +125,35 @@
     	// Show Cards from selected list
     	var loadCards = function(cards)
     	{
-    		// Loop through each card
+    		// Loop through to create each card
     		$.each(cards, function(index, card) 
     		{
-    			var cardText = "<tr><td id='" + card.id + "'>" + card.name + "</td></tr>";
+    			var cardText = "<tr><td class='allCards' id='" + card.id + "'>" + card.name + "</td></tr>";
     			$("#"+card.idList).append(cardText);
+    			
+    			// Click listener to change text to input with buttons
     			$("#"+card.id).click(function() 
     			{
-    				// Change text to input
-    				$('#'+card.id).html("<textarea>"+ card.name + "</textarea>");
+    				$('#'+card.id).html("<textarea id='editing'>"+ card.name + "</textarea><button id='edit'>Edit Card</button><button id='discard'>Discard Changes</button><a id='delete' href='javascript'>Delete</a> ");
     				$("#"+card.id).off();
-    				// Put listener on textarea
-    				$(document).on('change', 'textarea', function() 
+    				$(".allCards").off();
+
+    				// Create listeners on buttons
+    				$(document).on('click', '#edit', function() 
     				{
-    					dump($(this).val());
-    					$('textarea').off();
-    				});
-    				// and refresh page
+    					Trello.put('/cards/'+card.id, {name: $('#editing').val()});
+    					loadBoard();
+       				});
+       				$(document).on('click', '#discard', function() 
+    				{
+    					loadBoard();
+      				});       				
+    				$('#delete').bind('click',function(e){
+      					e.preventDefault();
+    					Trello.delete('/cards/'+card.id);
+      					loadBoard();     
+					});
+    				// and refresh view
     			});
     		});
     	}
@@ -141,20 +164,21 @@
 	    	var listId = $(this).attr('data-id');
 	    	// Reload Lists After Creation
 			var creationSuccess = function(data) {
-		     	Trello.get(
-    				'/boards/' + boardId + '/lists',
-    				loadedLists,
-   					function() { console.log("Failed to load lists"); }
-  				);
+				loadBoard();
+				dump('Card Created Successfully');
 			};
-			// Create New Card
-			var newCard = {
-				name: $(this).val(), 
-				desc: 'This is the description of our new card.',
-			  	idList: listId,
-			  	pos: 'top'
-			};
-			Trello.post('/cards/', newCard, creationSuccess);
+			// Check for empty value
+			if ($(this).val() !== '' && $(this).val() !== ' ')
+			{
+				// Create New Card
+				var newCard = {
+					name: $(this).val(), 
+					desc: 'This is the description of our new card.',
+				  	idList: listId,
+				  	pos: 'top'
+				};
+				Trello.post('/cards/', newCard, creationSuccess);
+			}
 		});
 
 		// Create Listener to allow Card Edit
@@ -173,7 +197,7 @@
 		    read: 'true',
 		    write: 'true' },
 		  expiration: 'never',
-		  success: loadBoards,
+		  success: loadAllBoards,
 		  error: authenticationFailure
 		});
 

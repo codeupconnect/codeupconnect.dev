@@ -7,7 +7,8 @@
 @section('content')
     
     <div class="container">		      
-    	<h1>Trello Dashboard</h1>		
+    	<h1>Trello Dashboard</h1>
+    	<button id="newBoard">New Board</button>		
       	<form class="form-horizontal" id="boards_form">		        
 	      	<div class="form-group">		          
 	      		<label class="control-label">Choose your board</label>
@@ -28,6 +29,7 @@
 
 	    // Global Scope Variables
     	var listIds = new Array();
+    	var listNames = new Array();
     	var boardId;
 		
 		var authenticationSuccess = function() 
@@ -93,11 +95,13 @@
 		var loadedLists = function(lists) 
 		{
 			listIds = [];
+			listNames = [];
 			// Get each list data asynchronously
       		$.each(lists, function(index, list) 
       		{
       			// Add ID and Name to arrays
         		listIds.push(list.id);
+        		listNames.push(list.name);
 
         		// Create div with table for each list, with name in table head 
         		//-Invalid or unexpected token-
@@ -131,23 +135,43 @@
     			var cardText = "<tr><td class='allCards' id='" + card.id + "'>" + card.name + "</td></tr>";
     			$("#"+card.idList).append(cardText);
     			
-    			// Click listener to change text to input with buttons
+    			// Click listener placed on each card
     			$("#"+card.id).click(function() 
     			{
-    				$('#'+card.id).html("<textarea id='editing'>"+ card.name + "</textarea><button id='edit'>Edit Card</button><button id='discard'>Discard Changes</button><a id='delete' href='javascript'>Delete</a> ");
+    				// Create textarea, edit button, discard button, and delete link
+    				var cardHtml = "<textarea id='editing'>"+ card.name + "</textarea><button id='edit'>Edit Card</button><button id='discard'>Discard Changes</button><a id='delete' href='javascript'>Delete</a>";
+
+    				// Add links to move card to other lists
+    				var moveLinks = createMoveLinks();
+    				cardHtml += moveLinks;
+
+    				// Create textarea and buttons/links for editing
+    				$('#'+card.id).html(cardHtml);
+
+    				// Remove listeners on all other cards
     				$("#"+card.id).off();
     				$(".allCards").off();
 
-    				// Create listeners on buttons
+    				// Create listeners on move links
+					$('.moveList').bind('click',function(e){
+  						e.preventDefault();	
+    					var move = Trello.put('/cards/' + card.id + "/idList?value=" + $(this).attr('data-list'));
+    					dump(move);
+    					loadBoard();
+					});
+
+    				// Create listeners on buttons and delete link
     				$(document).on('click', '#edit', function() 
     				{
     					Trello.put('/cards/'+card.id, {name: $('#editing').val()});
     					loadBoard();
        				});
+
        				$(document).on('click', '#discard', function() 
     				{
     					loadBoard();
       				});       				
+    				
     				$('#delete').bind('click',function(e){
       					e.preventDefault();
     					Trello.delete('/cards/'+card.id);
@@ -181,8 +205,29 @@
 			}
 		});
 
-		// Create Listener to allow Card Edit
+		// Create Links to Move Card to Another List
+		function createMoveLinks()
+		{
+			var moveLinks = '<ul>';
+			$.each(listNames, function(index, name)
+			{
+				// Create new anchor for each list
+				moveLinks += "<li><a href='javascript' class='moveList' data-list='" + listIds[index] + "'>" + name + "</a></li>";
+			});
+			moveLinks += '</ul>';
+			return moveLinks;
+		}
 
+		// Create New Board
+		// This will be changed to occur only when project is accepted
+		$(document).on('click', '#newBoard', function() 
+    	{
+    		var test = Trello.post('/boards/', {name: 'newProject'})
+    			.done(function(board)
+    			{ 
+    				alert(board.id);
+    			})
+		});
 
     	// Test code
     	function dump(data)

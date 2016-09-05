@@ -7,10 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Project extends Model
 {
     public static $rules = [
-            'client_name' => 'required',
-            'site_url' => 'required',
-            'description' => 'required',
-            'email' => 'required|email',
+            'organization_name' => 'required',
             'point_person' => 'required'
+            'email' => 'required|email',
+            'project_details' => 'required',
         ];
 }

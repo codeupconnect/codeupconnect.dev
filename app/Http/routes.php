@@ -12,7 +12,9 @@ Route::get('auth/login', 'Auth\AuthController@redirectToProvider');
 Route::get('/login', 'Auth\AuthController@redirectToProvider');
 Route::get('/logout', 'Auth\AuthController@logout');
 Route::get('auth', 'Auth\AuthController@handleProviderCallback');
-Route::get('trello', 'ApiController@trello');
+Route::get('trello', 'ApiController@viewTrello');
+Route::get('create-board', 'ApiController@createTrelloBoard');
+Route::get('accept', 'ProjectsController@acceptProject');
 
 
 //temporary routes

@@ -11,7 +11,8 @@ class ProjectsController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->except('showCompleted');
+        // $this->middleware('auth')->except('showCompleted');
+        $this->middleware('auth');
     }
     
     /**
@@ -137,7 +138,7 @@ class ProjectsController extends Controller
     // At this point projects are either unassigned or assigned - pending team member
     public function index()
     {
-        $projects = DB::table('projects')->where('status', 'approved')->get();
+        $projects = Project::where('status', 'approved')->get();
         $projects = $projects->orderBy('projects.created_at', 'DESC')->paginate(10);
         return view("alumni.index")->with("projects", $projects);
     }
@@ -163,6 +164,25 @@ class ProjectsController extends Controller
         return view("project.show")->with('project', $project);
     }
 
+    public function acceptProject(Request $request)
+    {
+        // put user id from session into team_members table
+        $name = session()->get('login_' . md5("Illuminate\Auth\Guard"));
+        $role = session()->get('role');
+        $project = session()->get('project_id');
+        TeamMember::insert([
+            'user_id' => $name,
+            'role' => $role,
+            'project_id' => $project
+            ]);
 
+        // put board id from request into projects table
+        $boardId = $request->input('board');
+        Project::insert([
+            'board_id' => $boardId,
+            ]);
+        // return user to trello view
+
+    }
 
 }

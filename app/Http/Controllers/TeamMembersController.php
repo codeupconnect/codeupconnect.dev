@@ -19,24 +19,17 @@ class TeamMembersController extends Controller
         $this->middleware('auth');
     }
 
-    // alums can see other users that have indicated they are ready to work on a project as freelancer
-    // once an alumni claims a project they will need to view queue to form team
-    public function queue()
-    {
-        $users = User::where('is_freelancer' ,'true')->get();
-        return view("alumni.queue")->with('users', $users);
-    }
-
-    // invite someone to work a project 
-    public function invite()
-        // mailgun
-
+ 
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
+     public function create()
+    {
+        return view("public.create");
+    }
 
 
     /**
@@ -57,17 +50,13 @@ class TeamMembersController extends Controller
      */
     public function store(Request $request)
     {
-        $project = Project::findorFail($id);
-        if(!$project) {
-            Log::info("Project with ID $id cannot be found");
-            abort(404);
-        }
-        $this->validate($request, Project::$rules);
-        $team->user_id = $request->user_id;
-        $team->project_id = $request->project_id;
-        $team->role = $request->role;
+        // How exactly do we initialize $teamMember?
+        $teamMember->user_id = $request->user_id;
+        $teamMember->project_id = $request->project_id;
+        $teamMember->role = $request->role;
+        // How exactly do we store/save $teamMamber?
 
-        $request->session()->flash('message', 'Your team is set.');
+        $request->session()->flash('message', '');
         return redirect()->action("ProjectsController@index");
     }
 
@@ -92,7 +81,7 @@ class TeamMembersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      
     }
 
     /**
@@ -103,6 +92,13 @@ class TeamMembersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $teamMember = TeamMember::findorFail($id);
+        if(!$teamMember) {
+            Log::info("Project with ID $id cannot be found");
+            abort(404);
+        }
+        session()->flash('message', 'The team was deleted!');
+        $teamMember->delete();
+        return redirect()->action("ProjectsController@index");
     }
 }

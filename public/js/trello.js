@@ -217,8 +217,12 @@
 		Trello.post('/boards/', {name: 'Clone', idBoardSource: '57ccac05a9c89e70ce374d64'})
 			.done(function(board)
 			{ 
-				alert(board.id);
+				// Post Board ID and Redirect to Laravel Function for Storing
+			    $('#inset_form').html("<form action='" + {{ ApiController@acceptProject }} + "' name='submit' method='post' style='display:none;''><input type='text' name='board' value='" + board.id + "' /></form>");
+			    document.forms['submit'].submit();
 			})
+
+}
 	});
 
 	// ***

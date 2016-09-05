@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class TeamMembers extends Model
+class TeamMember extends Model
 {
     protected $table = 'team_members';
     public static $rules = [

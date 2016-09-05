@@ -179,10 +179,9 @@ class ProjectsController extends Controller
         // put board id from request into projects table
         $boardId = $request->input('board');
         Project::insert([
-            'board_id' => $boardId,
+            'trello_id' => $boardId,
             ]);
-        // return user to trello view
-
+        return view("alumni.trello")->with('boardId', $boardId);
     }
 
 }

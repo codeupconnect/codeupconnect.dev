@@ -9,8 +9,12 @@ use App\Http\Controllers\Controller;
 
 class ApiController extends Controller
 {
-    
-    public static function trello()
+    public static function viewTrello()
+    {
+        return view('alumni.trello');
+    }
+
+    public static function createTrelloBoard()
     {
         return view('alumni.trello');
     }

@@ -180,7 +180,7 @@ class ProjectsController extends Controller
         $boardId = $request->input('board');
         Project::insert([
             'board_id' => $boardId,
-            ])
+            ]);
         // return user to trello view
 
     }

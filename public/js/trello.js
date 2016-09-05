@@ -6,7 +6,7 @@
 
 	var listIds = new Array();
 	var listNames = new Array();
-	var boardId;
+	var boardId = "{{ $boardId }}";
 
 
 
@@ -102,7 +102,7 @@
   		});
 
   		// Get cards from each list
-  		for (i=0; i<listIds.length; i++)
+  		for (var i=0; i<listIds.length; i++)
   		{
 			$("#"+listIds[i]).empty();    			
       		var url = '/lists/' + listIds[i] + '/cards';
@@ -218,11 +218,9 @@
 			.done(function(board)
 			{ 
 				// Post Board ID and Redirect to Laravel Function for Storing
-			    $('#inset_form').html("<form action='" + {{ ApiController@acceptProject }} + "' name='submit' method='post' style='display:none;''><input type='text' name='board' value='" + board.id + "' /></form>");
+			    $('#inset_form').html("<form action='{{ ApiController@acceptProject }}' name='submit' method='post' style='display:none;''><input type='text' name='board' value='" + board.id + "' /></form>");
 			    document.forms['submit'].submit();
 			})
-
-}
 	});
 
 	// ***

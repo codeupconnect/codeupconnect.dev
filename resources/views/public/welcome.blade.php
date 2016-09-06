@@ -40,7 +40,7 @@
 		</div><!-- /container -->
 	</div><!-- /slide2 -->
 
-		<!-- === SLide 3 - Portfolio -->
+		<!-- === Slide 3 - Portfolio -->
 	<div class="slide story" id="slide-3" data-slide="3">
 		<div class="container">
 			<div class="row title-row">
@@ -61,9 +61,9 @@
 				
 			</div><!-- /row -->
 		</div><!-- /container -->
-	</div><!-- /slide5 -->
+	</div><!-- /slide3 -->
 
-	<!-- === Slide 4 - Process === -->
+	<!-- === Slide 4 - Freelancers === -->
 	<div class="slide story" id="slide-4" data-slide="4">
 		<div class="container">
 			<div class="row title-row">

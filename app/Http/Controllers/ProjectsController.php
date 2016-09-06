@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Project;
+use App\TeamMember;
+use App\User;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -193,11 +196,11 @@ class ProjectsController extends Controller
     public function acceptProject(Request $request)
     {
         // put user id from session into team_members table
-        $name = session()->get('login_' . md5("Illuminate\Auth\Guard"));
-        $role = session()->get('role');
-        $project = session()->get('project_id');
+        $userId = session()->get('login_' . md5("Illuminate\Auth\Guard"));
+        $user = User::where('id', $userId)->first();
+        dd($user);
         TeamMember::insert([
-            'user_id' => $name,
+            'user_id' => $userId,
             'role' => $role,
             'project_id' => $project
             ]);

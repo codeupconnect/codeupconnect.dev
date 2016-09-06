@@ -69,15 +69,8 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        $authUser = User::where('github_id', $githubUser->id)->first());
-
-        return User::create([
-            'name' => $githubUser->name,
-            'nickname' => $githubUser->nickname,
-            'url' => $githubUser->user['url'],
-            'email' => $githubUser->email,
-            'github_id' => $githubUser->id,
-        ]);
+        $user = User::findorFail($id);
+        return view('alumni.editaccount')->with('user', $user);
     }
 
     /**
@@ -89,7 +82,14 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $authUser = User::where('github_id', $githubUser->id)->update(
+            [
+            'name' => $request->name,
+            'resume_url' => $request->resumeUrl,
+            'proficiencies' => $request->email,
+        ]
+            );
+
     }
 
     /**

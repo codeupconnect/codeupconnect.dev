@@ -183,12 +183,42 @@ class ProjectsController extends Controller
         $projects = Project::where('status' ,'complete')->get();
         return view("public.show")->with('projects', $projects);
     }
+
+    public function showUnapproved()
+    {
+        $projects = Project::where('status' ,'unapproved')->get();
+        return view("admin.adminportal")->with('projects', $projects);
+    }
     
     // One Project that is viewed when clicked
     public function showProject($id)
     {
         $project = Project::find($id);
-        return view("project.show")->with('project', $project);
+        $data = new Project();
+        $data->organization_name = $project->organization_name;
+        $data->site_url = $project->site_url;
+        $data->start_date = $project->start_date;
+        $data->end_date = $project->end_date;
+        $data->point_person = $project->point_person;
+        $data->phone = $project->phone;
+        $data->email = $project->email;
+        $data->project_details = $project->project_details;
+        $boolean = new Project();
+        $boolean->collateral = $project->collateral;
+        $boolean->facebook = $project->facebook;
+        $boolean->linkedin = $project->linkedin;
+        $boolean->twitter = $project->twitter;
+        $boolean->youtube = $project->youtube;
+        $boolean->instagram = $project->instagram;
+        $boolean->tumblr = $project->tumblr;
+        $boolean->blog = $project->blog;
+        $boolean->comments = $project->comments;
+        $boolean->member_signup = $project->member_signup;
+        $boolean->contact_form = $project->contact_form;
+        $boolean->existing_database = $project->existing_database;
+        $boolean->stripe = $project->stripe;
+        $projectData = compact('data', 'boolean');
+        return view("admin.editproject")->with('project', $data)->with('boolean', $boolean);
     }
 
     public function acceptProject(Request $request)

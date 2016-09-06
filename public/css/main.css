@@ -449,4 +449,26 @@
  
  footer{
   background-color: #000D20;
+  display:block;
  }
+
+/*Edit User Profile*/
+
+  .form-container{
+    margin-top:5%;
+    color: white;
+    opacity: .5;
+  }
+
+  .title{
+    color: white;
+    margin-top: 10%;
+    text-align: center;
+  }
+
+  #footnote{
+    color: white;
+    text-align: center;
+    padding-top: 5px;
+    margin-bottom: 5%;
+  }

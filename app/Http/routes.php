@@ -16,6 +16,7 @@ Route::get('/logout', 'Auth\AuthController@logout');
 Route::get('auth', 'Auth\AuthController@handleProviderCallback');
 Route::get('trello', 'ApiController@viewTrello');
 Route::get('create-board', 'ApiController@createTrelloBoard');
+Route::get('submit', 'ProjectsController@store');
 
 
 // Temp
@@ -41,7 +42,7 @@ Route::get('/queue', function () {
 Route::get('/closeproject', function () {
     return view('admin.closeproject');
 });
-Route::get('/submit', function () {
+Route::get('/form', function () {
     return view('public.clientform');
 });
 Route::get('/featured', function () {

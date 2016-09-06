@@ -18,8 +18,8 @@ class CreateProjectsTable extends Migration
             $table->string('trello_id');
             $table->string('organization_name');
             $table->string('site_url');
-            $table->date('start_date');
-            $table->date('end_date');
+            $table->string('start_date');
+            $table->string('end_date');
             $table->string('point_person');
             $table->integer('phone');
             $table->string('email');
@@ -37,7 +37,7 @@ class CreateProjectsTable extends Migration
             $table->boolean('member_signup');
             $table->boolean('contact_form');
             $table->boolean('existing_database');
-            $table->boolean('payment_donations');
+            $table->boolean('stripe');
             $table->timestamps();
         });
     }

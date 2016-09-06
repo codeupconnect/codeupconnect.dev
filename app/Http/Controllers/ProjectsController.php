@@ -195,21 +195,24 @@ class ProjectsController extends Controller
 
     public function acceptProject(Request $request)
     {
-        // put user id from session into team_members table
+        // Gather Project and Team Member info
         $userId = session()->get('login_' . md5("Illuminate\Auth\Guard"));
         $user = User::where('id', $userId)->first();
-        dd($user);
+        $role = $request->role;
+        $project = $request->project_id;
+        $boardId = $request->input('board');
+        
+        // Insert Info into Tables
         TeamMember::insert([
             'user_id' => $userId,
             'role' => $role,
             'project_id' => $project
             ]);
 
-        // put board id from request into projects table
-        $boardId = $request->input('board');
         Project::insert([
             'trello_id' => $boardId,
             ]);
+
         return view("alumni.trello")->with('boardId', $boardId);
     }
 

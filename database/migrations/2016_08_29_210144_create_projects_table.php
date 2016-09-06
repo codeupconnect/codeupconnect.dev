@@ -25,7 +25,6 @@ class CreateProjectsTable extends Migration
             $table->string('email');
             $table->longText('project_details');
             $table->boolean('collateral')->default(false);
-            $table->boolean('color_palette')->default(false);
             $table->boolean('facebook')->default(false);
             $table->boolean('linkedin')->default(false);
             $table->boolean('twitter')->default(false);

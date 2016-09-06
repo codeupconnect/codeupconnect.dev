@@ -1,17 +1,21 @@
-@extends('master')
+@extends('layout.master')
+
+
 
 @section('content')
 
+@include('partials.alumni-navbar')
+
 <div class="container">
 	<div class="row user-menu-container" >
-		<div class="col-xs-7 teal user-details">
-			<div class="row lavbg">
+		<div class="col-xs-7 bottom-block user-details">
+			<div class="row info-portfolio">
 				<div class="col-xs-6 no-pad">
 					<div class="user-image">
 						<img src="/giphy.gif">
 					</div>
 				</div>
-				<div class="col-xs-6 no-pad" id="user-info" data-value="{{ $user->url }}">
+				<div class="col-xs-6 no-pad" id="user-info" data-value="">
 					<div class="user-pad font text-center">
 						<h3 id="name"></h3>
 						<h4><i class="fa fa-check-circle-o"></i> (freelancer/alumni)</h4>
@@ -37,7 +41,7 @@
 </div>
 <div class="container">
 	<div class="row">
-		<div class="col-xs-7 lavbg" id="user-portfolio">
+		<div class="col-xs-7 info-portfolio" id="user-portfolio">
 			<div class="row">
 				<div class="user-pad font text-center"><h3 class="user-pad">CodeupConnect Portfolio</h3>
 				</div>

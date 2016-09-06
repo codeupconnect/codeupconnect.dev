@@ -11,13 +11,14 @@ Route::resource('users', 'UsersController');
 
 Route::get('/', 'HomeController@showWelcome');
 Route::get('auth/login', 'Auth\AuthController@redirectToProvider');
-Route::get('/login', 'Auth\AuthController@redirectToProvider');
-Route::get('/logout', 'Auth\AuthController@logout');
+Route::get('login', 'Auth\AuthController@redirectToProvider');
+Route::get('logout', 'Auth\AuthController@logout');
 Route::get('auth', 'Auth\AuthController@handleProviderCallback');
 Route::get('trello', 'ApiController@viewTrello');
 Route::get('create-board', 'ApiController@createTrelloBoard');
 Route::post('submit', 'ProjectsController@store');
-Route::get('/admin', 'ProjectsController@showUnapproved');
+Route::get('admin', 'ProjectsController@showUnapproved');
+Route::get('show-unapproved/{id}', 'ProjectsController@showProject');
 
 
 // Temp

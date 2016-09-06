@@ -17,6 +17,7 @@ Route::get('auth', 'Auth\AuthController@handleProviderCallback');
 Route::get('trello', 'ApiController@viewTrello');
 Route::get('create-board', 'ApiController@createTrelloBoard');
 Route::post('submit', 'ProjectsController@store');
+Route::get('/admin', 'ProjectsController@showUnapproved');
 
 
 // Temp
@@ -47,7 +48,4 @@ Route::get('/form', function () {
 });
 Route::get('/featured', function () {
     return view('public.featuredproject');
-});
-Route::get('/admin', function () {
-    return view('admin.adminportal');
 });

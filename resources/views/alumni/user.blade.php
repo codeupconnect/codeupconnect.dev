@@ -3,10 +3,31 @@
 
 
 @section('content')
+	<div class="container">
+		<div id="row1">
+			<div class="box" id="box-red" class="container">
+				Profile Image
+			</div>
 
-@include('partials.alumni-navbar')
+			<div class="box" id="box-orange">
+				<p>Current Project</p>
+				<p>Team Members</p>
+			</div>
+		</div>
 
-<div class="container">
+		<div id="row2">
+			<div class="box" id="box-green">
+				<p>Name</p>
+				<p>Github Username</p>
+			</div>
+
+			<div class="box" id="box-yellow">		CodeupConnect Portfolio
+			</div>
+		</div>
+		
+	</div>
+
+	<!-- <div class="container">
 	<div class="row user-menu-container" >
 		<div class="col-xs-7 bottom-block user-details">
 			<div class="row info-portfolio">
@@ -48,7 +69,7 @@
 			</div>
 		</div>
 	</div>
-</div>
+</div> -->
 
 @section('bottom-scripts')
 	<script>

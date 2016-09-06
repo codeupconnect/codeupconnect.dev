@@ -69,7 +69,15 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $authUser = User::where('github_id', $githubUser->id)->first());
+
+        return User::create([
+            'name' => $githubUser->name,
+            'nickname' => $githubUser->nickname,
+            'url' => $githubUser->user['url'],
+            'email' => $githubUser->email,
+            'github_id' => $githubUser->id,
+        ]);
     }
 
     /**

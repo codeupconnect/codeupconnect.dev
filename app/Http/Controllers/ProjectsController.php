@@ -39,16 +39,30 @@ class ProjectsController extends Controller
     {
         $this->validate($request, Project::$rules);
         $project = new Project();
-        $project->client_name = $request->client_name;
+        $project->status = $request->status;
+        $project->trello_id = $request->trello_id;
+        $project->client_name = $request->organization_name;
         $project->site_url = $request->site_url;
-        $project->description = $request->description;
         $project->start_date = $request->start_date;
         $project->end_date = $request->end_date;
-        $project->email = $request->email;
-        $project->status = $request->status;
-        $project->preferred_tech = $request->preferred_tech;
-        $project->phone = $request->phone;
         $project->point_person = $request->point_person;
+        $project->phone = $request->phone;
+        $project->email = $request->email;
+        $project->project_details = $request->project_details;
+        $project->logo_graphics = $request->logo_graphics;
+        $project->color_palette = $request->color_palette;
+        $project->facebook = $request->facebook;
+        $project->linkedin = $request->linkedin;
+        $project->twitter = $request->twitter;
+        $project->youtube = $request->youtube;
+        $project->instagram = $request->instagram;
+        $project->tumblr = $request->tumblr;
+        $project->blog = $request->blog;
+        $project->comments_feedback = $request->comments_feedback;
+        $project->member_signup = $request->member_signup;
+        $project->contact_form = $request->contact_form;
+        $project->existing_database = $request->existing_database;
+        $project->payment_donationc = $request->payment_donationc;
         $project->save();
         $request->session()->flash('message', 'Thank you! Your project is being reviewed by our team of devs! We will follow up soon.');
         return redirect()->action("HomeController@index");
@@ -89,19 +103,31 @@ class ProjectsController extends Controller
             abort(404);
         }
         $this->validate($request, Project::$rules);
-        $project->client_name = $request->client_name;
+      $project->status = $request->status;
+        $project->trello_id = $request->trello_id;
+        $project->client_name = $request->organization_name;
         $project->site_url = $request->site_url;
-        $project->description = $request->description;
         $project->start_date = $request->start_date;
         $project->end_date = $request->end_date;
-        $project->email = $request->email;
-        $project->preferred_tech = $request->preferred_tech;
-        $project->phone = $request->phone;
         $project->point_person = $request->point_person;
-        // $project->status = $request->status;
-        // if($project->status === approved){
-        // $project->save();
-        // }
+        $project->phone = $request->phone;
+        $project->email = $request->email;
+        $project->project_details = $request->project_details;
+        $project->logo_graphics = $request->logo_graphics;
+        $project->color_palette = $request->color_palette;
+        $project->facebook = $request->facebook;
+        $project->linkedin = $request->linkedin;
+        $project->twitter = $request->twitter;
+        $project->youtube = $request->youtube;
+        $project->instagram = $request->instagram;
+        $project->tumblr = $request->tumblr;
+        $project->blog = $request->blog;
+        $project->comments_feedback = $request->comments_feedback;
+        $project->member_signup = $request->member_signup;
+        $project->contact_form = $request->contact_form;
+        $project->existing_database = $request->existing_database;
+        $project->payment_donationc = $request->payment_donationc;
+        
         $request->session()->flash('message', 'You have updated and approved the project.');
         Log::info($request->all());
         return redirect()->action("ProjectsController@index");

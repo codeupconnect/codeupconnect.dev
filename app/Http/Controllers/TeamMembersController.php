@@ -50,13 +50,14 @@ class TeamMembersController extends Controller
      */
     public function store(Request $request)
     {
-        // How exactly do we initialize $teamMember?
+        $teamMember = new TeamMember();
         $teamMember->user_id = $request->user_id;
         $teamMember->project_id = $request->project_id;
         $teamMember->role = $request->role;
-        // How exactly do we store/save $teamMamber?
+        $teamMember->save();
 
-        $request->session()->flash('message', '');
+        // Below will change
+        $request->session()->flash('message', 'Team member stored.');
         return redirect()->action("ProjectsController@index");
     }
 
@@ -66,9 +67,12 @@ class TeamMembersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request, $id)
     {
-        //
+        $teamMember = TeamMember::with('project_id')->findOrFail($id);
+        $projectData = Project::with('id')->findOrFail($id);
+        $data = compact('teamMember', 'projectData');
+        return view('alumni.assignedproject')->with($data);
     }
 
 

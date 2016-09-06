@@ -1,8 +1,9 @@
 @extends('layout.master')
 
-@include('partials.navbar')
 
 @section('content')
+	
+
 	<h1>Admin Portal</h1>
 	<table class="table table-bordered table-stripped table-hover">
 		<thead>
@@ -15,9 +16,8 @@
 		<thead>
 		<tbody>
 		@foreach($projects as $project)
-			<tr>
-				<a href="{{ action('ProjectsController@showProject', $project->id }}"></a>
-				<td>{{ $project->project_id }}</td>
+			<tr class="table-row" data-href="{{ action('ProjectsController@showProject', $project->id) }}">
+				<td>{{ $project->id }}</td>
 				<td>{{ $project->status }}</td>
 				<td>{{ $project->organization_name }} </td>
 				<td>{{ $project->project_details }}</td>
@@ -25,8 +25,14 @@
 		@endforeach
 		</tbody>
 	</table>		
-	{{ $projects->render() }}
 
-@include('partials.footer')
 
+@section('bottom-scripts')
+	<script>
+		$(document).ready(function($) {
+		    $(".table-row").click(function() {
+		        window.document.location = $(this).data("href");
+		    });
+		});
+	</script>
 @stop

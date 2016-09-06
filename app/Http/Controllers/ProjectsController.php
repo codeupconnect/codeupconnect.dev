@@ -52,22 +52,22 @@ class ProjectsController extends Controller
         $project->phone = $request->phone;
         $project->email = $request->email;
         $project->project_details = $request->project_details;
-        $project->collateral = $request->collateral;
-        $project->facebook = $request->facebook;
-        $project->linkedin = $request->linkedin;
-        $project->twitter = $request->twitter;
-        $project->youtube = $request->youtube;
-        $project->instagram = $request->instagram;
-        $project->tumblr = $request->tumblr;
-        $project->blog = $request->blog;
-        $project->comments_feedback = $request->comments_feedback;
-        $project->member_signup = $request->member_signup;
-        $project->contact_form = $request->contact_form;
-        $project->existing_database = $request->existing_database;
-        $project->stripe = $request->stripe;
+        (isset($request->collateral) ? true : false);
+        (isset($request->facebook) ? true : false);
+        (isset($request->linkedin) ? true : false);
+        (isset($request->twitter) ? true : false);
+        (isset($request->youtube) ? true : false);
+        (isset($request->instagram) ? true : false);
+        (isset($request->tumblr) ? true : false);
+        (isset($request->blog) ? true : false);
+        (isset($request->comments_feedback) ? true : false);
+        (isset($request->member_signup) ? true : false);
+        (isset($request->contact_form) ? true : false);
+        (isset($request->existing_database) ? true : false);
+        (isset($request->stripe) ? true : false);
         $project->save();
         $request->session()->flash('message', 'Thank you! Your project is being reviewed by our team of devs! We will follow up soon.');
-        return redirect()->action("HomeController@index");
+        return redirect()->action("HomeController@showWelcome");
     }
 
     /**
@@ -105,7 +105,7 @@ class ProjectsController extends Controller
             abort(404);
         }
         $this->validate($request, Project::$rules);
-      $project->status = $request->status;
+        $project->status = $request->status;
         $project->trello_id = $request->trello_id;
         $project->organization_name = $request->organization_name;
         $project->site_url = $request->site_url;

@@ -48,3 +48,6 @@ Route::get('/form', function () {
 Route::get('/featured', function () {
     return view('public.featuredproject');
 });
+Route::get('/admin', function () {
+    return view('admin.adminportal');
+});

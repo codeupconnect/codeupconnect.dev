@@ -1,10 +1,15 @@
 
 @extends('layout.master')
 
+@include('partials.navbar')
+
 @section('content')
         <div class="slide story" id="slide-1" data-slide="1">
 		<div class="container">
 			<div id="home-row-1" class="row clearfix">
+				 <div class="wrap">
+    <a class="btn-0" href="#">Swipe</a>
+    			</div>
 				<div class="col-12">
 					<h1 class="font-thin">Codeup<span class="font-semibold">Connect</span></h1>
 					<h4 class="font-thin">We are a team of <span class="font-semibold">Codeup graduates</span> looking to give back to the community.</h4>

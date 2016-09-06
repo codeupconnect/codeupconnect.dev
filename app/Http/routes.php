@@ -5,6 +5,8 @@
 | Application Routes
 |--------------------------------------------------------------------------
 */
+
+//Resources
 Route::resource('users', 'UsersController');
 
 Route::get('/', 'HomeController@showWelcome');
@@ -14,10 +16,13 @@ Route::get('/logout', 'Auth\AuthController@logout');
 Route::get('auth', 'Auth\AuthController@handleProviderCallback');
 Route::get('trello', 'ApiController@viewTrello');
 Route::get('create-board', 'ApiController@createTrelloBoard');
+
+
+// Temp
 Route::get('accept', 'ProjectsController@acceptProject');
+Route::get('edit/{id}', 'ProjectsController@edit');
+Route::get('update/{id}', 'ProjectsController@update');
 
-
-//temporary routes
 Route::get('/', function () {
     return view('public.welcome');
 });

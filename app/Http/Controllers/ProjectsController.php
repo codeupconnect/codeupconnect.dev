@@ -52,8 +52,7 @@ class ProjectsController extends Controller
         $project->phone = $request->phone;
         $project->email = $request->email;
         $project->project_details = $request->project_details;
-        $project->logo_graphics = $request->logo_graphics;
-        $project->color_palette = $request->color_palette;
+        $project->collateral = $request->collateral;
         $project->facebook = $request->facebook;
         $project->linkedin = $request->linkedin;
         $project->twitter = $request->twitter;
@@ -116,8 +115,7 @@ class ProjectsController extends Controller
         $project->phone = $request->phone;
         $project->email = $request->email;
         $project->project_details = $request->project_details;
-        $project->logo_graphics = $request->logo_graphics;
-        $project->color_palette = $request->color_palette;
+        $project->collateral = $request->collateral;
         $project->facebook = $request->facebook;
         $project->linkedin = $request->linkedin;
         $project->twitter = $request->twitter;

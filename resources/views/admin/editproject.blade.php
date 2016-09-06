@@ -5,11 +5,19 @@
 
 <div class="container">	
 	<div class="form-container container">
+		<h1 id="edit-data">Edit</h1>
 		<form>
+			@foreach ($project['attributes'] as $data)
 		  <div class="form-group">
-			<label>Project Name</label>
-			<input type="text" class="form-control" placeholder="Name">
+			<h2 class="static-option">{{ $data }}</h2>
+			<input name="{{ $data }}" style="display:none;" type="text" class="form-control edit-option" placeholder="{{ $data }}" >
 		  </div>
+		  @endforeach
+
+		  @foreach ($boolean['attributes'] as $data)
+		  	<h4> {{ $data }} </h4>
+		  	@endforeach
+
 		  <div class="radio">
 			<label>
 			  <input type="radio" name="project" value="accept"> Accept
@@ -23,5 +31,16 @@
 	</div>
 </div>
 
+@section('bottom-scripts')
+
+	<script>
+
+		$('#edit-data').on('click', function()
+		{
+			$('.static-option').toggle();
+			$('.edit-option').toggle();
+		})
+
+	</script>
 
 @stop

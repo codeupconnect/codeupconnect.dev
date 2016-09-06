@@ -16,52 +16,6 @@
     overflow-x: hidden;
   }
 
-a {
-  text-decoration: none;
-  line-height: 80px;
-  color: black;
-}
-
-.wrap {
-  width: 50%;
-  float: left;
-}
-
-[class^="btn-"] {
-  position: relative;
-  display: block;
-  margin: 20px auto;
-  margin-top: 10%;
-  margin-left: 77%;
-  width: 100%;
-  height: 80px;
-  max-width: 250px;
-  text-transform: uppercase;
-  overflow: hidden;
-  border: 1px solid currentColor;
-}
-
-.btn-0 {
-  color: #3e3f89;
-}
-.btn-0:before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 80px;
-  background: #111146;
-}
-.btn-0:hover {
-  color: #c6c7dc;
-}
-.btn-0:hover:before {
-  width: 250px;
-}
-.btn-0:active {
-  background: #1c1d74;
-}
 
 /*Font styling*/
   .font-thin {
@@ -175,6 +129,51 @@ a {
         font-size: 16px;
       }
     }
+
+    /*Request Button*/
+      .wrap {
+        width: 50%;
+        float: left;
+      }
+
+      [class^="btn-"] {
+        position: relative;
+        display: block;
+        margin: 20px auto;
+        margin-top: 10%;
+        margin-left: 78%;
+        width: 100%;
+        height: 80px;
+        max-width: 250px;
+        text-transform: uppercase;
+        overflow: hidden;
+        border: 1px solid currentColor;
+        text-decoration: none;
+        line-height: 80px;
+        background-color: #30B394;
+      }
+
+      .btn-0 {
+        color: black;
+      }
+      .btn-0:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 80px;
+        background: #111146;
+      }
+      .btn-0:hover {
+        color: #c6c7dc;
+      }
+      .btn-0:hover:before {
+        width: 250px;
+      }
+      .btn-0:active {
+        background: #1c1d74;
+      }
 
   /*Slide Two: Mission*/
     #slide-2 {
@@ -365,14 +364,9 @@ a {
       border-color:rgba(0,0,0,0.2);
     }
 
-  /*Alumni Navbar*/
-    .alumni-navbar{
-      background-color: #000D20;
-     }
-
 /*User Profile*/
 
-  .info-portfolio {
+  /*.info-portfolio {
       background-color: #83E1B5;
   } 
 
@@ -449,7 +443,51 @@ a {
     margin-top: 20px;
     margin-left: 20%;
     margin-bottom: 20px;
+  }*/
+
+  .container{
+    
   }
+
+  #row1{
+    margin-bottom: 5%;
+    margin-left: 5%;
+  }
+
+  #row2{
+    margin-top: 5%;
+  }
+
+  .box {
+    border: 1px solid black;
+    width: 350px;
+    height: 350px;
+    padding: 10px;
+    font-weight: bold;
+    color: #FFFFFF;
+    margin-top: 10%;
+    margin-left: 5%;
+    margin-bottom: 5%;
+    float: left;
+    position: relative;
+  }
+
+  #box-red {
+    background-color:red;
+  }
+
+  #box-orange {
+    background-color: orange;
+  }
+
+  #box-green{
+    background-color: green;
+  }
+
+  #box-yellow{
+    background-color: yellow;
+  }
+
 
 /*Footer */
  

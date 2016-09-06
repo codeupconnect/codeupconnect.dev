@@ -366,7 +366,7 @@
 
 /*User Profile*/
 
-  /*.info-portfolio {
+  .info-portfolio {
       background-color: #83E1B5;
   } 
 
@@ -443,51 +443,7 @@
     margin-top: 20px;
     margin-left: 20%;
     margin-bottom: 20px;
-  }*/
-
-  .container{
-    
   }
-
-  #row1{
-    margin-bottom: 5%;
-    margin-left: 5%;
-  }
-
-  #row2{
-    margin-top: 5%;
-  }
-
-  .box {
-    border: 1px solid black;
-    width: 350px;
-    height: 350px;
-    padding: 10px;
-    font-weight: bold;
-    color: #FFFFFF;
-    margin-top: 10%;
-    margin-left: 5%;
-    margin-bottom: 5%;
-    float: left;
-    position: relative;
-  }
-
-  #box-red {
-    background-color:red;
-  }
-
-  #box-orange {
-    background-color: orange;
-  }
-
-  #box-green{
-    background-color: green;
-  }
-
-  #box-yellow{
-    background-color: yellow;
-  }
-
 
 /*Footer */
  

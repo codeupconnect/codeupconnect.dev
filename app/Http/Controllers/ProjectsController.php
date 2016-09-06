@@ -41,7 +41,7 @@ class ProjectsController extends Controller
         $project = new Project();
         $project->status = $request->status;
         $project->trello_id = $request->trello_id;
-        $project->client_name = $request->organization_name;
+        $project->organization_name = $request->organization_name;
         $project->site_url = $request->site_url;
         $project->start_date = $request->start_date;
         $project->end_date = $request->end_date;
@@ -105,7 +105,7 @@ class ProjectsController extends Controller
         $this->validate($request, Project::$rules);
       $project->status = $request->status;
         $project->trello_id = $request->trello_id;
-        $project->client_name = $request->organization_name;
+        $project->organization_name = $request->organization_name;
         $project->site_url = $request->site_url;
         $project->start_date = $request->start_date;
         $project->end_date = $request->end_date;

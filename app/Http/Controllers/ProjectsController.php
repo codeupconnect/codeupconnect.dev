@@ -65,7 +65,7 @@ class ProjectsController extends Controller
         $project->member_signup = $request->member_signup;
         $project->contact_form = $request->contact_form;
         $project->existing_database = $request->existing_database;
-        $project->payment_donationc = $request->payment_donationc;
+        $project->stripe = $request->stripe;
         $project->save();
         $request->session()->flash('message', 'Thank you! Your project is being reviewed by our team of devs! We will follow up soon.');
         return redirect()->action("HomeController@index");
@@ -129,7 +129,7 @@ class ProjectsController extends Controller
         $project->member_signup = $request->member_signup;
         $project->contact_form = $request->contact_form;
         $project->existing_database = $request->existing_database;
-        $project->payment_donationc = $request->payment_donationc;
+        $project->stripe = $request->stripe;
         
         $request->session()->flash('message', 'You have updated and approved the project.');
         Log::info($request->all());

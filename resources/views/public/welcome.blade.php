@@ -6,19 +6,17 @@
         <div class="slide story" id="slide-1" data-slide="1">
 		<div class="container">
 			<div id="home-row-1" class="row clearfix">
-				 <div class="container">
-    				<a class="btn-0" href="/form">Make a Request</a>
-    			</div>
 				<div class="col-12">
 					<h1 class="font-thin">Codeup<span class="font-semibold">Connect</span></h1>
 					<h4 class="font-thin">We are a team of <span class="font-semibold">Codeup graduates</span> looking to give back to the community.</h4>
 					<br>
 					<br>
-				</div><!-- /col-12 -->
+				</div>
+				<div class="container">
+    				<a class="btn-0" href="/form">Make a Request</a>
+    			</div><!-- /col-12 -->
 			</div><!-- /row -->
-			<div id="home-row-2" class="row clearfix">
-				<div class="container col-xs-12 col-12 "><img src="images/CWYK8CLC61_Fotor.jpg"></div>
-			</div><!-- /row -->
+			
 		</div><!-- /container -->
 	</div><!-- /slide1 -->
 	

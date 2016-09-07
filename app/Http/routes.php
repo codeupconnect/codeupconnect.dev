@@ -21,6 +21,8 @@ Route::get('admin', 'ProjectsController@showUnapproved');
 Route::get('show-unapproved/{id}', 'ProjectsController@showProject');
 Route::get('edit/{id}', 'ProjectsController@edit');
 Route::post('approve', 'ProjectsController@update');
+Route::get('enter/{id}', 'UsersController@enterQueue');
+Route::get('users', 'UsersController@index');
 
 
 // Temp

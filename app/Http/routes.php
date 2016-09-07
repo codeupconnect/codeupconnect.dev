@@ -19,12 +19,13 @@ Route::get('create-board', 'ApiController@createTrelloBoard');
 Route::post('submit', 'ProjectsController@store');
 Route::get('admin', 'ProjectsController@showUnapproved');
 Route::get('show-unapproved/{id}', 'ProjectsController@showProject');
+Route::get('edit/{id}', 'ProjectsController@edit');
+Route::post('approve', 'ProjectsController@update');
 
 
 // Temp
 Route::get('accept', 'ProjectsController@acceptProject');
-Route::get('edit/{id}', 'ProjectsController@edit');
-Route::get('update/{id}', 'ProjectsController@update');
+Route::post('update/{id}', 'ProjectsController@update');
 
 Route::get('/', function () {
     return view('public.welcome');

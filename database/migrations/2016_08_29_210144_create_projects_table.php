@@ -32,7 +32,7 @@ class CreateProjectsTable extends Migration
             $table->boolean('instagram')->default(false);
             $table->boolean('tumblr')->default(false);
             $table->boolean('blog')->default(false);
-            $table->boolean('comments_feedback')->default(false);
+            $table->boolean('comments')->default(false);
             $table->boolean('member_signup')->default(false);
             $table->boolean('contact_form')->default(false);
             $table->boolean('existing_database')->default(false);

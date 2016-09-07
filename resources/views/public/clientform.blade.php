@@ -5,7 +5,6 @@
 @section('content')
 	<h1>Submit a Project</h1>
 	<div class="container-fluid">
-        <div class="row">
             <form method="POST" action="{{ action('ProjectsController@store') }}">
                         {!! csrf_field() !!}
                         Your Organization: <input type="text" name="organization_name" value="{{ old('organization_name') }}">
@@ -36,38 +35,39 @@
     			    		{!! $errors->first('project_details', '<span class="help-block alert alert-warning">:message</span>') !!}
     					@endif
 
-    					Do you have collateral prepared for your project? <input type="checkbox" name="collateral" value="true"> 
+    					Do you have a logo/graphics for your project? <input type="checkbox" name="logo_graphics" value="{{ old('logo_graphics') }}"> 
+                    
+    					Do you have a color palette in mind? <input type="checkbox" name="color_palette" value="{{ old('color_palette') }}"> 
               
-    					Facebook integration? <input type="checkbox" name="facebook" value="true"> 
+    					Facebook integration? <input type="checkbox" name="facebook" value="{{ old('facebook') }}"> 
                       
-    					LinkedIn integration? <input type="checkbox" name="linkedin" value="true"> 
+    					LinkedIn integration? <input type="checkbox" name="linkedin" value="{{ old('linkedin') }}"> 
                   
-    					Twitter integration? <input type="checkbox" name="twitter" value="true"> 
+    					Twitter integration? <input type="checkbox" name="twitter" value="{{ old('twitter') }}"> 
                  
-    					Youtube integration? <input type="checkbox" name="youtube" value="true"> 
+    					Youtube integration? <input type="checkbox" name="youtube" value="{{ old('youtube') }}"> 
                 
-    					Instagram integration? <input type="checkbox" name="instagram" value="true"> 
+    					Instagram integration? <input type="checkbox" name="instagram" value="{{ old('instagram') }}"> 
                   
-    					Tumblr integration? <input type="checkbox" name="tumblr" value="true"> 
+    					Tumblr integration? <input type="checkbox" name="tumblr" value="{{ old('tumblr') }}"> 
                     
-    					Do you want a blog as part of the site? <input type="checkbox" name="blog" value="true"> 
+    					Do you want a blog as part of the site? <input type="checkbox" name="blog" value="{{ old('blog') }}"> 
                  
-    					Will your visitors be able to provide comments or feedback? <input type="checkbox" name="comments_feedback" value="true"> 
+    					Will your visitors be able to provide comments or feedback? <input type="checkbox" name="comments_feedback" value="{{ old('comments_feedback') }}"> 
                    
-    					Do you need the capability for visitors to signup? <input type="checkbox" name="member_signup" value="true"> 
+    					Do you need the capability for visitors to signup? <input type="checkbox" name="member_signup" value="{{ old('member_signup') }}"> 
                     
-    					Do you need a contact form? <input type="checkbox" name="contact_form" value="true"> 
+    					Do you need a contact form? <input type="checkbox" name="contact_form" value="{{ old('contact_form') }}"> 
 
-    					Do you need to migrate an existing database? <input type="checkbox" name="existing_database" value="true"> 
+    					Do you need to migrate an existing database? <input type="checkbox" name="existing_database" value="{{ old('existing_database') }}"> 
                        
-                        Will you need to take payments or donations? <input type="checkbox" name="stripe" value="true"> 
+                        Will you need to take payments or donations? <input type="checkbox" name="stripe" value="{{ old('stripe') }}"> 
                 
                 		<input type="hidden" name="trello_id" value="null">
                 		<input type="hidden" name="status" value="unapproved">  
 
                         <input type="submit" class="button">                  
-            </form>
-        </div>    
+            </form>   
     </div>
 
 @include('partials.footer')

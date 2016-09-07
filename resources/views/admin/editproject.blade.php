@@ -10,7 +10,7 @@
 			@foreach ($project['attributes'] as $data)
 		  <div class="form-group">
 			<h2 class="static-option">{{ $data }}</h2>
-			<input name="{{ $data }}" style="display:none;" type="text" class="form-control edit-option" placeholder="{{ $data }}" >
+			<input name="{{ $data }}" style="display:none;" type="text" class="form-control edit-option" value="{{ $data }}" >
 		  </div>
 		  @endforeach
 

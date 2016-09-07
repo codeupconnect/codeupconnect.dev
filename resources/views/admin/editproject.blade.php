@@ -3,8 +3,8 @@
 @section('content')
 <h2 class="title">Edit Project</h2>
 
-<div class="container">	
-	<div class="form-container container">
+<div class="form-container container">	
+	<div class="container">
 		<form>
 		  <div class="form-group">
 			<label>Project Name</label>

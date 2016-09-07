@@ -149,7 +149,7 @@
         border: 1px solid currentColor;
         text-decoration: none;
         line-height: 80px;
-        background-color: #F5907C;
+        background-color: #A1B290;
       }
 
       .btn-0 {
@@ -158,7 +158,7 @@
       .btn-0:before {
         position: absolute;
         height: 80px;
-        background: #F5907C;
+        background: #A1B290;
       }
       .btn-0:hover {
         color: #022648;
@@ -168,19 +168,19 @@
         width: 250px;
       }
       .btn-0:active {
-        background: #F5907C;
+        background: #A1B290;
       }
 
   /*Slide Two: Mission*/
     #slide-2 {
-      background-color: #00999E;
+      background-color: #A1B290;
       color: #e4e6e5;
-      padding-top: 90px;
+      padding-top: 70px;
     }
 
       .title-row {
         font-size: 45px;
-        padding-bottom: 50px;
+        padding-bottom: 30px;
       }
       
       .line-row .hr {
@@ -228,7 +228,7 @@
 
   /*Slide Three: Portfolio*/
     #slide-3 {
-      background-color: #F5907C;
+      background-color: #A1B290;
       color: #e4e6e5;
       padding-top: 90px;
     }
@@ -247,7 +247,7 @@
   }
 
   .navbar-default {
-    background-color:#00999E;
+    background-color:#118489;
     font-family: 'Antic Slab', serif;
    }
 
@@ -462,7 +462,7 @@
 /*Footer */
  
   footer{
-    background-color: #022648;
+    background-color: #118489;
   }
   a{
     color:white;

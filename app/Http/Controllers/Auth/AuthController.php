@@ -62,7 +62,8 @@ class AuthController extends Controller
         $authUser = $this->findOrCreateUser($user);
         session([
             'login_' . md5("Illuminate\Auth\Guard") => $authUser->id,
-        ]);
+            ]);
+
         return redirect()->action('UsersController@index');
     }
 

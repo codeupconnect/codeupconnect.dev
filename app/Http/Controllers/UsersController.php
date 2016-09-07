@@ -123,14 +123,15 @@ class UsersController extends Controller
     public function nextinQueue($count = 0)
     {
         $users = User::whereNotNull('queue')->orderBy('queue', 'desc')->get();
-        $user = $users->all()[$count]);
+        $all_users = $users->all();
+        $user = $all_users[$count];
         return $user;
     }
 
     // Send invite for project to next user in queue
     public function sendInvite($id)
     {
-        $project = Project::where('id', $id)->get();
+        $project = Project::findOrFail($id);
         $nextInvite = $project->next_invite;
         $user = nextinQueue($nextInvite);
         // Update user to have invite
@@ -141,21 +142,34 @@ class UsersController extends Controller
         );
     }
 
-    public function rejectInvite($id)
+    public function acceptInvite($id)
     {
         $user = User::where('id', $id)->get();
         $project = Project::where('id', $user->invite)->get();
 
         Project::where('id', $project->id)->update(
             [
-                'next_invite' = $project->next_invite + 1;
+                'next_invite' = null,
             ]);
 
         User::where('id', $id)->update(
             [
-                'invite' = null;
-            ])
+                'invite' = null,
+                'active_project' => $project->id,
+            ])    
+    }
 
+    public function rejectInvite($id)
+    {
+
+        $user = User::findorFail($id);
+        $project = Project::findOrFail($user->invite);
+
+        $project->next_invite += 1;
+        $project->save();
+
+        $user->invite = null;
+        $user->save();
 
     }
 }

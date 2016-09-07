@@ -60,7 +60,7 @@ class ProjectsController extends Controller
         (isset($request->instagram) ? true : false);
         (isset($request->tumblr) ? true : false);
         (isset($request->blog) ? true : false);
-        (isset($request->comments_feedback) ? true : false);
+        (isset($request->comments) ? true : false);
         (isset($request->member_signup) ? true : false);
         (isset($request->contact_form) ? true : false);
         (isset($request->existing_database) ? true : false);

@@ -3,63 +3,72 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
-use Validator;
 use App\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\ThrottlesLogins;
-use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Socialite;
+use Laravel\Socialite\AbstractUser;
 
 class AuthController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Registration & Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles the registration of new users, as well as the
-    | authentication of existing users. By default, this controller uses
-    | a simple trait to add these behaviors. Why don't you explore it?
-    |
-    */
-
-    use AuthenticatesAndRegistersUsers, ThrottlesLogins;
-
     /**
-     * Create a new authentication controller instance.
+     * Redirect the user to the GitHub authentication page.
      *
-     * @return void
+     * @return Response
      */
-    public function __construct()
+
+    public function redirectToProvider()
     {
-        $this->middleware('guest', ['except' => 'getLogout']);
+        return Socialite::driver('github')->redirect();
     }
 
     /**
-     * Get a validator for an incoming registration request.
+     * Obtain the user information from GitHub.
      *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
+     * @return Response
      */
-    protected function validator(array $data)
+
+    public function verifyAuth()
     {
-        return Validator::make($data, [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|confirmed|min:6',
-        ]);
+        // check the value returned by login()
+        // if no value, what does it return?
+        if (login() === null)
+        {
+            return false;
+        }
+        return true;
     }
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return User
-     */
-    protected function create(array $data)
+    private function findOrCreateUser($githubUser)
     {
+        if ($authUser = User::where('github_id', $githubUser->id)->first()) {
+            return $authUser;
+        }
+
         return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
+            'name' => $githubUser->name,
+            'nickname' => $githubUser->nickname,
+            'url' => $githubUser->user['url'],
+            'email' => $githubUser->email,
+            'github_id' => $githubUser->id,
         ]);
+    }
+
+    public function handleProviderCallback()
+    {
+        try {
+            $user = Socialite::driver('github')->user();
+        } catch (Exception $e) {
+            return Redirect::to('auth/github');
+        }
+        $authUser = $this->findOrCreateUser($user);
+        session([
+            'login_' . md5("Illuminate\Auth\Guard") => $authUser->id,
+        ]);
+        return redirect()->action('UsersController@index');
+    }
+
+    public function logout()
+    {
+        session()->flush();
+        return redirect()->action('UsersController@index');
     }
 }

@@ -15,6 +15,7 @@ class CreateProjectsTable extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->increments('id');
             $table->string('status');
+            $table->integer('next_invite')->default(1);
             $table->string('trello_id');
             $table->string('organization_name');
             $table->string('site_url');
@@ -32,7 +33,7 @@ class CreateProjectsTable extends Migration
             $table->boolean('instagram')->default(false);
             $table->boolean('tumblr')->default(false);
             $table->boolean('blog')->default(false);
-            $table->boolean('comments_feedback')->default(false);
+            $table->boolean('comments')->default(false);
             $table->boolean('member_signup')->default(false);
             $table->boolean('contact_form')->default(false);
             $table->boolean('existing_database')->default(false);

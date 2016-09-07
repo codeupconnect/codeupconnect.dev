@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\User;
 use App\Project;
 use App\TeamMember;
-use App\User;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -60,7 +60,7 @@ class ProjectsController extends Controller
         (isset($request->instagram) ? true : false);
         (isset($request->tumblr) ? true : false);
         (isset($request->blog) ? true : false);
-        (isset($request->comments_feedback) ? true : false);
+        (isset($request->comments) ? true : false);
         (isset($request->member_signup) ? true : false);
         (isset($request->contact_form) ? true : false);
         (isset($request->existing_database) ? true : false);
@@ -81,12 +81,7 @@ class ProjectsController extends Controller
     // admin can edit, reject or approve
     public function edit($id)
     {
-        $project = Project::findorFail($id);
-        if(!$project) {
-            Log::info("Post with ID $id cannot be found");
-            abort(404);
-        }
-        return view("admin.editproject")->with('project', $project);
+        //
     }
     /**
      * Update the specified resource in storage.
@@ -221,16 +216,15 @@ class ProjectsController extends Controller
         $project = $request->project_id;
         $boardId = $request->input('board');
         
-        // Insert Info into Tables
         TeamMember::insert([
             'user_id' => $userId,
             'role' => $role,
             'project_id' => $project
             ]);
-
         Project::insert([
             'trello_id' => $boardId,
             ]);
+        User::where('id', $userId)->update(['queue' => null]);
 
         return view("alumni.trello")->with('boardId', $boardId);
     }

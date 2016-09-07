@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->nullable()->unique();
             $table->boolean('is_admin');
             $table->boolean('is_freelancer');
+            $table->string('queue')->default(null);
             $table->string('proficiencies');
             $table->string('active_project');
             $table->string('resume_url');

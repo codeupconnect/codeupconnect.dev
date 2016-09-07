@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use DB;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
-use DB;
+use App\User;
+use App\Project;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+
 
 class UsersController extends Controller
 {
@@ -23,7 +27,6 @@ class UsersController extends Controller
      */
     public function index()
     {
-        dd(session()->all());
         return view('welcome');
     }
 
@@ -101,5 +104,21 @@ class UsersController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function enterQueue($id)
+    {
+        $now = time();
+        $user = User::where('id', $id)->update(
+            [
+            'queue' => $now,
+            ]);
+        dd($now);
+    }
+
+    public function showQueue()
+    {
+        $users = User::whereNotNull('queue')->get();
+        return view('alumni.queue')->with('users', $users);
     }
 }

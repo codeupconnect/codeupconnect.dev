@@ -106,9 +106,13 @@ class ProjectsController extends Controller
         $project->status = 'approved';
         $project->save();
         $request->session()->flash('message', 'You have updated and approved the project.');
-        Log::info($request->all());
+
+        $project->sendInvite();
+
         return redirect()->action("HomeController@showWelcome");
     }
+
+
 
     /**
      * Remove the specified resource from storage.

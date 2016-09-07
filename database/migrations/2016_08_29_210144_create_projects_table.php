@@ -14,18 +14,6 @@ class CreateProjectsTable extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->increments('id');
-
-            $table->string('client_name');
-            $table->string('site_url');
-            $table->longText('description');
-            $table->date('start_date');
-            $table->date('end_date');
-            $table->string('email');
-            $table->string('status');
-            $table->longText('preferred_tech');
-            $table->integer('phone');
-            $table->string('point_person');
-
             $table->string('status');
             $table->integer('next_invite')->default(0)->nullable();
             $table->string('trello_id');

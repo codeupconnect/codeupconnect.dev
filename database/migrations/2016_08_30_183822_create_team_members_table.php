@@ -16,10 +16,6 @@ class CreateTeamMembersTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('role', 3);
-
-            $table->integer('team_id')->unsigned();
-            $table->foreign('team_id')->references('id')->on('team');
-
             $table->integer('project_id')->unsigned();
             $table->foreign('project_id')->references('id')->on('projects');
 

@@ -3,6 +3,12 @@
 
 
 @section('content')
+
+<!-- if user has a project in queue for them to view-->
+
+<div id="alert-notification" class="alert alert-warning" role="alert">
+  <strong>Heads up!</strong> You have a project invitation to <a href="#">view.</a>
+</div>
 	
 <div class="container">
 	<div class="row user-menu-container" >

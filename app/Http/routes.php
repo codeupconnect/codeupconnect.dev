@@ -30,3 +30,7 @@ Route::get('form', function(){return view('public.clientform');});
 // Temp
 Route::get('accept', 'ProjectsController@acceptProject');
 Route::post('update/{id}', 'ProjectsController@update');
+
+Route::get('account', function(){return view('alumni.user');});
+
+Route::get('editproject', function(){return view('admin.editproject');});

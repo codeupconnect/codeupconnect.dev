@@ -14,6 +14,19 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+            $table->string('github')->unique();
+            $table->string('email')->unique();
+            $table->string('level');
+            $table->string('proficiencies');
+            $table->string('active_project');
+            $table->string('resume_url');
+            $table->nullableTimestamp('queue');
+            $table->timestamps();
+=======
+>>>>>>> 1098c934c4eb062f87a1ba8ffd22198f44f2b6cb
             $table->string('name')->nullable();
             $table->string('nickname')->unique();
             $table->string('github_id')->unique();
@@ -27,7 +40,7 @@ class CreateUsersTable extends Migration
             $table->string('active_project');
             $table->string('resume_url');
             $table->nullableTimestamps();
-
+>>>>>>> fc113eddc193a68ab9227a64ec056f341488f44d
         });
     }
 

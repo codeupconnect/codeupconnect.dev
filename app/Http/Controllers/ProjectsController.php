@@ -67,7 +67,7 @@ class ProjectsController extends Controller
         (isset($request->stripe) ? true : false);
         $project->save();
         $request->session()->flash('message', 'Thank you! Your project is being reviewed by our team of devs! We will follow up soon.');
-        return redirect()->action("HomeController@showWelcome");
+        return redirect()->action("HomeController@index");
     }
 
     /**
@@ -208,7 +208,10 @@ class ProjectsController extends Controller
 
     public function viewInvite()
     {
-        //
+        $id = session()->get('login_' . md5("Illuminate\Auth\Guard"));
+        $user = User::findorFail($id);
+        $project = Project::findorFail($user->invite);
+        return view('alumni.user-project-invite')->with('user', $user)->with('project', $project);
     }
 
     public function acceptProject(Request $request)

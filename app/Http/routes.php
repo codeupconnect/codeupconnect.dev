@@ -22,34 +22,10 @@ Route::get('show-unapproved/{id}', 'ProjectsController@showProject');
 Route::get('edit/{id}', 'ProjectsController@edit');
 Route::post('approve', 'ProjectsController@update');
 Route::get('enter/{id}', 'UsersController@enterQueue');
+Route::get('queue', 'UsersController@showQueue');
 Route::get('users', 'UsersController@index');
 
 
 // Temp
 Route::get('accept', 'ProjectsController@acceptProject');
 Route::post('update/{id}', 'ProjectsController@update');
-
-Route::get('/', function () {
-    return view('public.welcome');
-});
-Route::get('/account', function () {
-    return view('alumni.user');
-});
-Route::get('/edit-account', function () {
-    return view('alumni.editaccount');
-});
-Route::get('/editproject', function () {
-    return view('admin.editproject');
-});
-Route::get('/queue', function () {
-    return view('alumni.queue');
-});
-Route::get('/closeproject', function () {
-    return view('admin.closeproject');
-});
-Route::get('/form', function () {
-    return view('public.clientform');
-});
-Route::get('/featured', function () {
-    return view('public.featuredproject');
-});

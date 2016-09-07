@@ -108,9 +108,17 @@ class UsersController extends Controller
 
     public function enterQueue($id)
     {
+        $now = time();
         $user = User::where('id', $id)->update(
             [
-            'queue' => Carbon::now(),
+            'queue' => $now,
             ]);
+        dd($now);
+    }
+
+    public function showQueue()
+    {
+        $users = User::whereNotNull('queue')->get();
+        return view('alumni.queue')->with('users', $users);
     }
 }

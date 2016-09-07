@@ -201,7 +201,15 @@ class ProjectsController extends Controller
         $boolean->existing_database = $project->existing_database;
         $boolean->stripe = $project->stripe;
 
-        return view("admin.editproject")->with('data', $data['attributes'])->with('boolean', $boolean['attributes']);
+        if ($project->status == 'unapproved')
+            return view("admin.editproject")->with('data', $data['attributes'])->with('boolean', $boolean['attributes']);
+        else
+            return view("alumni.project")->with('data', $data['attributes'])->with('boolean', $boolean['attributes']);
+    }
+
+    public function viewInvite()
+    {
+        //
     }
 
     public function acceptProject(Request $request)

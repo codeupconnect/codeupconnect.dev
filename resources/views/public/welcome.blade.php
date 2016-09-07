@@ -6,8 +6,8 @@
         <div class="slide story" id="slide-1" data-slide="1">
 		<div class="container">
 			<div id="home-row-1" class="row clearfix">
-				 <div class="wrap">
-    <a class="btn-0" href="#">Make a Request</a>
+				 <div class="container">
+    				<a class="btn-0" href="/form">Make a Request</a>
     			</div>
 				<div class="col-12">
 					<h1 class="font-thin">Codeup<span class="font-semibold">Connect</span></h1>
@@ -17,7 +17,7 @@
 				</div><!-- /col-12 -->
 			</div><!-- /row -->
 			<div id="home-row-2" class="row clearfix">
-				<div class="col-12 col-xs-4"><img src="images/CWYK8CLC61_Fotor.jpg"></div>
+				<div class="container col-xs-12 col-12 "><img src="images/CWYK8CLC61_Fotor.jpg"></div>
 			</div><!-- /row -->
 		</div><!-- /container -->
 	</div><!-- /slide1 -->
@@ -86,6 +86,5 @@
 		</div><!-- /container -->
 	</div><!-- /slide4 -->
 
-
-
 @stop
+

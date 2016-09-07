@@ -61,7 +61,7 @@
     }
 
     #slide-1 h1 {
-      padding-top: 290px;
+      padding-top: 100px;
     }
 
     @media (max-width: 991px) {
@@ -141,7 +141,7 @@
         display: block;
         margin: 20px auto;
         margin-top: 10%;
-        margin-left: 78%;
+        
         width: 100%;
         height: 80px;
         max-width: 250px;
@@ -163,16 +163,16 @@
         left: 0;
         width: 0;
         height: 80px;
-        background: #111146;
+        background: #78D274;
       }
       .btn-0:hover {
-        color: #c6c7dc;
+        color: #78D274;
       }
       .btn-0:hover:before {
         width: 250px;
       }
       .btn-0:active {
-        background: #1c1d74;
+        background: #78D274;
       }
 
   /*Slide Two: Mission*/
@@ -244,24 +244,35 @@
       padding-top: 90px;
     }
 
-/*Navigation Bars*/
+/*Navigation Bar*/
 
-  /*Public Navbar*/
-    .navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-header>a:hover{
-      color: #E6DAE8;
+  .navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-header>a:hover{
+    color: #E6DAE8;
+  }
+
+  .navbar-default {
+    background-color:#00944A;
+    font-family: 'Antic Slab', serif;
+   }
+
+   .navbar-default .navbar-nav>li>a, .navbar-default .navbar-brand {
+    font-family: 'Antic Slab', serif;
+    color: white;
+   }
+
+   @media (min-width: 768px) {
+    .navbar .navbar-nav {
+        display: inline-block;
+        float: none;
+        vertical-align: top;
     }
 
-    .navbar-default {
-      background-color:#00944A;
-      font-family: 'Antic Slab', serif;
-     }
+    .navbar .navbar-collapse {
+        text-align: center;
+    }
+  }
 
-     .navbar-default .navbar-nav>li>a, .navbar-default .navbar-brand {
-      font-family: 'Antic Slab', serif;
-      color: white;
-     }
-
-    /*Github Button*/
+  /*Github Button*/
 
     .btn-social{
       position:relative;
@@ -392,7 +403,7 @@
 
   ul.user-menu-list {
       list-style: none;
-      margin-top: 20px;
+      margin-top: 10px;
       margin-bottom: 0;
       padding: 10px;
       border: 1px solid #eee;
@@ -436,8 +447,6 @@
     text-align: center;
   }
 
-  
-
   #user-portfolio{
     min-height: 200px;
     margin-top: 20px;
@@ -445,19 +454,29 @@
     margin-bottom: 20px;
   }
 
+  #alert-notification{
+    margin-top:90px;
+    text-align:center;
+    max-width: 700px;
+    margin-left: 26%;
+    margin-bottom:-30px;
+  }
+
+
+
 /*Footer */
  
  footer{
   background-color: #000D20;
-  display:block;
  }
 
-/*Edit User Profile*/
+/*Edit User Profile and Project*/
 
   .form-container{
     margin-top:5%;
     color: white;
-    opacity: .5;
+    opacity: .7;
+    margin-bottom: 5%;
   }
 
   .title{

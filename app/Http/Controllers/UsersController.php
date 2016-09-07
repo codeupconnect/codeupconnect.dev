@@ -27,7 +27,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        return view('public.showWelcome');
+        return view('public.welcome');
     }
 
     /**
@@ -144,6 +144,5 @@ class UsersController extends Controller
         $user->invite = null;
         $user->save();
         $project->sendInvite();
-
     }
 }

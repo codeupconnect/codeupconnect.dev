@@ -100,13 +100,6 @@ class ProjectsController extends Controller
     public function update(Request $request, $id)
     {
         $project = Project::findorFail($id);
-        if(!$project) {
-            Log::info("Project with ID $id cannot be found");
-            abort(404);
-        }
-        $this->validate($request, Project::$rules);
-        $project->status = $request->status;
-        $project->trello_id = $request->trello_id;
         $project->organization_name = $request->organization_name;
         $project->site_url = $request->site_url;
         $project->start_date = $request->start_date;
@@ -115,19 +108,6 @@ class ProjectsController extends Controller
         $project->phone = $request->phone;
         $project->email = $request->email;
         $project->project_details = $request->project_details;
-        $project->collateral = $request->collateral;
-        $project->facebook = $request->facebook;
-        $project->linkedin = $request->linkedin;
-        $project->twitter = $request->twitter;
-        $project->youtube = $request->youtube;
-        $project->instagram = $request->instagram;
-        $project->tumblr = $request->tumblr;
-        $project->blog = $request->blog;
-        $project->comments_feedback = $request->comments_feedback;
-        $project->member_signup = $request->member_signup;
-        $project->contact_form = $request->contact_form;
-        $project->existing_database = $request->existing_database;
-        $project->stripe = $request->stripe;
         
         $request->session()->flash('message', 'You have updated and approved the project.');
         Log::info($request->all());

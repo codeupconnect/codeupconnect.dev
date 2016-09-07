@@ -7,9 +7,11 @@
 	
 	<h4>{{ $user->name }}</h4>
 	<p>{{ $project->organization_name }}</p>
-	<p>{{ $project->project_details }}</p>
 </div>
-
+<div class="container button-container">	  
+	  <!-- {{ action('UsersController@acceptInvite', $user->id) }}
+	  {{ action('UsersController@rejectInvite', $user->id) }} -->
+</div>
 
 
 

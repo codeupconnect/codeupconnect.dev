@@ -81,6 +81,7 @@ class ProjectsController extends Controller
     // admin can edit, reject or approve
     public function edit($id)
     {
+        //
     }
     /**
      * Update the specified resource in storage.

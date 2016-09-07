@@ -87,11 +87,11 @@ class UsersController extends Controller
     {
         $authUser = User::where('github_id', $githubUser->id)->update(
             [
-            'name' => $request->name,
-            'resume_url' => $request->resumeUrl,
-            'proficiencies' => $request->email,
-        ]
-            );
+                'name' => $request->name,
+                'resume_url' => $request->resumeUrl,
+                'proficiencies' => $request->email,
+            ]
+        );
 
     }
 
@@ -108,17 +108,15 @@ class UsersController extends Controller
 
     public function enterQueue($id)
     {
-        $now = time();
         $user = User::where('id', $id)->update(
             [
-            'queue' => $now,
+            'queue' => time(),
             ]);
-        dd($now);
     }
 
     public function showQueue()
     {
-        $users = User::whereNotNull('queue')->get();
+        $users = User::whereNotNull('queue')->orderBy('queue', 'desc')->get();
         return view('alumni.queue')->with('users', $users);
     }
 }

@@ -136,9 +136,26 @@ class UsersController extends Controller
         // Update user to have invite
         User::where('id', $user->id)->update(
             [
-            'invite' => $id,
+                'invite' => $id,
             ]
         );
     }
 
+    public function rejectInvite($id)
+    {
+        $user = User::where('id', $id)->get();
+        $project = Project::where('id', $user->invite)->get();
+
+        Project::where('id', $project->id)->update(
+            [
+                'next_invite' = $project->next_invite + 1;
+            ]);
+
+        User::where('id', $id)->update(
+            [
+                'invite' = null;
+            ])
+
+
+    }
 }

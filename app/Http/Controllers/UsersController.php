@@ -85,7 +85,7 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $authUser = User::where('github_id', $githubUser->id)->update(
+        User::where('github_id', $githubUser->id)->update(
             [
                 'name' => $request->name,
                 'resume_url' => $request->resumeUrl,
@@ -119,4 +119,26 @@ class UsersController extends Controller
         $users = User::whereNotNull('queue')->orderBy('queue', 'desc')->get();
         return view('alumni.queue')->with('users', $users);
     }
+
+    public function nextinQueue($count = 0)
+    {
+        $users = User::whereNotNull('queue')->orderBy('queue', 'desc')->get();
+        $user = $users->all()[$count]);
+        return $user;
+    }
+
+    // Send invite for project to next user in queue
+    public function sendInvite($id)
+    {
+        $project = Project::where('id', $id)->get();
+        $nextInvite = $project->next_invite;
+        $user = nextinQueue($nextInvite);
+        // Update user to have invite
+        User::where('id', $user->id)->update(
+            [
+            'invite' => $id,
+            ]
+        );
+    }
+
 }

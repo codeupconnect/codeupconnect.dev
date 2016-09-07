@@ -15,7 +15,7 @@ class ProjectsController extends Controller
     public function __construct()
     {
         // $this->middleware('auth')->except('showCompleted');
-        $this->middleware('auth');
+        // $this->middleware('auth');
     }
     
     /**
@@ -108,10 +108,11 @@ class ProjectsController extends Controller
         $project->phone = $request->phone;
         $project->email = $request->email;
         $project->project_details = $request->project_details;
-        
+        $project->save();
+        dd('done');
         $request->session()->flash('message', 'You have updated and approved the project.');
         Log::info($request->all());
-        return redirect()->action("ProjectsController@index");
+        return redirect()->action("HomeController@showWelcome");
     }
 
     /**
@@ -147,7 +148,7 @@ class ProjectsController extends Controller
     {
         $projects = Project::where('status', 'approved')->get();
         $projects = $projects->orderBy('projects.created_at', 'DESC')->paginate(10);
-        return view("alumni.index")->with("projects", $projects);
+        return view("alumni.approvedprojects")->with("projects", $projects);
     }
     
     /**
@@ -183,7 +184,9 @@ class ProjectsController extends Controller
         $data->phone = $project->phone;
         $data->email = $project->email;
         $data->project_details = $project->project_details;
+
         $boolean = new Project();
+        $boolean->id = $project->id;
         $boolean->collateral = $project->collateral;
         $boolean->facebook = $project->facebook;
         $boolean->linkedin = $project->linkedin;
@@ -197,8 +200,8 @@ class ProjectsController extends Controller
         $boolean->contact_form = $project->contact_form;
         $boolean->existing_database = $project->existing_database;
         $boolean->stripe = $project->stripe;
-        $projectData = compact('data', 'boolean');
-        return view("admin.editproject")->with('project', $data)->with('boolean', $boolean);
+
+        return view("admin.editproject")->with('data', $data['attributes'])->with('boolean', $boolean['attributes']);
     }
 
     public function acceptProject(Request $request)

@@ -12,7 +12,8 @@
 		</div>
 		<!-- Collect the nav links, forms, and other content for toggling -->
 	
-		@if (isset($_SESSION))
+		<!-- some kinda error here. unsure. -->
+		@if(session()->has('login_' . md5("Illuminate\Auth\Guard")))
 		<li class="dropdown">
 	 		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome<span class="caret"></span></a>
 			<ul class="dropdown-menu">
@@ -48,3 +49,9 @@
 		</div><!-- /.navbar-collapse -->
 	</div><!-- /.container-fluid -->
 </nav>
+
+@if (session()->has('invite'))
+	<div id="alert-notification" class="alert alert-warning" role="alert">
+	  <a href="#"><strong>Heads up!</strong> You have a project invitation to view.</a>
+	</div>
+	@endif

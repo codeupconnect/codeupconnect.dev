@@ -1,7 +1,5 @@
 @extends('layout.master')
 
-@include('partials.navbar')
-
 @section('content')
 	<h1>Approved Projects</h1>
 	<table class="table table-bordered table-stripped table-hover">
@@ -31,8 +29,6 @@
 		</tbody>
 	</table>		
 	{{ $projects->render() }}
-
-@include('partials.footer')
 
 @stop
 

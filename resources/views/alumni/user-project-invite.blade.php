@@ -10,8 +10,8 @@
 	<p><textarea>Yay project</textarea></p>
 </div>
 <div class="container button-container">	  
-	  <button type="button" class="btn btn-success" >Accept</button>
-	  <button type="submit" class="btn btn-danger" >Reject</button>
+	  <button type="button" class="btn btn-success" href="{{ action('UsersController@acceptInvite', $user->id) }}">Accept</button>
+	  <button type="submit" class="btn btn-danger" href="{{ action('UsersController@rejectInvite', $user->id) }}">Reject</button>
 </div>
 
 

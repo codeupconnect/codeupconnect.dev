@@ -2,6 +2,7 @@
 
 
 @section('content')
+
 <div class="container form-font">
     <h1 class="navbar-margin text-center">Submit a Project</h1>
 	<div class="container-fluid form-group">
@@ -16,7 +17,6 @@
 		    		{!! $errors->first('organization_name', '<p><span class="help-block alert alert-warning">:message</span></p>') !!}
 				@endif
                 
-
                 <p>Your Current Web Address (if applicable): <input type="text" name="site_url" value="{{ old('site_url') }}" class="form-control"></p>
            
                 <p>How soon do you want to start your project? <input type="text" name="start_date" value="{{ old('start_date') }}" class="form-control"> </p>
@@ -73,6 +73,7 @@
                 <p class="text-center"><input type="submit" class="button btn-success"></p>                  
             </form>
         </div>    
+
     </div>
 </div>
 

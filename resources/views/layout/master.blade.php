@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-
+		@if (Auth::user()->invite)
+			{{ session(['invite' => Auth::user()->invite]) }}
+		@elseif (Auth::user()->invite != 0)
+			{{ session()->forget('invite') }}
+		@endif
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 		<!-- Stylesheets -->

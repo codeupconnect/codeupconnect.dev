@@ -18,12 +18,13 @@ Route::get('trello', 'ApiController@viewTrello');
 Route::get('create-board', 'ApiController@createTrelloBoard');
 Route::post('submit', 'ProjectsController@store');
 Route::get('admin', 'ProjectsController@showUnapproved');
-Route::get('show-unapproved/{id}', 'ProjectsController@showProject');
+Route::get('show-project/{id}', 'ProjectsController@showProject');
 Route::get('edit/{id}', 'ProjectsController@edit');
 Route::post('approve', 'ProjectsController@update');
 Route::get('enter/{id}', 'UsersController@enterQueue');
 Route::get('queue', 'UsersController@showQueue');
 Route::get('users', 'UsersController@index');
+Route::get('form', function(){return view('public.clientform');});
 
 
 // Temp

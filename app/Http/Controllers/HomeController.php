@@ -10,6 +10,6 @@ use App\Http\Controllers\Controller;
 class HomeController extends Controller
 {
     public function showWelcome() {
-        return view('welcome');
+        return view('public.welcome');
     }
 }

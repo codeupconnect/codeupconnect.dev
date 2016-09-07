@@ -1,54 +1,50 @@
 @extends('layout.master')
 
-
-
 @section('content')
 
-<!-- if user has a project in queue for them to view-->
-	
 <div class="container">
-	<div class="row user-menu-container" >
-		<div class="col-xs-7 bottom-block user-details">
-			<div class="row info-portfolio">
-				<div class="col-xs-6 no-pad">
-					<div class="user-image">
-						<img src="/giphy.gif">
-					</div>
-				</div>
-				<div class="col-xs-6 no-pad" id="user-info" data-value="">
-					<div class="user-pad font text-center">
-						<h3 id="name"></h3>
-						<h4><i class="fa fa-check-circle-o"></i> Alumni</h4>
-						<i class="fa fa-github"></i><h4 id="github-id"> schmidty</h4>
-					</div>
-				</div>
-			</div>
-			<div class="row overview font text-center">
-				<h3 class="user-pad">Preferences</h3>
-			</div>
-		</div>
-		<div class="col-xs-4 font">
-			<div>
-				<h3>Current Project: MyFitSA Website</h3>
-				<ul class="user-menu-list">
-					<li><h4>Team Members: </h4></li>
-					<li><h5> Nick</h5></li>
-					<li><h5> Jess</h5></li>
-				</ul>
-			</div>
-		</div>
-	</div>
+    <div class="row profile">
+        <div class="col-md-3">
+            <div class="profile-sidebar">
+                <!-- SIDEBAR USERPIC -->
+                <div class="profile-userpic">
+                    <img src="../bucky.jpg" class="img-responsive" alt="">
+                </div>
+                <!-- END SIDEBAR USERPIC -->
+                <!-- SIDEBAR USER TITLE -->
+                <div class="profile-usertitle">
+                    <div class="profile-usertitle-name">
+                        Bucky Barnes
+                    </div>
+                    <div class="profile-usertitle-job">
+                        Winter Soldier
+                    </div>
+                </div>
+                <!-- END SIDEBAR USER TITLE -->
+               
+                <!-- END SIDEBAR BUTTONS -->
+                <!-- SIDEBAR MENU -->
+                <div class="profile-usermenu">
+                    <ul class="nav">
+                        <li>
+                            <a href="#">
+                            <i class="glyphicon glyphicon-user"></i>
+                            Edit Profile </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- END MENU -->
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="profile-content">
+               Some user related content goes here...
+            </div>
+        </div>
+    </div>
 </div>
-<!-- <div class="container">
-	<div class="row">
-		<div class="col-xs-7 info-portfolio" id="user-portfolio">
-			<div class="row">
-				<div class="user-pad font text-center"><h3 class="user-pad">CodeupConnect Portfolio</h3>
-				</div>
-			</div>
-		</div>
-	</div>
-</div> -->
+<br>
+<br>
 
 @section('bottom-scripts')
 	<script>

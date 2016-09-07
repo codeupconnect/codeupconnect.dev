@@ -1,6 +1,5 @@
 @extends('layout.master')
 
-@include('partials.navbar')
 
 @section('content')
 	<h1>Submit a Project</h1>
@@ -70,6 +69,5 @@
         </div>    
     </div>
 
-@include('partials.footer')
 
 @stop

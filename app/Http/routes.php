@@ -34,3 +34,5 @@ Route::post('update/{id}', 'ProjectsController@update');
 Route::get('account', function(){return view('alumni.user');});
 
 Route::get('editproject', function(){return view('admin.editproject');});
+
+Route::get('project-invite', function(){return view('alumni.user-project-invite');});

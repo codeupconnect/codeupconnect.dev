@@ -4,7 +4,6 @@
 
 @section('content')
 	
-
 <div class="container">
 	<div class="row user-menu-container" >
 		<div class="col-xs-7 bottom-block user-details">

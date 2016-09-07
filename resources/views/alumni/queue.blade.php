@@ -19,7 +19,7 @@
 		@foreach($users as $user)
 			<tr class="table-row">
 				<td>{{ $user->id }}</td>
-				<td><a href="{{ action('UsersController@users', $user->id) }}">{{ $user->name }}</a></td>
+				<td><a href="{{ action('UsersController@show', $user->id) }}">{{ $user->name }}</a></td>
 				<td>{{ $user->github_id }}</td>
 				<td>{{ $user->url }}</td>
 				<td>{{ $user->email }}</td>

@@ -10,12 +10,11 @@
   }
 
   body {
-    background-color: #002243;
+    background-color: #D5D5D5;
     font-family: "Antic Slab", sans-serif;
     font-weight: normal;
     overflow-x: hidden;
   }
-
 
 /*Font styling*/
   .font-thin {
@@ -44,7 +43,7 @@
 
   /*Slide One: CodeupConnect*/
     #slide-1 {
-      background-color: #000D20;
+      background-color: #022648;
       color: #ffffff;
         -webkit-background-size: 100%;
         -moz-background-size: 100%;
@@ -150,34 +149,31 @@
         border: 1px solid currentColor;
         text-decoration: none;
         line-height: 80px;
-        background-color: #30B394;
+        background-color: #F5907C;
       }
 
       .btn-0 {
         color: black;
       }
       .btn-0:before {
-        content: '';
         position: absolute;
-        top: 0;
-        left: 0;
-        width: 0;
         height: 80px;
-        background: #78D274;
+        background: #F5907C;
       }
       .btn-0:hover {
-        color: #78D274;
+        color: #022648;
+        background: #D5D5D5;
       }
       .btn-0:hover:before {
         width: 250px;
       }
       .btn-0:active {
-        background: #78D274;
+        background: #F5907C;
       }
 
   /*Slide Two: Mission*/
     #slide-2 {
-      background-color: #30B394;
+      background-color: #00999E;
       color: #e4e6e5;
       padding-top: 90px;
     }
@@ -232,32 +228,32 @@
 
   /*Slide Three: Portfolio*/
     #slide-3 {
-      background-color: #366189;
+      background-color: #F5907C;
       color: #e4e6e5;
       padding-top: 90px;
     }
 
   /*Slide Four: Featured Freelancers*/
     #slide-4 {
-      background-color: #78D274;
-      color: #ffffff;
+      background-color: #D5D5D5;
+      color: grey;
       padding-top: 90px;
     }
 
 /*Navigation Bar*/
 
   .navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-header>a:hover{
-    color: #E6DAE8;
+    color: #D5D5D5;
   }
 
   .navbar-default {
-    background-color:#00944A;
+    background-color:#00999E;
     font-family: 'Antic Slab', serif;
    }
 
    .navbar-default .navbar-nav>li>a, .navbar-default .navbar-brand {
     font-family: 'Antic Slab', serif;
-    color: white;
+    color: #D5D5D5;
    }
 
    @media (min-width: 768px) {
@@ -378,11 +374,12 @@
 /*User Profile*/
 
   .info-portfolio {
-      background-color: #83E1B5;
+      background-color: #022648;
+      color:white;
   } 
 
   .bottom-block{
-    background: #00944A ;
+    background: #00999E ;
   }
 
   div.user-menu-container {
@@ -462,15 +459,16 @@
     margin-bottom:-30px;
   }
 
-
-
 /*Footer */
  
- footer{
-  background-color: #000D20;
- }
+  footer{
+    background-color: #022648;
+  }
+  a{
+    color:white;
+  }
 
-/*Edit User Profile and Project*/
+/*Edit User Profile, Edit Project, User Project Invite*/
 
   .form-container{
     margin-top:5%;
@@ -490,4 +488,19 @@
     text-align: center;
     padding-top: 5px;
     margin-bottom: 5%;
+  }
+
+  .button-container{
+    margin-bottom: 30px;
+  }
+
+/*Client Form*/
+
+  .navbar-margin{
+    margin-top: 60px;
+  }
+
+  .form-font{
+    color:black;
+    
   }

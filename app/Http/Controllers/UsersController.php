@@ -85,7 +85,7 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $authUser = User::where('github_id', $githubUser->id)->update(
+        User::where('github_id', $githubUser->id)->update(
             [
                 'name' => $request->name,
                 'resume_url' => $request->resumeUrl,
@@ -118,5 +118,58 @@ class UsersController extends Controller
     {
         $users = User::whereNotNull('queue')->orderBy('queue', 'desc')->get();
         return view('alumni.queue')->with('users', $users);
+    }
+
+    public function nextinQueue($count = 0)
+    {
+        $users = User::whereNotNull('queue')->orderBy('queue', 'desc')->get();
+        $all_users = $users->all();
+        $user = $all_users[$count];
+        return $user;
+    }
+
+    // Send invite for project to next user in queue
+    public function sendInvite($id)
+    {
+        $project = Project::findOrFail($id);
+        $nextInvite = $project->next_invite;
+        $user = nextinQueue($nextInvite);
+        // Update user to have invite
+        User::where('id', $user->id)->update(
+            [
+                'invite' => $id,
+            ]
+        );
+    }
+
+    public function acceptInvite($id)
+    {
+        $user = User::where('id', $id)->get();
+        $project = Project::where('id', $user->invite)->get();
+
+        Project::where('id', $project->id)->update(
+            [
+                'next_invite' = null,
+            ]);
+
+        User::where('id', $id)->update(
+            [
+                'invite' = null,
+                'active_project' => $project->id,
+            ])    
+    }
+
+    public function rejectInvite($id)
+    {
+
+        $user = User::findorFail($id);
+        $project = Project::findOrFail($user->invite);
+
+        $project->next_invite += 1;
+        $project->save();
+
+        $user->invite = null;
+        $user->save();
+
     }
 }

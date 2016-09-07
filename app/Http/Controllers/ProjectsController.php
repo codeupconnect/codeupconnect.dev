@@ -108,6 +108,7 @@ class ProjectsController extends Controller
         $project->phone = $request->phone;
         $project->email = $request->email;
         $project->project_details = $request->project_details;
+        $project->status = 'approved';
         $project->save();
         dd('done');
         $request->session()->flash('message', 'You have updated and approved the project.');

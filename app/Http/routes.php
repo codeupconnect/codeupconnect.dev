@@ -27,6 +27,8 @@ Route::get('users', 'UsersController@index');
 Route::get('form', function(){return view('public.clientform');});
 Route::get('account/{id}', 'UsersController@show');
 Route::get('invite', 'ProjectsController@viewInvite');
+Route::get('accept', 'UsersController@acceptInvite');
+Route::get('reject', 'UsersController@rejectInvite');
 
 
 // Temp

@@ -22,8 +22,8 @@
 				<div class="col-xs-6 no-pad" id="user-info" data-value="">
 					<div class="user-pad font text-center">
 						<h3 id="name"></h3>
-						<h4><i class="fa fa-check-circle-o"></i> (freelancer/alumni)</h4>
-						<i class="fa fa-github"></i><h4 id="github-id"> (github user)</h4>
+						<h4><i class="fa fa-check-circle-o"></i> Alumni</h4>
+						<i class="fa fa-github"></i><h4 id="github-id"> schmidty</h4>
 					</div>
 				</div>
 			</div>
@@ -33,17 +33,17 @@
 		</div>
 		<div class="col-xs-4 font">
 			<div>
-				<h3>Current Project:</h3>
+				<h3>Current Project: MyFitSA Website</h3>
 				<ul class="user-menu-list">
 					<li><h4>Team Members: </h4></li>
-					<li><h5> (team member)</h5></li>
-					<li><h5> (team member)</h5></li>
+					<li><h5> Nick</h5></li>
+					<li><h5> Jess</h5></li>
 				</ul>
 			</div>
 		</div>
 	</div>
 </div>
-<div class="container">
+<!-- <div class="container">
 	<div class="row">
 		<div class="col-xs-7 info-portfolio" id="user-portfolio">
 			<div class="row">
@@ -52,7 +52,7 @@
 			</div>
 		</div>
 	</div>
-</div>
+</div> -->
 
 @section('bottom-scripts')
 	<script>

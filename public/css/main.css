@@ -16,6 +16,10 @@
     overflow-x: hidden;
   }
 
+  h1, h2, h3, h4, h5, h6 {
+    color: white;
+  }
+
 
 /*Font styling*/
   .font-thin {
@@ -462,15 +466,13 @@
     margin-bottom:-30px;
   }
 
-
-
 /*Footer */
  
  footer{
   background-color: #000D20;
  }
 
-/*Edit User Profile and Project*/
+/*Edit User Profile, Edit Project, User Project Invite*/
 
   .form-container{
     margin-top:5%;
@@ -491,3 +493,9 @@
     padding-top: 5px;
     margin-bottom: 5%;
   }
+
+  .button-container{
+    margin-bottom: 30px;
+  }
+
+

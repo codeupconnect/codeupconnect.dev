@@ -25,7 +25,7 @@ Route::get('enter/{id}', 'UsersController@enterQueue');
 Route::get('queue', 'UsersController@showQueue');
 Route::get('users', 'UsersController@index');
 Route::get('form', function(){return view('public.clientform');});
-Route::get('account', 'UsersController@show');
+Route::get('account/{id}', 'UsersController@show');
 
 
 // Temp

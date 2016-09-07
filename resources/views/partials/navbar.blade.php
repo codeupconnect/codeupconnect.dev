@@ -14,16 +14,17 @@
 	
 		<!-- some kinda error here. unsure. -->
 		@if(session()->has('login_' . md5("Illuminate\Auth\Guard")))
-		<li class="dropdown">
-	 		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome<span class="caret"></span></a>
-			<ul class="dropdown-menu">
-				<li><a href="/account">Profile</a></li>
-				<li><a href="/edit-account">Edit Profile</a></li>
-				<li><a href="#">Team Hub</a></li>
-				<li role="separator" class="divider"></li>
-				<li><a href="{{action('Auth\AuthController@logout')}}">Logout</a></li>
-			</ul>
-		</li>	
+		<ul class="nav navbar-nav navbar-right">
+			<li class="dropdown">
+		 		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="/account">Profile</a></li>
+					<li><a href="#">Team Hub</a></li>
+					<li role="separator" class="divider"></li>
+					<li><a href="{{action('Auth\AuthController@logout')}}">Logout</a></li>
+				</ul>
+			</li>	
+		</ul>
 		@else
 		<div class="navbar-collapse collapse">
 			<ul class="nav navbar-nav">

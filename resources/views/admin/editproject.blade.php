@@ -20,7 +20,7 @@
 			  	<h4> {{ $key }} </h4>
 			  	@endif
 			@endforeach
-		
+
 			<button type="submit" class="btn btn-default">Accept</button>
 		</form>
 	</div>

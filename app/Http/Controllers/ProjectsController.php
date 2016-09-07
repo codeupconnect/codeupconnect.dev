@@ -110,7 +110,6 @@ class ProjectsController extends Controller
         $project->project_details = $request->project_details;
         $project->status = 'approved';
         $project->save();
-        dd('done');
         $request->session()->flash('message', 'You have updated and approved the project.');
         Log::info($request->all());
         return redirect()->action("HomeController@showWelcome");

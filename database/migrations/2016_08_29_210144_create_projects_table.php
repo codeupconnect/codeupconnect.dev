@@ -14,21 +14,6 @@ class CreateProjectsTable extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->increments('id');
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-            $table->string('client_name');
-            $table->string('site_url');
-            $table->longText('description');
-            $table->date('start_date');
-            $table->date('end_date');
-            $table->string('email');
-            $table->string('status');
-            $table->longText('preferred_tech');
-            $table->integer('phone');
-            $table->string('point_person');
-=======
->>>>>>> 1098c934c4eb062f87a1ba8ffd22198f44f2b6cb
             $table->string('status');
             $table->integer('next_invite')->default(0)->nullable();
             $table->string('trello_id');
@@ -53,7 +38,6 @@ class CreateProjectsTable extends Migration
             $table->boolean('contact_form')->default(false);
             $table->boolean('existing_database')->default(false);
             $table->boolean('stripe')->default(false);
->>>>>>> fc113eddc193a68ab9227a64ec056f341488f44d
             $table->timestamps();
         });
     }

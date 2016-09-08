@@ -35,7 +35,7 @@
 
 	// Get the users boards		      
 	var loadAllBoards = function() 
-	{		      
+	{	
 		Trello.get(
 			'/members/me/boards/',		        
 			loadedBoards,		        
@@ -233,10 +233,16 @@
 // --- Authorization ---
 // ---------------------
 
+	var authorizeSuccess = function() 
+	{
+		var token = Trello.token();
+		window.location.href('/trello');
+	}
+
 	var authorizeFailure = function() 
-		{ 
-			dump('Failed authentication'); 
-		};
+	{ 
+		dump('Failed authentication'); 
+	};
 
 	Trello.authorize({
 	  type: 'popup',
@@ -245,7 +251,7 @@
 	    read: 'true',
 	    write: 'true' },
 	  expiration: 'never',
-	  success: loadAllBoards,
+	  success: authorizeSuccess,
 	  error: authorizeFailure
 	});
 

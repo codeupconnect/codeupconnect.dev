@@ -65,7 +65,7 @@ class AuthController extends Controller
             'login_' . md5("Illuminate\Auth\Guard") => $authUser->id,
             ]);
 
-        return redirect()->action('UsersController@index');
+        return redirect()->action('UsersController@show', $authUser->id );
     }
 
     public function logout()

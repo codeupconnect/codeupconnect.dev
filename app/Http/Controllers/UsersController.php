@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 use App\User;
 use App\Project;
+use App\TeamMember;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -125,19 +126,18 @@ class UsersController extends Controller
         // Gather Project and Team Member info
         $userId = session()->get('login_' . md5("Illuminate\Auth\Guard"));
         $user = User::where('id', $userId)->first();
-        $role = $request->role;
-        $projectId = $request->project_id;
-        $boardId = $request->input('board');
         
+        // Future addition for selecting team member's roles
+        // $role = $request->role;
+        $projectId = $request->project_id;
+        $boardId = $request->board_id;
         // Add to team member table
         TeamMember::insert([
             'user_id' => $userId,
-            'role' => $role,
+            // 'role' => $role,
             'project_id' => $projectId
             ]);
-        Project::insert([
-            'trello_id' => $boardId,
-            ]);
+        Project::where('id', $projectId)->update(['trello_id' => $boardId]);
         User::where('id', $userId)->update(['queue' => null]);
 
         return view("alumni.trello")->with('boardId', $boardId);

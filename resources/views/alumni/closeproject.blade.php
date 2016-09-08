@@ -10,7 +10,7 @@
 	<p><textarea>Current Project</textarea></p>
 </div>
 <div class="container button-container">	  
-	  <button type="button" class="btn btn-success" >Completed</button>
+	  <a type="button" class="btn btn-success" >Completed</a>
 </div>
 
 

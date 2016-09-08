@@ -120,7 +120,28 @@ class UsersController extends Controller
         return view('alumni.queue')->with('users', $users);
     }
 
+    public function acceptProject(Request $request)
+    {
+        // Gather Project and Team Member info
+        $userId = session()->get('login_' . md5("Illuminate\Auth\Guard"));
+        $user = User::where('id', $userId)->first();
+        $role = $request->role;
+        $projectId = $request->project_id;
+        $boardId = $request->input('board');
+        
+        // Add to team member table
+        TeamMember::insert([
+            'user_id' => $userId,
+            'role' => $role,
+            'project_id' => $projectId
+            ]);
+        Project::insert([
+            'trello_id' => $boardId,
+            ]);
+        User::where('id', $userId)->update(['queue' => null]);
 
+        return view("alumni.trello")->with('boardId', $boardId);
+    }
 
     public function acceptInvite($id)
     {

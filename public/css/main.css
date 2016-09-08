@@ -473,7 +473,7 @@
     .profile-content {
       padding: 20px;
       background: #fff;
-      min-height: 504px;
+      max-height: 20%;
       margin-top: 50px;
     }
 

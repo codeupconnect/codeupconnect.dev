@@ -221,7 +221,7 @@
 	// Create New Board if first_member is true, otherwise view
 	function createOrViewBoard(id)
 	{
-		if ($('#data-first'))
+		if ($('#first-member').val() == "true")
 		{
 			Trello.post('/boards/', {name: $('#board_name').val, idBoardSource: '57ccac05a9c89e70ce374d64'})
 				.done(function(board)

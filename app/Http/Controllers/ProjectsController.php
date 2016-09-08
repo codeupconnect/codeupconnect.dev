@@ -52,19 +52,19 @@ class ProjectsController extends Controller
         $project->phone = $request->phone;
         $project->email = $request->email;
         $project->project_details = $request->project_details;
-        (isset($request->collateral) ? true : false);
-        (isset($request->facebook) ? true : false);
-        (isset($request->linkedin) ? true : false);
-        (isset($request->twitter) ? true : false);
-        (isset($request->youtube) ? true : false);
-        (isset($request->instagram) ? true : false);
-        (isset($request->tumblr) ? true : false);
-        (isset($request->blog) ? true : false);
-        (isset($request->comments_feedback) ? true : false);
-        (isset($request->member_signup) ? true : false);
-        (isset($request->contact_form) ? true : false);
-        (isset($request->existing_database) ? true : false);
-        (isset($request->stripe) ? true : false);
+        (isset($request->collateral) ? 1 : 0);
+        (isset($request->facebook) ? 1 : 0);
+        (isset($request->linkedin) ? 1 : 0);
+        (isset($request->twitter) ? 1 : 0);
+        (isset($request->youtube) ? 1 : 0);
+        (isset($request->instagram) ? 1 : 0);
+        (isset($request->tumblr) ? 1 : 0);
+        (isset($request->blog) ? 1 : 0);
+        (isset($request->comments_feedback) ? 1 : 0);
+        (isset($request->member_signup) ? 1 : 0);
+        (isset($request->contact_form) ? 1 : 0);
+        (isset($request->existing_database) ? 1 : 0);
+        (isset($request->stripe) ? 1 : 0);
         $project->save();
         $request->session()->flash('message', 'Thank you! Your project is being reviewed by our team of devs! We will follow up soon.');
         return redirect()->action("HomeController@index");
@@ -102,10 +102,10 @@ class ProjectsController extends Controller
         $project->point_person = $request->point_person;
         $project->phone = $request->phone;
         $project->email = $request->email;
-        $project->project_details = $request->project_details;
-         $project->save();
+        $project->project_details = $request->project_details; 
         $project->status = 'approved';
-       
+        $project->save();
+
         $request->session()->flash('message', 'You have updated and approved the project.');
 
         $project->sendInvite();

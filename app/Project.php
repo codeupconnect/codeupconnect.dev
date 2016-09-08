@@ -18,6 +18,9 @@ class Project extends Model
     {
         $users = User::whereNotNull('queue')->orderBy('queue', 'desc')->get();
         $all_users = $users->all();
+        if (empty($all_users)) {
+            return null;
+        }
         $user = $all_users[$count];
         return $user;
     }

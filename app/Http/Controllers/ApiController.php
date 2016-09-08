@@ -19,9 +19,16 @@ class ApiController extends Controller
     {
         $userId = session()->get('login_' . md5("Illuminate\Auth\Guard"));
         $user = User::findorFail($userId);
-        $user->trello_id = $request->get('trello_token');
+        $user->trello_id = $request->get('trello_id');
         $user->save();
-        return $user->active_project;
+
+        // Count Team Members for this Project
+        $count = TeamMember::where('project_id', $user->active_project)->count();
+
+        if ($count <= 1)
+            return 'true';
+        else
+            return 'false';
     }
 
     public static function createTrelloBoard()

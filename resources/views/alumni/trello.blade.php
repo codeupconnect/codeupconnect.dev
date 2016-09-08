@@ -6,9 +6,11 @@
 
 @section('content')
     
+	<div id="operations">
+    	<input hidden id="token" value="{{ session()->token() }}">
+    </div>
     <div class="container">		      
     	<h1>Trello Dashboard</h1>
-    	<input hidden id="token" value="{{ session()->token() }}">
     	<button id="newBoard">New Board</button>		
       	<form class="form-horizontal" id="boards_form">		        
 	      	<div class="form-group">

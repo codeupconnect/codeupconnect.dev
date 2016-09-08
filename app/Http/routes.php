@@ -21,7 +21,7 @@ Route::post('submit', 'ProjectsController@store');
 Route::get('admin', 'ProjectsController@showUnapproved');
 Route::get('show-project/{id}', 'ProjectsController@showProject');
 Route::get('edit/{id}', 'ProjectsController@edit');
-Route::post('approve', 'ProjectsController@update');
+Route::get('approve/{id}', 'ProjectsController@update');
 Route::get('enter/{id}', 'UsersController@enterQueue');
 Route::get('queue', 'UsersController@showQueue');
 Route::get('users', 'UsersController@index');
@@ -34,7 +34,7 @@ Route::get('reject', 'UsersController@rejectInvite');
 
 // Temp
 Route::get('accept', 'ProjectsController@acceptProject');
-Route::post('update/{id}', 'ProjectsController@update');
+
 
 
 Route::get('editproject', function(){return view('admin.editproject');});

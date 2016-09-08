@@ -6,8 +6,7 @@
 
 	var listIds = new Array();
 	var listNames = new Array();
-	var boardId = "{{ $boardId }}";
-
+	var boardId;
 
 
 // ---------------------
@@ -26,22 +25,22 @@
 // -------------------------------
 
 	// Load board upon selection from dropdown
-    $('#boards').change(function() 
-    {
-    	// Get selected board id and load boards
-   		boardId = $("option:selected", this).val();
-    	loadBoard();
-    });
+    // $('#boards').change(function() 
+    // {
+    // 	// Get selected board id and load boards
+   	// 	boardId = $("option:selected", this).val();
+    // 	loadBoard();
+    // });
 
 	// Get the users boards		      
-	var loadAllBoards = function() 
-	{	
-		Trello.get(
-			'/members/me/boards/',		        
-			loadedBoards,		        
-			function() { console.log("Failed to load boards"); }
-		);		    
-	};
+	// var loadAllBoards = function() 
+	// {	
+	// 	Trello.get(
+	// 		'/members/me/boards/',		        
+	// 		loadedBoards,		        
+	// 		function() { console.log("Failed to load boards"); }
+	// 	);		    
+	// };
 
 	// Show user's boards
     var loadedBoards = function(boards) 
@@ -69,15 +68,16 @@
 
     function loadBoard()
     {
+		boardId = $('#board-id').val();
     //	Clear loaded lists
     	$('#lists').empty();
-
 	// Get the selected board's lists
      	Trello.get(
         	'/boards/' + boardId + '/lists',
         	loadedLists,
        		function() { dump("Failed to load lists"); }
       	);
+		dump(boardId);
     }
 
 	var loadedLists = function(lists) 
@@ -219,13 +219,14 @@
 	});
 
 	// Create New Board if first_member is true, otherwise view
-	function createOrViewBoard(id)
+	function createOrViewBoard()
 	{
 		if ($('#first-member').val() == "true")
 		{
 			Trello.post('/boards/', {name: $('#board_name').val, idBoardSource: '57ccac05a9c89e70ce374d64'})
 				.done(function(board)
 				{ 
+					console.log(board);
 					// Post Board ID and Redirect to Laravel Function for Storing
 				    $('#board-id').attr('value', board.id);
 				    document.forms['operations'].submit();
@@ -233,7 +234,6 @@
 		} else
 		{
 			// view board. future: add self to board.
-			boardId = id;
 			loadBoard();
 		}
 	}
@@ -262,6 +262,7 @@
 			$('#first-member').attr('value', data['first_member']);
 			$('#board-name').attr('value', data['board_name']);
 			$('#project-id').attr('value', data['project_id']);
+			$('#board-id').attr('value', data['board_id']);
 			createOrViewBoard();
 		});
 		// continue with logic ...

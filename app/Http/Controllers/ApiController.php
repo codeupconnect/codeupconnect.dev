@@ -20,14 +20,20 @@ class ApiController extends Controller
     public function trelloLogin(Request $request)
     {
         $userId = session()->get('login_' . md5("Illuminate\Auth\Guard"));
+        $trelloId = $request->get('trello_id');
+        $boardId = $request->get('board_id');
         $user = User::findorFail($userId);
-        $user->trello_id = $request->get('trello_id');
+        $user->trello_id = $trelloId;
         $user->save();
 
         $project = Project::findorFail($user->active_project);
+        $project->trello_id = $trelloId;
+        $project->save();
+
         $data['project_id'] = $user->active_project;
         $data['first_member'] = false;
         $data['board_name'] = $project->organization_name . "-" . $project->id;
+        $data['board_id'] = $boardId;
 
         // Count Team Members for this Project
         $count = TeamMember::where('project_id', $project->id)->count();

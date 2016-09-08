@@ -15,7 +15,6 @@ class CreateProjectsTable extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->increments('id');
 
-
             $table->string('status');
             $table->integer('next_invite')->default(0)->nullable();
             $table->string('trello_id');

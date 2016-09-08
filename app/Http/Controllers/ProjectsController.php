@@ -67,7 +67,7 @@ class ProjectsController extends Controller
         (isset($request->stripe) ? true : false);
         $project->save();
         $request->session()->flash('message', 'Thank you! Your project is being reviewed by our team of devs! We will follow up soon.');
-        return redirect()->action("HomeController@showWelcome");
+        return redirect()->action("HomeController@index");
     }
 
     /**
@@ -208,7 +208,10 @@ class ProjectsController extends Controller
 
     public function viewInvite()
     {
-        //
+        $id = session()->get('login_' . md5("Illuminate\Auth\Guard"));
+        $user = User::findorFail($id);
+        $project = Project::findorFail($user->invite);
+        return view('alumni.user-project-invite')->with('user', $user)->with('project', $project);
     }
 
     public function acceptProject(Request $request)
@@ -217,14 +220,24 @@ class ProjectsController extends Controller
         $userId = session()->get('login_' . md5("Illuminate\Auth\Guard"));
         $user = User::where('id', $userId)->first();
         $role = $request->role;
-        $project = $request->project_id;
+        $projectId = $request->project_id;
         $boardId = $request->input('board');
         
+        // Add to team member table & trello board
         TeamMember::insert([
             'user_id' => $userId,
             'role' => $role,
-            'project_id' => $project
+            'project_id' => $projectId
             ]);
+        $teamMembers = TeamMember::where('project_id', $projectId)->count();
+
+        if ($teamMembers >= 2)
+        {
+            // create trello board
+        } else
+        {
+            // add user to trello board
+        }
         Project::insert([
             'trello_id' => $boardId,
             ]);

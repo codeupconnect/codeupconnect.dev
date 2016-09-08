@@ -29,6 +29,7 @@ class CreateUsersTable extends Migration
             $table->string('resume_url');
             $table->nullableTimestamps();
             $table->string('avatar');
+
         });
     }
 

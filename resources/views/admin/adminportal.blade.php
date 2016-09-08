@@ -4,8 +4,9 @@
 @section('content')
 	
 
-	<h1>Admin Portal</h1>
-	<table class="table table-bordered table-stripped table-hover">
+<div class="container admin text-center">
+	<h2 class='font-thin' id="header-spacing">Admin Portal</h2>
+	<table class="table table-bordered table-striped table-hover">
 		<thead>
 			<tr>
 				<td>Project ID</td>
@@ -13,7 +14,7 @@
 				<td>Organization</td>
 				<td>Project Details</td>
 			</tr>
-		<thead>
+		</thead>
 		<tbody>
 		@foreach($projects as $project)
 			<tr class="table-row" data-href="{{ action('ProjectsController@showProject', $project->id) }}">
@@ -24,7 +25,9 @@
 			</tr>
 		@endforeach
 		</tbody>
-	</table>		
+	</table>
+</div>		
+@stop
 
 
 @section('bottom-scripts')

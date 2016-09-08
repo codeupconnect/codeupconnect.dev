@@ -27,7 +27,6 @@ class Project extends Model
     {
         $nextInvite = $this->next_invite;
         $user = $this->nextinQueue($nextInvite);
-        // Update user to have invite
         $user->invite = $this->id;
         $user->save();
     }

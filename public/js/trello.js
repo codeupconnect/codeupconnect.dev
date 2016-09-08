@@ -7,8 +7,6 @@
 	var listIds = new Array();
 	var listNames = new Array();
 	var boardId = "{{ $boardId }}";
-	var token = $('#token').val();
-
 
 
 
@@ -221,16 +219,16 @@
 	});
 
 	// Create New Board if first_member is true, otherwise view
-	function createOrViewBoard(boardName, id)
+	function createOrViewBoard(id)
 	{
 		if ($('#data-first'))
 		{
-			Trello.post('/boards/', {name: boardName, idBoardSource: '57ccac05a9c89e70ce374d64'})
+			Trello.post('/boards/', {name: $('#board_name').val, idBoardSource: '57ccac05a9c89e70ce374d64'})
 				.done(function(board)
 				{ 
 					// Post Board ID and Redirect to Laravel Function for Storing
-				    $('#operations').html("<form action='{{ UsersController@acceptProject() }}' name='submit' method='post' style='display:none;''><input hidden name='_token' value='" + token + "'><input type='text' name='board' value='" + board.id + "' /></form>");
-				    document.forms['submit'].submit();
+				    $('#board-id').attr('value', board.id);
+				    document.forms['operations'].submit();
 				})
 		} else
 		{
@@ -252,6 +250,7 @@
 
 	var authorizeSuccess = function() 
 	{
+		var token = $('#token').val();
 		$.ajax({
 			url: "/trello-login",
 			type: "POST",
@@ -260,8 +259,10 @@
 			'_token' : token,
 			}
 		}).done(function(data) {
-			$('#operations').append("<input hidden data-first='" + data['first_member'] + "' data-project-id='" + data['project_id'] + "' data-board-name='" + data['board_name'] + "'>");
-			createOrViewBoard(data['board_name']);
+			$('#first-member').attr('value', data['first_member']);
+			$('#board-name').attr('value', data['board_name']);
+			$('#project-id').attr('value', data['project_id']);
+			createOrViewBoard();
 		});
 		// continue with logic ...
 	}

@@ -1,11 +1,11 @@
-@extends('layout.master')
 
 
-@section('content')
+
+
 	
-
-	<h1>Queue</h1>
-	<table class="table table-bordered table-striped table-hover">
+<div class="">
+	<h3>Queue</h3>
+	<table class="table table-bordered table-striped table-hover" >
 		<thead>
 			<tr>
 				<td>User ID</td>
@@ -14,7 +14,7 @@
 				<td>URL</td>
 				<td>Email</td>
 			</tr>
-		<thead>
+		</thead>
 		<tbody>
 		@foreach($users as $user)
 			<tr class="table-row">
@@ -29,5 +29,6 @@
 	</table>		
 
 
+</div>
 
-@stop
+

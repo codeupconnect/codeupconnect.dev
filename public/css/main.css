@@ -16,6 +16,8 @@
     overflow-x: hidden;
   }
 
+
+
 /*Font styling*/
   .font-thin {
     font-family: 'Antic Slab', serif;
@@ -473,14 +475,19 @@
     .profile-content {
       padding: 20px;
       background: #fff;
-      max-height: 20%;
       margin-top: 50px;
     }
 
-    .cc-portfolio{
-      margin-top:13%;
+    #current-project{
+      height: 200px;
+    }
+
+    #queue{
+      height: auto;
       margin-bottom: 30%;
     }
+
+    
 
 /*Footer */
  

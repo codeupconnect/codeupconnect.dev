@@ -28,7 +28,7 @@
 							{{ $user->nickname }} </a>
 						</li>
 						<li>
-							<a href="#">
+							<a href="{{ action('ProjectsController@edit') }}">
 							<i class="glyphicon glyphicon-pencil"></i>
 							Edit Profile </a>
 						</li>
@@ -43,18 +43,17 @@
 		</div>
 
 		<div class="col-md-9">
-			<div class="profile-content">
+			<div class="profile-content" id="current-project">
 				<div class="container">
 					<h3>Current Project: {{ $user->active_project }}</h3>
 					<div class="container">
 						<h4>Current Team:</h4>
 					</div>
 				</div>
-				<div class="container ">
-					<h3 class="cc-portfolio">CodeupConnect Portfolio</h3>
-				</div>
-
 			</div>
+			<div class="profile-content col-xs-12" id="queue">
+				@include('partials.queue')
+				</div>
 		</div>
 	</div>
 </div>

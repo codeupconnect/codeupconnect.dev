@@ -94,7 +94,7 @@ class ProjectsController extends Controller
     // Updates handled by admin, not outside clients
     public function update(Request $request, $id)
     {
-        $project = Project::findorFail($id);
+        $project = Project::findOrFail($id);
         $project->organization_name = $request->organization_name;
         $project->site_url = $request->site_url;
         $project->start_date = $request->start_date;
@@ -125,7 +125,7 @@ class ProjectsController extends Controller
     // only admin can destroy
     public function destroy($id)
     {
-        $project = Project::findorFail($id);
+        $project = Project::findOrFail($id);
         if(!$project) {
             Log::info("Project with ID $id cannot be found");
             abort(404);
@@ -210,8 +210,8 @@ class ProjectsController extends Controller
     public function viewInvite()
     {
         $id = session()->get('login_' . md5("Illuminate\Auth\Guard"));
-        $user = User::findorFail($id);
-        $project = Project::findorFail($user->invite);
+        $user = User::findOrFail($id);
+        $project = Project::findOrFail($user->invite);
         return view('alumni.user-project-invite')->with('user', $user)->with('project', $project);
     }
 

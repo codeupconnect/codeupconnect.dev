@@ -61,7 +61,7 @@ class UsersController extends Controller
     public function show($id)
     {
         $myUser = DB::table('users')->where('id', $id)->first();
-        $users = User::whereNotNull('queue')->orderBy('queue', 'desc')->get();
+        $users = User::where('queue', '<>', "")->orderBy('queue', 'asc')->get();
         return view('alumni.user', ['myUser' => $myUser, 'users' => $users]);
     }
 
@@ -113,7 +113,7 @@ class UsersController extends Controller
             [
             'queue' => time(),
             ]);
-        return redirect()->action('UsersController@show');
+        return redirect()->action('UsersController@show', $id);
     }
 
     public function acceptProject(Request $request)

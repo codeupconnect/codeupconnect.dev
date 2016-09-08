@@ -39,10 +39,13 @@
 							Résumé </a>
 						</li>
 						<li>
-							<form method="PUT">
-							<a href="{{ action('UsersController@enterQueue', $myUser->id) }}">
-							<i class="glyphicon glyphicon-plus"></i>
-							Add Me to the Queue </a></form>
+							<form action="{{ action('UsersController@enterQueue', $myUser->id) }}" method="POST">
+							{!! csrf_field() !!}
+							{!! method_field("PUT") !!}
+								<button type="submit" class="link btn-link text-center">
+								<i class="glyphicon glyphicon-plus"></i>
+								Add Me to the Queue </button>
+							</form>
 						</li>
 					</ul>
 				</div>

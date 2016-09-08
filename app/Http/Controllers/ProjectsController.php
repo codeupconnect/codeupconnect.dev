@@ -109,7 +109,7 @@ class ProjectsController extends Controller
 
         $project->sendInvite();
 
-        return redirect()->action("HomeController@showWelcome");
+        return redirect()->action("HomeController@index");
     }
 
 

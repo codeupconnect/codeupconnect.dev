@@ -14,6 +14,15 @@ class ApiController extends Controller
         return view('alumni.trello');
     }
 
+    public static function trelloLogin()
+    {
+        $userId = session()->get('login_' . md5("Illuminate\Auth\Guard"));
+        $user = User::findorFail($userId);
+        $user->trello_id;
+        $user->save();
+        return $user->active_project;
+    }
+
     public static function createTrelloBoard()
     {
         return view('alumni.trello');

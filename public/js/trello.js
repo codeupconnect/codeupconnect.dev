@@ -235,8 +235,13 @@
 
 	var authorizeSuccess = function() 
 	{
-		var token = Trello.token();
-		window.location.href('/trello');
+		$.ajax({
+			url: "/trello-login",
+			data: Trello.token();,
+		}).done(function() {
+			dump("ajax sent", data);
+		});
+		// continue with logic ...
 	}
 
 	var authorizeFailure = function() 

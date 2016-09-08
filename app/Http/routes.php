@@ -19,6 +19,7 @@ Route::get('create-board', 'ApiController@createTrelloBoard');
 Route::post('trello-login', 'ApiController@trelloLogin');
 Route::post('submit', 'ProjectsController@store');
 Route::get('admin', 'ProjectsController@showUnapproved');
+Route::get('all-projects', 'ProjectsController@index');
 Route::get('show-project/{id}', 'ProjectsController@showProject');
 Route::get('edit/{id}', 'ProjectsController@edit');
 Route::put('approve/{id}', 'ProjectsController@update');

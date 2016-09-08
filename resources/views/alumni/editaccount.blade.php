@@ -1,6 +1,8 @@
 @extends('layout.master')
 
 @section('content')
+@include('partials.project-invite')
+
 <h2 class="title">Edit Profile</h2>
 
 <div class="container">	

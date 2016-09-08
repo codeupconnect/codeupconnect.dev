@@ -1,4 +1,4 @@
-<footer class="footer">
+<footer class="footer" id="footer">
 	<div class="col-xs-12">
 		<div class="col-xs-4 text-left">
 			<h5>CodeupConnect 2016</h5>

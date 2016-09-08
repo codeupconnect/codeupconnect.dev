@@ -27,11 +27,11 @@ Route::get('queue', 'UsersController@showQueue');
 Route::get('users', 'UsersController@index');
 Route::get('form', function(){return view('public.clientform');});
 Route::get('account/{id}', 'UsersController@show');
-Route::get('invite', 'ProjectsController@viewInvite');
+Route::get('invite/{id}', 'ProjectsController@viewInvite');
 Route::get('accept', 'UsersController@acceptInvite');
 Route::get('reject', 'UsersController@rejectInvite');
 
 // *Caution* public/js/trello.js is direct referencing /accept-project in createOrViewBoard().
 Route::post('accept-project', 'UsersController@acceptProject');
 
-Route::get('project-invite', function(){return view('alumni.user-project-invite');});
+

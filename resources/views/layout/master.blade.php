@@ -23,10 +23,12 @@
 	
 	</head>
 	<body>
+		<div id="wrapper">
 		
 		@include('partials.navbar')
 
-		@yield('content')
+		
+		<div id="content">@yield('content')</div>
 
 		@include('partials.footer')
 	
@@ -36,7 +38,8 @@
 		<script src="/js/common.js"></script>	
 		
 		@yield('bottom-scripts')
-		
+
+		</div>
 	</body>
 
 </html>

@@ -21,7 +21,8 @@
 			  	@endif
 			@endforeach
 
-			<a type="submit" class="btn btn-success">Accept</a>
+			<a type="submit" class="btn btn-success" href="{{ action('ProjectsController@update', $boolean['id']) }}">Accept</a>
+
 		</form>
 	</div>
 </div>

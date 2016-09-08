@@ -146,8 +146,8 @@ class ProjectsController extends Controller
     // At this point projects are either unassigned or assigned - pending team member
     public function index()
     {
-        $projects = Project::where('status', 'approved')->get();
-        $projects = $projects->orderBy('projects.created_at', 'DESC')->paginate(10);
+        $projects = Project::where('status', 'approved');
+        $projects = $projects->orderBy('projects.created_at', 'ASC')->paginate(10);
         return view("alumni.approvedprojects")->with("projects", $projects);
     }
     
@@ -204,7 +204,7 @@ class ProjectsController extends Controller
         if ($project->status == 'unapproved')
             return view("admin.editproject")->with('data', $data['attributes'])->with('boolean', $boolean['attributes']);
         else
-            return view("alumni.project")->with('data', $data['attributes'])->with('boolean', $boolean['attributes']);
+            return view("alumni.project")->with('data', $data['attributes'])->with('boolean', $boolean['attributes'])->with('project', $project);
     }
 
     public function viewInvite()

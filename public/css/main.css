@@ -12,25 +12,26 @@
 
   body {
     background-color: #D5D5D5;
-    font-family: "Antic Slab", sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     font-weight: normal;
     overflow-x: hidden;
     
   }
 
+  h1, h2, h3, h4, h5, h6 {
+     font-family: 'Lato', sans-serif;
+  }
+
 /*Font styling*/
   .font-thin {
-    font-family: 'Antic Slab', serif;
     font-weight: 200;
   }
 
   .font-semibold {
-    font-family: 'Antic Slab', serif;
     font-weight: 600;
   }
 
   .font-light {
-    font-family: 'Antic Slab', serif;
     font-weight: 300;
   }
 
@@ -250,11 +251,9 @@
 
   .navbar-default {
     background-color:#118489;
-    font-family: 'Antic Slab', serif;
    }
 
    .navbar-default .navbar-nav>li>a, .navbar-default .navbar-brand {
-    font-family: 'Antic Slab', serif;
     color: #D5D5D5;
    }
 
@@ -382,7 +381,6 @@
   /* Profile Container */
     .profile {
       margin: 20px 0;
-
     }
 
   /* Profile Sidebar */
@@ -541,6 +539,10 @@
     margin-bottom: 50px;
   }
 
+  thead{
+    background-color:#022648;
+    color: #D5D5D5;
+  }
 
 /*Banner Project Invite*/
 
@@ -551,6 +553,3 @@
     margin-left: 26%;
     margin-bottom:-30px;
   }
-
-
-

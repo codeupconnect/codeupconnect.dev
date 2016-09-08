@@ -22,7 +22,7 @@ Route::get('admin', 'ProjectsController@showUnapproved');
 Route::get('show-project/{id}', 'ProjectsController@showProject');
 Route::get('edit/{id}', 'ProjectsController@edit');
 Route::put('approve/{id}', 'ProjectsController@update');
-Route::get('enter-queue/{id}', 'UsersController@enterQueue');
+Route::put('enter-queue/{id}', 'UsersController@enterQueue');
 Route::get('users', 'UsersController@index');
 Route::get('form', function(){return view('public.clientform');});
 Route::get('account/{id}', 'UsersController@show');

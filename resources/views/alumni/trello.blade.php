@@ -3,12 +3,16 @@
 @section('head-includes')
 
 	<link href="/css/trello.css" rel="stylesheet">
-
 @section('content')
     
-	<div id="operations">
+	<form hidden id="operations" action='/accept-project' name='submit' method='post' style='display:none;'>
+		{!! csrf_field() !!}
     	<input hidden id="token" value="{{ session()->token() }}">
-    </div>
+    	<input hidden id="first-member" name="first_member" value=""></input>
+    	<input hidden id="board-name" name="board_name" value=""></input>
+    	<input hidden id="project-id" name="project_id" value=""></input>
+    	<input hidden id="board-id" name="board_id" value=""></input>
+    </form>
     <div class="container">		      
     	<h1>Trello Dashboard</h1>
     	<button id="newBoard">New Board</button>		

@@ -60,7 +60,7 @@
     }
 
     #slide-1 h1 {
-      padding-top: 100px;
+      padding-top: 20%;
     }
 
     @media (max-width: 991px) {
@@ -139,8 +139,8 @@
         position: relative;
         display: block;
         margin: 20px auto;
-        margin-top: 10%;
-        
+        margin-top: 5%;
+        margin-bottom: 20%;
         width: 100%;
         height: 80px;
         max-width: 250px;
@@ -268,6 +268,14 @@
     }
   }
 
+  #alert-notification{
+    margin-top:90px;
+    text-align:center;
+    max-width: 700px;
+    margin-left: 26%;
+    margin-bottom:-30px;
+  }
+
   /*Github Button*/
 
     .btn-social{
@@ -373,99 +381,113 @@
 
 /*User Profile*/
 
-  .info-portfolio {
-      background-color: #022648;
-      color:white;
-  } 
+  /* Profile Container */
+    .profile {
+      margin: 20px 0;
 
-  .bottom-block{
-    background: #00999E ;
-  }
+    }
 
-  div.user-menu-container {
+  /* Profile Sidebar */
+    .profile-sidebar {
+      padding: 20px 0 10px 0;
+      background: #fff;
+      margin-top:50px;
+    }
 
-    z-index: 10;
-    background-color: #fff;
-    margin-top: 100px;
-    background-clip: padding-box;
-    opacity: 0.97;
-    filter: alpha(opacity=97);
-    -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
-    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
-  }
+    /*Profile Pic*/
+      .profile-userpic img {
+          width: 100px;
+          height: 100px;
+          max-width: 100px;
+          max-height: 100px;
+          -webkit-border-radius: 50%;
+          -moz-border-radius: 50%;
+          border-radius: 50%;
+          border: 5px solid rgba(255,255,255,0.5);
+          margin-left: 25%;
+      }
 
-  div.user-menu-content {
-      color: #323232;
-  }
+    /*User Name/Preferences*/
 
-  ul.user-menu-list {
-      list-style: none;
-      margin-top: 10px;
-      margin-bottom: 0;
-      padding: 10px;
-      border: 1px solid #eee;
-  }
+      .profile-usertitle {
+        text-align: center;
+        margin-top: 20px;
+      }
 
-  ul.user-menu-list>li {
-      padding-bottom: 8px;
-      text-align: center;
-  }
+      .profile-usertitle-name {
+        color: #5a7391;
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 7px;
+      }
 
-  div.user-menu div.user-menu-content:not(.active){
-    display: none;
-  }
+      .profile-usertitle-job {
+        text-transform: uppercase;
+        color: #5b9bd1;
+        font-size: 12px;
+        font-weight: 600;
+        margin-bottom: 15px;
+      }
+      
+    /*Menu*/
+      .profile-usermenu {
+        margin-top: 30px;
+      }
 
-  .user-pad {
-      padding: 20px 25px;
-  }
+      .profile-usermenu ul li {
+        border-bottom: 1px solid #f0f4f7;
+      }
 
-  .no-pad {
-      padding-right: 0;
-      padding-left: 0;
-      padding-bottom: 0;
-  }
+      .profile-usermenu ul li:last-child {
+        border-bottom: none;
+      }
 
-  .user-details {
-      min-height: 333px;
-  }
+      .profile-usermenu ul li a {
+        color: #93a3b5;
+        font-size: 14px;
+        font-weight: 400;
+      }
 
-  .user-image {
-    max-height:200px;
-    overflow:hidden;
-  }
+      .profile-usermenu ul li a i {
+        margin-right: 8px;
+        font-size: 14px;
+      }
 
-  .overview h3 {
-      font-weight: 300;
-      margin-top: 15px;
-      margin: 10px 0 0 0;
-  }
+      .profile-usermenu ul li a:hover {
+        background-color: #fafcfd;
+        color: #5b9bd1;
+      }
 
-  .profile-font{
-    text-align: center;
-  }
+      .profile-usermenu ul li.active {
+        border-bottom: none;
+      }
 
-  #user-portfolio{
-    min-height: 200px;
-    margin-top: 20px;
-    margin-left: 20%;
-    margin-bottom: 20px;
-  }
+      .profile-usermenu ul li.active a {
+        color: #5b9bd1;
+        background-color: #f6f9fb;
+        border-left: 2px solid #5b9bd1;
+        margin-left: -2px;
+      }
 
-  #alert-notification{
-    margin-top:90px;
-    text-align:center;
-    max-width: 700px;
-    margin-left: 26%;
-    margin-bottom:-30px;
-  }
+  /* Profile Content */
+    .profile-content {
+      padding: 20px;
+      background: #fff;
+      min-height: 504px;
+      margin-top: 50px;
+    }
+
+    .cc-portfolio{
+      margin-top:13%;
+      margin-bottom: 30%;
+    }
 
 /*Footer */
  
-  footer{
+  .footer{
     background-color: #118489;
-  }
-  a{
     color:white;
+    height: 45px;
   }
 
 /*Edit User Profile, Edit Project, User Project Invite*/

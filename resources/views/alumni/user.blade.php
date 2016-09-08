@@ -1,54 +1,61 @@
 @extends('layout.master')
 
-
-
 @section('content')
 
-<!-- if user has a project in queue for them to view-->
-	
 <div class="container">
-	<div class="row user-menu-container" >
-		<div class="col-xs-7 bottom-block user-details">
-			<div class="row info-portfolio">
-				<div class="col-xs-6 no-pad">
-					<div class="user-image">
-						<img src="/giphy.gif">
+	<div class="row profile">
+		<div class="col-md-3">
+			<div class="profile-sidebar">
+				<!-- Profile Pic -->
+				<div class="profile-userpic">
+					<img src="../bucky.jpg" class="img-responsive" alt="">
+				</div>
+				<!-- Username/Preference -->
+				<div class="profile-usertitle">
+					<div class="profile-usertitle-name">
+						Bucky Barnes
+					</div>
+					<div class="profile-usertitle-job">
+						Winter Soldier (prefers FE)
 					</div>
 				</div>
-				<div class="col-xs-6 no-pad" id="user-info" data-value="">
-					<div class="user-pad font text-center">
-						<h3 id="name"></h3>
-						<h4><i class="fa fa-check-circle-o"></i> Alumni</h4>
-						<i class="fa fa-github"></i><h4 id="github-id"> schmidty</h4>
-					</div>
+
+				<!-- Menu -->
+				<div class="profile-usermenu">
+					<ul class="nav">
+						<li>
+							<a href="#">
+							<i class="fa fa-github"></i>
+							Github Username </a>
+						</li>
+						<li>
+							<a href="#">
+							<i class="glyphicon glyphicon-user"></i>
+							Edit Profile </a>
+						</li>
+					</ul>
 				</div>
-			</div>
-			<div class="row overview font text-center">
-				<h3 class="user-pad">Preferences</h3>
 			</div>
 		</div>
-		<div class="col-xs-4 font">
-			<div>
-				<h3>Current Project: MyFitSA Website</h3>
-				<ul class="user-menu-list">
-					<li><h4>Team Members: </h4></li>
-					<li><h5> Nick</h5></li>
-					<li><h5> Jess</h5></li>
-				</ul>
+
+		<div class="col-md-9">
+			<div class="profile-content">
+				<div class="container">
+					<h3>Current Project:</h3>
+					<div class="container">
+						<h4>Current Team:</h4>
+					</div>
+				</div>
+				<div class="container ">
+					<h3 class="cc-portfolio">CodeupConnect Portfolio</h3>
+				</div>
+
 			</div>
 		</div>
 	</div>
 </div>
-<!-- <div class="container">
-	<div class="row">
-		<div class="col-xs-7 info-portfolio" id="user-portfolio">
-			<div class="row">
-				<div class="user-pad font text-center"><h3 class="user-pad">CodeupConnect Portfolio</h3>
-				</div>
-			</div>
-		</div>
-	</div>
-</div> -->
+<br>
+<br>
 
 @section('bottom-scripts')
 	<script>
@@ -57,13 +64,13 @@
 		var api = $('#user-info').data();
 		// api['value'] is now the string we are looking for
 
-	 	$.getJSON(api['value'], function (data) {
-            console.log(data);
+		$.getJSON(api['value'], function (data) {
+			console.log(data);
 
-            // Enter #id that should be targeted, and data['value'] that should be inserted
-	        $('#github-id').text(data['login']);
-	        $('#name').text(data['name']);
-        });
+			// Enter #id that should be targeted, and data['value'] that should be inserted
+			$('#github-id').text(data['login']);
+			$('#name').text(data['name']);
+		});
 
 
 	</script>

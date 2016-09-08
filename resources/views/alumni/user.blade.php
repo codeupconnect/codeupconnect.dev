@@ -1,6 +1,7 @@
 @extends('layout.master')
-
 @section('content')
+
+@include('partials.project-invite')
 <div class="container">
 	<div class="row profile">
 		<div class="col-md-3">

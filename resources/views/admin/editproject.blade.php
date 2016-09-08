@@ -1,3 +1,5 @@
+@extends('layout.master')
+
 @section('content')
 <h2 class="title">Edit/Accept Project</h2>
 
@@ -19,7 +21,7 @@
 			  	@endif
 			@endforeach
 
-			<button type="submit" class="btn btn-default">Accept</button>
+			<a type="submit" class="btn btn-success">Accept</a>
 		</form>
 	</div>
 </div>

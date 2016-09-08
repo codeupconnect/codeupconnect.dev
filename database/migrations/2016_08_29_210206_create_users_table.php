@@ -14,6 +14,7 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
+
             $table->string('name')->nullable();
             $table->string('nickname')->unique();
             $table->string('github_id')->unique();
@@ -27,6 +28,8 @@ class CreateUsersTable extends Migration
             $table->string('active_project');
             $table->string('resume_url');
             $table->nullableTimestamps();
+            $table->string('avatar');
+
         });
     }
 

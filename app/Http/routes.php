@@ -16,6 +16,7 @@ Route::get('logout', 'Auth\AuthController@logout');
 Route::get('auth', 'Auth\AuthController@handleProviderCallback');
 Route::get('trello', 'ApiController@viewTrello');
 Route::get('create-board', 'ApiController@createTrelloBoard');
+Route::get('trello-login', 'ApiController@trelloLogin');
 Route::post('submit', 'ProjectsController@store');
 Route::get('admin', 'ProjectsController@showUnapproved');
 Route::get('show-project/{id}', 'ProjectsController@showProject');

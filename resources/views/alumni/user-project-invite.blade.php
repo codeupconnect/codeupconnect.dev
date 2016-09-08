@@ -9,8 +9,11 @@
 	<p>{{ $project->organization_name }}</p>
 </div>
 <div class="container button-container">	  
-	  <!-- {{ action('UsersController@acceptInvite', $user->id) }}
-	  {{ action('UsersController@rejectInvite', $user->id) }} -->
+	<!-- 
+		Need to post this data to ProjectsController@acceptProject()
+	    {{ action('UsersController@acceptInvite', $user->id) }}
+	    {{ action('UsersController@rejectInvite', $user->id) }} 
+		-->
 </div>
 
 

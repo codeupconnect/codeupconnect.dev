@@ -34,10 +34,9 @@ class ApiController extends Controller
         $data['first_member'] = false;
         $data['board_name'] = $project->organization_name . "-" . $project->id;
         $data['board_id'] = $boardId;
-
         // Count Team Members for this Project
-        $count = TeamMember::where('project_id', $project->id)->count();
-        if ($count < 1)
+        $count = TeamMember::where('project_id', $project->id)->where('user_id', $userId)->first();
+        if ($count === null)
         {
             $data['first_member'] = true;
         }

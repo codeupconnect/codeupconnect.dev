@@ -476,7 +476,7 @@
       height: 200px;
     }
 
-    #queue{
+    .tables{
       height: auto;
       margin-bottom: 30%;
     }
@@ -498,7 +498,6 @@
   .form-container{
     margin-top:5%;
     color: white;
-    opacity: .7;
     margin-bottom: 5%;
   }
 

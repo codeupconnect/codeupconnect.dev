@@ -12,12 +12,12 @@ use App\Http\Controllers\Controller;
 
 class ApiController extends Controller
 {
-    public static function viewTrello()
+    public function viewTrello()
     {
         return view('alumni.trello');
     }
 
-    public static function trelloLogin(Request $request)
+    public function trelloLogin(Request $request)
     {
         $userId = session()->get('login_' . md5("Illuminate\Auth\Guard"));
         $user = User::findorFail($userId);
@@ -31,35 +31,12 @@ class ApiController extends Controller
 
         // Count Team Members for this Project
         $count = TeamMember::where('project_id', $project->id)->count();
-        if ($count == 0)
+        if ($count < 1)
         {
             $data['first_member'] = true;
         }
 
         return $data;
-    }
-
-    public function acceptProject(Request $request)
-    {
-        // Gather Project and Team Member info
-        $userId = session()->get('login_' . md5("Illuminate\Auth\Guard"));
-        $user = User::where('id', $userId)->first();
-        $role = $request->role;
-        $projectId = $request->project_id;
-        $boardId = $request->input('board');
-        
-        // Add to team member table
-        TeamMember::insert([
-            'user_id' => $userId,
-            'role' => $role,
-            'project_id' => $projectId
-            ]);
-        Project::insert([
-            'trello_id' => $boardId,
-            ]);
-        User::where('id', $userId)->update(['queue' => null]);
-
-        return view("alumni.trello")->with('boardId', $boardId);
     }
 
     public static function createTrelloBoard()

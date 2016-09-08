@@ -2,7 +2,7 @@
 
 @section('content')
 	<h1>Approved Projects</h1>
-	<table class="table table-bordered table-stripped table-hover">
+	<table class="table table-bordered table-striped table-hover">
 		<thead>
 			<tr>
 				<td>Project ID</td>

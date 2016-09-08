@@ -8,13 +8,14 @@
     
     <div class="container">		      
     	<h1>Trello Dashboard</h1>
-    	<!-- <button id="newBoard">New Board</button>		
+    	<input hidden id="token" value="{{ session()->token() }}">
+    	<button id="newBoard">New Board</button>		
       	<form class="form-horizontal" id="boards_form">		        
-	      	<div class="form-group">		          
+	      	<div class="form-group">
 	      		<label class="control-label">Choose your board</label>
 	      	    <select class="form-control" id="boards"></select>		        
 	      	</div>    
-	    </form> -->
+	    </form>
 	    <div id="lists">
 	    </div>
     </div> 

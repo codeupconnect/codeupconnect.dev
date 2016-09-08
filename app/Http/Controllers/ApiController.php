@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\User;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -14,11 +15,11 @@ class ApiController extends Controller
         return view('alumni.trello');
     }
 
-    public static function trelloLogin()
+    public static function trelloLogin(Request $request)
     {
         $userId = session()->get('login_' . md5("Illuminate\Auth\Guard"));
         $user = User::findorFail($userId);
-        $user->trello_id;
+        $user->trello_id = $request->get('trello_token');
         $user->save();
         return $user->active_project;
     }

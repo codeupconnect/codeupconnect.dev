@@ -235,11 +235,16 @@
 
 	var authorizeSuccess = function() 
 	{
+		var token = $('#token').val();
 		$.ajax({
 			url: "/trello-login",
-			data: Trello.token();,
-		}).done(function() {
-			dump("ajax sent", data);
+			type: "POST",
+			data: {
+			'trello_token' : Trello.token(),
+			'_token' : token,
+			}
+		}).done(function(data) {
+			dump(data);
 		});
 		// continue with logic ...
 	}

@@ -19,4 +19,5 @@ class User extends Model implements AuthenticatableContract,
     protected $fillable = ['name', 'email', 'nickname', 'url', 'github_id', 'avatar'];
 
     protected $hidden = ['password', 'remember_token'];
+
 }

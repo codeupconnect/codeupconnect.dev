@@ -211,17 +211,32 @@
 // --- New Project ---
 // -------------------
 
-	// Create New Board on Click
+	// Create New Board on Click (for testing)
 	$(document).on('click', '#newBoard', function() 
 	{
-		Trello.post('/boards/', {name: 'Clone', idBoardSource: '57ccac05a9c89e70ce374d64'})
-			.done(function(board)
-			{ 
-				// Post Board ID and Redirect to Laravel Function for Storing
-			    $('#inset_form').html("<form action='{{ ApiController@acceptProject }}' name='submit' method='post' style='display:none;''><input type='text' name='board' value='" + board.id + "' /></form>");
-			    document.forms['submit'].submit();
-			})
+		var name = $(this).val();
+		createOrViewBoard(name);
 	});
+
+	// Create New Board if first_member is true, otherwise view
+	function createOrViewBoard(id)
+	{
+		if ($('#data-first'))
+		{
+			Trello.post('/boards/', {name: $('#board_name').val, idBoardSource: '57ccac05a9c89e70ce374d64'})
+				.done(function(board)
+				{ 
+					// Post Board ID and Redirect to Laravel Function for Storing
+				    $('#board-id').attr('value', board.id);
+				    document.forms['operations'].submit();
+				})
+		} else
+		{
+			// view board. future: add self to board.
+			boardId = id;
+			loadBoard();
+		}
+	}
 
 	// ***
 	// Redirect to Update Database via Laravel
@@ -235,11 +250,19 @@
 
 	var authorizeSuccess = function() 
 	{
+		var token = $('#token').val();
 		$.ajax({
 			url: "/trello-login",
-			data: Trello.token();,
-		}).done(function() {
-			dump("ajax sent", data);
+			type: "POST",
+			data: {
+			'trello_id' : Trello.token(),
+			'_token' : token,
+			}
+		}).done(function(data) {
+			$('#first-member').attr('value', data['first_member']);
+			$('#board-name').attr('value', data['board_name']);
+			$('#project-id').attr('value', data['project_id']);
+			createOrViewBoard();
 		});
 		// continue with logic ...
 	}

@@ -32,5 +32,3 @@ Route::get('reject', 'UsersController@rejectInvite');
 
 // *Caution* public/js/trello.js is direct referencing /accept-project in createOrViewBoard().
 Route::post('accept-project', 'UsersController@acceptProject');
-
-

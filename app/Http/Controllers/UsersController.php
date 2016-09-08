@@ -107,13 +107,12 @@ class UsersController extends Controller
         //
     }
 
-    public function enterQueue(Request $request, $id)
+    public function enterQueue($id)
     {
         $user = User::where('id', $id)->update(
             [
             'queue' => time(),
             ]);
-        return view('alumni.user')->with('user', $user);
     }
 
     public function showQueue()

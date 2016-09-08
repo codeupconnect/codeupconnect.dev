@@ -223,6 +223,18 @@
 			})
 	});
 
+	// Create New Board if session has first_member flash
+	$(document).on('click', '#newBoard', function() 
+	{
+		Trello.post('/boards/', {name: 'Clone', idBoardSource: '57ccac05a9c89e70ce374d64'})
+			.done(function(board)
+			{ 
+				// Post Board ID and Redirect to Laravel Function for Storing
+			    $('#inset_form').html("<form action='{{ ApiController@acceptProject }}' name='submit' method='post' style='display:none;''><input type='text' name='board' value='" + board.id + "' /></form>");
+			    document.forms['submit'].submit();
+			})
+	});
+
 	// ***
 	// Redirect to Update Database via Laravel
 	// ***
@@ -240,11 +252,11 @@
 			url: "/trello-login",
 			type: "POST",
 			data: {
-			'trello_token' : Trello.token(),
+			'trello_id' : Trello.token(),
 			'_token' : token,
 			}
 		}).done(function(data) {
-			dump(data);
+			$('#operations').append("<input hidden id='first_member' value='" + data + "'>");
 		});
 		// continue with logic ...
 	}

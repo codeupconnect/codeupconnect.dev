@@ -51,8 +51,4 @@
 	</div><!-- /.container-fluid -->
 </nav>
 
-@if (session()->has('invite'))
-	<div id="alert-notification" class="alert alert-warning" role="alert">
-	  <a href="#"><strong>Heads up!</strong> You have a project invitation to view.</a>
-	</div>
-	@endif
+

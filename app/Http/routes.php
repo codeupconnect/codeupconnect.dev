@@ -35,8 +35,4 @@ Route::get('reject', 'UsersController@rejectInvite');
 // Temp
 Route::get('accept', 'ProjectsController@acceptProject');
 
-
-
-Route::get('editproject', function(){return view('admin.editproject');});
-
 Route::get('project-invite', function(){return view('alumni.user-project-invite');});

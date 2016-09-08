@@ -52,19 +52,19 @@ class ProjectsController extends Controller
         $project->phone = $request->phone;
         $project->email = $request->email;
         $project->project_details = $request->project_details;
-        (isset($request->collateral) ? true : false);
-        (isset($request->facebook) ? true : false);
-        (isset($request->linkedin) ? true : false);
-        (isset($request->twitter) ? true : false);
-        (isset($request->youtube) ? true : false);
-        (isset($request->instagram) ? true : false);
-        (isset($request->tumblr) ? true : false);
-        (isset($request->blog) ? true : false);
-        (isset($request->comments_feedback) ? true : false);
-        (isset($request->member_signup) ? true : false);
-        (isset($request->contact_form) ? true : false);
-        (isset($request->existing_database) ? true : false);
-        (isset($request->stripe) ? true : false);
+        $project->collateral = (isset($request->collateral) ? 1 : 0);
+        $project->facebook = (isset($request->facebook) ? 1 : 0);
+        $project->linkedin = (isset($request->linkedin) ? 1 : 0);
+        $project->twitter = (isset($request->twitter) ? 1 : 0);
+        $project->youtube = (isset($request->youtube) ? 1 : 0);
+        $project->instagram = (isset($request->instagram) ? 1 : 0);
+        $project->tumblr = (isset($request->tumblr) ? 1 : 0);
+        $project->blog = (isset($request->blog) ? 1 : 0);
+        $project->comments = (isset($request->comments) ? 1 : 0);
+        $project->member_signup = (isset($request->member_signup) ? 1 : 0);
+        $project->contact_form = (isset($request->contact_form) ? 1 : 0);
+        $project->existing_database = (isset($request->existing_database) ? 1 : 0);
+        $project->stripe = (isset($request->stripe) ? 1 : 0);
         $project->save();
         $request->session()->flash('message', 'Thank you! Your project is being reviewed by our team of devs! We will follow up soon.');
         return redirect()->action("HomeController@index");
@@ -94,7 +94,7 @@ class ProjectsController extends Controller
     // Updates handled by admin, not outside clients
     public function update(Request $request, $id)
     {
-        $project = Project::findorFail($id);
+        $project = Project::findOrFail($id);
         $project->organization_name = $request->organization_name;
         $project->site_url = $request->site_url;
         $project->start_date = $request->start_date;
@@ -102,10 +102,10 @@ class ProjectsController extends Controller
         $project->point_person = $request->point_person;
         $project->phone = $request->phone;
         $project->email = $request->email;
-        $project->project_details = $request->project_details;
-         $project->save();
+        $project->project_details = $request->project_details; 
         $project->status = 'approved';
-       
+        $project->save();
+
         $request->session()->flash('message', 'You have updated and approved the project.');
 
         $project->sendInvite();
@@ -125,7 +125,7 @@ class ProjectsController extends Controller
     // only admin can destroy
     public function destroy($id)
     {
-        $project = Project::findorFail($id);
+        $project = Project::findOrFail($id);
         if(!$project) {
             Log::info("Project with ID $id cannot be found");
             abort(404);
@@ -210,8 +210,8 @@ class ProjectsController extends Controller
     public function viewInvite()
     {
         $id = session()->get('login_' . md5("Illuminate\Auth\Guard"));
-        $user = User::findorFail($id);
-        $project = Project::findorFail($user->invite);
+        $user = User::findOrFail($id);
+        $project = Project::findOrFail($user->invite);
         return view('alumni.user-project-invite')->with('user', $user)->with('project', $project);
     }
 

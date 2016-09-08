@@ -15,7 +15,7 @@
 		<link href="/css/main.css" rel="stylesheet">
 
 		<!-- Fonts -->
-		<link href="https://fonts.googleapis.com/css?family=Antic+Slab" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Lato|Source+Sans+Pro" rel="stylesheet">
 
 		@yield('head-includes')		
 
@@ -28,10 +28,10 @@
 		@include('partials.navbar')
 
 		
-		<div id="content">@yield('content')</div>
+		@yield('content')
 
-		@include('partials.footer')
-	
+		
+		</div>
 		<!-- Scripts -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 		<script src="/js/bootstrap.min.js"></script>
@@ -39,7 +39,7 @@
 		
 		@yield('bottom-scripts')
 
-		</div>
+		
 	</body>
 
 </html>

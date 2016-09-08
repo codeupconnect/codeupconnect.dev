@@ -60,9 +60,9 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        $user = DB::table('users')->where('id', $id)->first();
-        return view('alumni.user', ['user' => $user]);
-
+        $myUser = DB::table('users')->where('id', $id)->first();
+        $users = User::whereNotNull('queue')->orderBy('queue', 'desc')->get();
+        return view('alumni.user', ['myUser' => $myUser, 'users' => $users]);
     }
 
     /**
@@ -113,12 +113,7 @@ class UsersController extends Controller
             [
             'queue' => time(),
             ]);
-    }
-
-    public function showQueue()
-    {
-        $users = User::whereNotNull('queue')->orderBy('queue', 'desc')->get();
-        return view('alumni.queue')->with('users', $users);
+        return redirect()->action('UsersController@show');
     }
 
     public function acceptProject(Request $request)

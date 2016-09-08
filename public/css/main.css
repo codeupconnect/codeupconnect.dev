@@ -12,35 +12,26 @@
 
   body {
     background-color: #D5D5D5;
-    font-family: "Antic Slab", sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     font-weight: normal;
     overflow-x: hidden;
-    margin: 0 0 50px;
+    
   }
 
-#wrapper {
-  min-height:100%;
-  position:relative;
-}
-
-#content {
-  padding-bottom:100px; /* Height of the footer element */
-}
-
+  h1, h2, h3, h4, h5, h6 {
+     font-family: 'Lato', sans-serif;
+  }
 
 /*Font styling*/
   .font-thin {
-    font-family: 'Antic Slab', serif;
     font-weight: 200;
   }
 
   .font-semibold {
-    font-family: 'Antic Slab', serif;
     font-weight: 600;
   }
 
   .font-light {
-    font-family: 'Antic Slab', serif;
     font-weight: 300;
   }
 
@@ -260,11 +251,9 @@
 
   .navbar-default {
     background-color:#118489;
-    font-family: 'Antic Slab', serif;
    }
 
    .navbar-default .navbar-nav>li>a, .navbar-default .navbar-brand {
-    font-family: 'Antic Slab', serif;
     color: #D5D5D5;
    }
 
@@ -392,7 +381,6 @@
   /* Profile Container */
     .profile {
       margin: 20px 0;
-
     }
 
   /* Profile Sidebar */
@@ -495,15 +483,15 @@
 
 /*Footer */
 
-  #footer {
-  background-color: #118489;
-  color:white;
-  width:100%;
-  height:50px;
-  position:absolute;
-  bottom:0;
-  left:0;
-}
+  /*#footer{
+    color:#D5D5D5;
+    background-color: #118489;
+    height:50px;
+  }
+
+   footer div a{
+    color:white;
+   }*/
 
 /*Edit User Profile, Edit Project, User Project Invite*/
 
@@ -539,13 +527,21 @@
 
   .form-font{
     color:black;
-    
   }
 
 /*Admin Portal*/
 
   .admin{
     margin-top: 70px;
+  }
+
+  #header-spacing{
+    margin-bottom: 50px;
+  }
+
+  thead{
+    background-color:#022648;
+    color: #D5D5D5;
   }
 
 /*Banner Project Invite*/
@@ -557,6 +553,3 @@
     margin-left: 26%;
     margin-bottom:-30px;
   }
-
-
-

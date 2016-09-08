@@ -8,15 +8,15 @@
 			<div class="profile-sidebar">
 				<!-- Profile Pic -->
 				<div class="profile-userpic">
-					<img src="{{ $user->avatar }}" class="img-responsive" alt="">
+					<img src="{{ $myUser->avatar }}" class="img-responsive" alt="">
 				</div>
 				<!-- Username/Preference -->
 				<div class="profile-usertitle">
 					<div class="profile-usertitle-name">
-						{{ $user->name }}
+						{{ $myUser->name }}
 					</div>
 					<div class="profile-usertitle-job">
-						{{ $user->proficiencies }}
+						{{ $myUser->proficiencies }}
 					</div>
 				</div>
 
@@ -26,7 +26,7 @@
 						<li>
 							<a href="#">
 							<i class="fa fa-github"></i>
-							{{ $user->nickname }} </a>
+							{{ $myUser->nickname }} </a>
 						</li>
 						<li>
 							<a href="{{ action('ProjectsController@edit') }}">
@@ -34,9 +34,15 @@
 							Edit Profile </a>
 						</li>
 						<li>
-							<a href="/{{ $user->resume_url }}">
+							<a href="/{{ $myUser->resume_url }}">
 							<i class="glyphicon glyphicon-user"></i>
 							Résumé </a>
+						</li>
+						<li>
+							<form method="PUT">
+							<a href="{{ action('UsersController@enterQueue', $myUser->id) }}">
+							<i class="glyphicon glyphicon-plus"></i>
+							Add Me to the Queue </a></form>
 						</li>
 					</ul>
 				</div>
@@ -46,7 +52,7 @@
 		<div class="col-md-9">
 			<div class="profile-content" id="current-project">
 				<div class="container">
-					<h3>Current Project: {{ $user->active_project }}</h3>
+					<h3>Current Project: {{ $myUser->active_project }}</h3>
 					<div class="container">
 						<h4>Current Team:</h4>
 					</div>

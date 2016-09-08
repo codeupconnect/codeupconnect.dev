@@ -8,6 +8,7 @@
 		<h1 id="edit-data">Edit and Approve</h1>
 		<form method="POST" action="{{ action('ProjectsController@update', $boolean['id']) }}">
             {!! csrf_field() !!}
+            {!! method_field('PUT') !!}
 			@foreach ($data as $key => $value)
 				<div class="form-group">
 					<h3 class="static-option">{{ $key }}: {{ $value }}</h3>
@@ -21,7 +22,8 @@
 			  	@endif
 			@endforeach
 
-			<a type="submit" class="btn btn-success" href="{{ action('ProjectsController@update', $boolean['id']) }}">Accept</a>
+			<button class="btn btn-success">Accept</button>
+			<!-- <a type="submit" class="btn btn-success" href="{{ action('ProjectsController@update', $boolean['id']) }}">Accept</a> -->
 
 		</form>
 	</div>

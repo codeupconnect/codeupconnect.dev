@@ -1,24 +1,16 @@
-
-
 <footer class="footer">
-	<div class="container text-center">
-	<hr>
-		<div class="row">
-			<div class="col-lg-12">
-				<div class="col-md-6">
-					<ul class="nav nav-stacked">
-						<li><a class="font-semibold" href="/">CodeupConnect</a></li>
-					</ul>
-				</div>
-				<div class="col-md-6">
-					<ul class="nav nav-stacked">
-						<li><a class="font-semibold" href="http://codeup.com/">Codeup</a></li>
-					</ul>
-				</div>
-			</div>
+	<div class="col-xs-12">
+		<div class="col-xs-4 text-left">
+			<h5>CodeupConnect 2016</h5>
 		</div>
-	<hr>
-		
+		<div class="col-xs-4 text-center">
+			<h6>Created by: Scott Crawford, Eddie Knight and Ashley Marie Callahan</h6>
+		</div>
+		<div class="col-xs-4 text-right">
+			<h5><a class="footer" href="mailto:codeupconnect@gmail.com">
+			<i class="glyphicon glyphicon-envelope"></i>
+			Contact Us </a></h5>
+		</div>
 	</div>
 </footer>
 

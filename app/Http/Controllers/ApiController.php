@@ -12,54 +12,36 @@ use App\Http\Controllers\Controller;
 
 class ApiController extends Controller
 {
-    public static function viewTrello()
+    public function viewTrello()
     {
         return view('alumni.trello');
     }
 
-    public static function trelloLogin(Request $request)
+    public function trelloLogin(Request $request)
     {
         $userId = session()->get('login_' . md5("Illuminate\Auth\Guard"));
+        $trelloId = $request->get('trello_id');
+        $boardId = $request->get('board_id');
         $user = User::findorFail($userId);
-        $user->trello_id = $request->get('trello_id');
+        $user->trello_id = $trelloId;
         $user->save();
 
         $project = Project::findorFail($user->active_project);
+        $project->trello_id = $trelloId;
+        $project->save();
+
         $data['project_id'] = $user->active_project;
         $data['first_member'] = false;
         $data['board_name'] = $project->organization_name . "-" . $project->id;
-
+        $data['board_id'] = $boardId;
         // Count Team Members for this Project
-        $count = TeamMember::where('project_id', $project->id)->count();
-        if ($count == 0)
+        $count = TeamMember::where('project_id', $project->id)->where('user_id', $userId)->first();
+        if ($count === null)
         {
             $data['first_member'] = true;
         }
 
         return $data;
-    }
-
-    public function acceptProject(Request $request)
-    {
-        // Gather Project and Team Member info
-        $userId = session()->get('login_' . md5("Illuminate\Auth\Guard"));
-        $user = User::where('id', $userId)->first();
-        $role = $request->role;
-        $projectId = $request->project_id;
-        $boardId = $request->input('board');
-        
-        // Add to team member table
-        TeamMember::insert([
-            'user_id' => $userId,
-            'role' => $role,
-            'project_id' => $projectId
-            ]);
-        Project::insert([
-            'trello_id' => $boardId,
-            ]);
-        User::where('id', $userId)->update(['queue' => null]);
-
-        return view("alumni.trello")->with('boardId', $boardId);
     }
 
     public static function createTrelloBoard()

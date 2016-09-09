@@ -34,7 +34,7 @@
 				<li><a>|</a></li>
 				<li data-slide="4"><a id="menu-link-4" href="/#slide-4" title="Next Section">Featured Freelancers</a></li>
 				<li><a>|</a></li>
-				<li><a href="#">Admin</a></li>
+				<li><a href="/admin">Admin</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<div>

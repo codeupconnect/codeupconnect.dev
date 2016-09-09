@@ -61,7 +61,7 @@
 		<div class="col-md-9">
 			<div class="profile-content" id="current-project">
 				<div class="container">
-					<h3>Current Project: {{ $myUser->active_project }}</h3>
+					<h3>Current Project: {{ $myUser->organization_name }}</h3>
 					
 				</div>
 			</div>

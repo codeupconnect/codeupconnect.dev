@@ -494,7 +494,7 @@
     color:white;
    }*/
 
-/*Edit User Profile, Edit Project, User Project Invite*/
+/*Edit User Profile, Edit Project, User Project Invite, Project*/
 
   .form-container{
     margin-top:10%;
@@ -507,7 +507,7 @@
   }
 
   #footnote{
-    color: white;
+    color: #022648;
     text-align: center;
     padding-top: 5px;
     margin-bottom: 5%;
@@ -524,7 +524,7 @@
   }
 
   .teal-font{
-    color:#118489;
+    color:#00999E;
   }
 
   .edit{
@@ -539,6 +539,13 @@
     border-color:#022648;
     border-width:20px;
   }
+
+  #single-button{
+    margin-left:43%;
+    margin-bottom:5%;
+  }
+
+
 
 /*Client Form*/
 

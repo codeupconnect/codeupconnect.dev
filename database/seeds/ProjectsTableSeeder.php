@@ -15,42 +15,49 @@ class ProjectsTableSeeder extends Seeder
     // Project::ungaurd();
         $data = [
     		[
+	    		'status' => 'uapproved',
 	    		'organization_name' => 'United Way',
 	            'point_person' => 'United Way',
 	            'email' => 'united@way.com',
 	            'project_details' => 'Add feature to existing website to take donations.',
     		],
     		[
+    			'status' => 'approved',
     			'organization_name' => '80/20 Foundation',
 	            'point_person' => 'Contact Person',
 	            'email' => 'contact@person.com',
 	            'project_details' => 'Need a website for a small charity helping kids learn to code.',
     		],
     		[
+    			'status' => 'unapproved',
     			'organization_name' => 'Womens Shelter of San Antonio',
 	            'point_person' => 'Womens Shelter',
 	            'email' => 'women@shelter.com',
 	            'project_details' => 'Need a landing page built for community page',
     		],
     		[
+    			'status' => 'unapproved',
     			'organization_name' => 'Haven for Hope',
 	            'point_person' => 'Hope Haven',
 	            'email' => 'Hope@haven.com',
 	            'project_details' => 'Want to update our website',
     		],
     		[
+    			'status' => 'unapproved',
     			'organization_name' => 'San Antonio Area Foundation',
 	            'point_person' => 'Antonio Area',
 	            'email' => 'Antonio@area.com',
 	            'project_details' => 'Need to make our site mobile responsive',
     		],
     		[
+		    	'status' => 'approved',
 		    	'organization_name' => 'Humane Society of San Antonio',
 		        'point_person' => 'Humane Society',
 		        'email' => 'humane@society.com',
 		        'project_details' => 'Need help integrating to a photo api',
     		],
     		[
+    			'status' => 'unapproved',
     			'organization_name' => 'Grace House of San Antonio',
 	            'point_person' => 'Grace House',
 	            'email' => 'grace@house.com',

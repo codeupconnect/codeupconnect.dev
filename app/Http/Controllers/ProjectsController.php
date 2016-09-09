@@ -104,6 +104,7 @@ class ProjectsController extends Controller
         $project->email = $request->email;
         $project->project_details = $request->project_details; 
         $project->status = 'approved';
+        $project->next_invite = '0';
         $project->save();
 
         $request->session()->flash('message', 'You have updated and approved the project.');
@@ -224,6 +225,12 @@ class ProjectsController extends Controller
         $projectId = $request->project_id;
         $boardId = $request->input('board');
         
+        // Add to team member table & trello board
+        TeamMember::insert([
+            'user_id' => $userId,
+            'role' => $role,
+            'project_id' => $projectId
+            ]);
         $teamMembers = TeamMember::where('project_id', $projectId)->count();
 
         if ($teamMembers >= 2)

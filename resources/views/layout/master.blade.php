@@ -3,7 +3,7 @@
 	<head>
 		@if (Auth::check() && Auth::user()->invite != null)
 			{{ session(['invite' => Auth::user()->invite]) }}
-		@elseif (Auth::check() && Auth::user()->invite != 0)
+		@else
 			{{ session()->forget('invite') }}
 		@endif
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">

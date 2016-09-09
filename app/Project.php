@@ -4,26 +4,18 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+
 class Project extends Model
 {
+
     public static $rules = [
             'organization_name' => 'required',
             'point_person' => 'required',
             'email' => 'required|email',
             'project_details' => 'required',
         ];
-
-    public function createOrViewTrello($create)
-    {
-        // if ()
-        // {
-        //     // create
-        // }
-        // else
-        // {
-        //     // view
-        // }
-    }
+        
+    protected $fillable=['organization_name', 'point_person', 'email', 'project_details'];
 
     public function nextinQueue($count = 0)
     {

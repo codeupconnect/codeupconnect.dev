@@ -18,7 +18,7 @@
 			<li class="dropdown">
 		 		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome<span class="caret"></span></a>
 				<ul class="dropdown-menu">
-					<li><a href="{{ action('UsersController@show', $myUser->id) }}">Profile</a></li>
+					<li><a href="#">Profile</a></li>
 					<li><a href="#">Team Hub</a></li>
 					<li role="separator" class="divider"></li>
 					<li><a href="{{action('Auth\AuthController@logout')}}">Logout</a></li>

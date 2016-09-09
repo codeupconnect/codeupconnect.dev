@@ -3,10 +3,11 @@
 @section('content')
 @include('partials.project-invite')
 
-<h2 class="title">Edit Profile</h2>
+
 
 <div class="container">	
-	<div class="form-container container">
+	<h2 class="title text-center">Edit Profile</h2>
+	<div class="form-container container edit">
 		<form>
 		  <div class="form-group">
 			<label>Name</label>
@@ -18,10 +19,16 @@
 		  </div>
 		  <div class="checkbox">
 			<label>
-			  <input type="checkbox"> Preference
+			  <input type="checkbox"> Front-End 
+			</label>
+			<label>
+			  <input type="checkbox"> Back-End
+			</label>
+			<label>
+			  <input type="checkbox"> Both
 			</label>
 		  </div>
-		  <button type="submit" class="btn btn-default">Submit</button>
+		  <button type="submit" class="btn btn-success">Submit</button>
 		</form>
 	</div>
 

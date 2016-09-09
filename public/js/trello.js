@@ -13,9 +13,9 @@
 // --- Test Function ---
 // ---------------------
 
-	function dump(data)
+	function dump(data1, data2)
 	{
-		console.log(data);
+		console.log(data1, data2);
 	}
 
 
@@ -69,7 +69,8 @@
     function loadBoard()
     {
 		boardId = $('#board-id').val();
-    //	Clear loaded lists
+		console.log('boardId: ', boardId);
+	    //	Clear loaded lists
     	$('#lists').empty();
 	// Get the selected board's lists
      	Trello.get(
@@ -77,7 +78,6 @@
         	loadedLists,
        		function() { dump("Failed to load lists"); }
       	);
-		dump(boardId);
     }
 
 	var loadedLists = function(lists) 
@@ -105,6 +105,7 @@
   		for (var i=0; i<listIds.length; i++)
   		{
 			$("#"+listIds[i]).empty();    			
+			dump(listIds[i]);    			
       		var url = '/lists/' + listIds[i] + '/cards';
       		Trello.get(
 	        		url,
@@ -143,18 +144,18 @@
 
 				// Create listeners for move links
 				$('.moveList').bind('click',function(e){
-						e.preventDefault();	
+					e.preventDefault();	
 					Trello.put('/cards/' + card.id + "/idList?value=" + $(this).attr('data-list'));
 					loadBoard();
 				});
 
 				// Create listeners on buttons and delete link
-				$(document).on('click', '#edit', function() 
+				$('#edit').bind('click', function(e) 
 				{
 					Trello.put('/cards/'+card.id, {name: $('#editing').val()});
 					loadBoard();
    				});
-   				$(document).on('click', '#discard', function() 
+   				$('#discard').bind('click', function() 
 				{
 					loadBoard();
   				});       				
@@ -222,22 +223,21 @@
 	function createOrViewBoard()
 	{
 		// Create New
-		if ($('#first-member').val() !== "true")
+		if ($('#board-id').val() == "" && $('#board-id').val() == null)
 		{
-			Trello.post('/boards/', {name: $('#board_name').val, idBoardSource: '57ccac05a9c89e70ce374d64'})
+			Trello.post('/boards/', {name: $('#board-name').val(), idBoardSource: '57ccac05a9c89e70ce374d64'})
 				.done(function(board)
 				{ 
 					// Post Board ID and Redirect to Laravel Function for Storing
 				    $('#board-id').val(board.id);
-				    dump('poop');
-				    // $('#operations').submit();
-				})
-		} else
+				    $('#operations').submit();
+				});
+		} 
+		else
 		// View Existing
 		{
 			// Future: add logged in user to board.
-			// loadBoard();
-			dump('frick!')
+			loadBoard();
 		}
 	}
 
@@ -250,21 +250,27 @@
 	var authorizeSuccess = function() 
 	{
 		var token = $('#token').val();
-		$.ajax({
-			url: "/trello",
-			type: "POST",
-			data: {
-			'trello_id' : Trello.token(),
-			'_token' : token,
-			}
-		}).done(function(data) {
-			$('#first-member').attr('value', data['first_member']);
-			$('#board-name').attr('value', data['board_name']);
-			$('#project-id').attr('value', data['project_id']);
-			$('#board-id').attr('value', data['board_id']);
-			createOrViewBoard();
-		});
-		// continue with logic ...
+		if (window.location.href == "http://codeupconnect.dev/trello")
+		{
+			dump('logging in');
+			$.ajax({
+				url: "/trello-login",
+				type: "POST",
+				data: {
+				'trello_id' : Trello.token(),
+				'_token' : token,
+				}
+			}).done(function(data) {
+				$('#board-name').val(data['board_name']);
+				$('#project-id').val(data['project_id']);
+				$('#board-id').val(data['board_id']);
+				createOrViewBoard();
+			});
+		}
+		else
+		{
+		loadBoard();
+		}
 	}
 
 	var authorizeFailure = function() 

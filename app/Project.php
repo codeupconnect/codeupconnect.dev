@@ -13,6 +13,17 @@ class Project extends Model
             'project_details' => 'required',
         ];
 
+    public function createOrViewTrello($create)
+    {
+        // if ()
+        // {
+        //     // create
+        // }
+        // else
+        // {
+        //     // view
+        // }
+    }
 
     public function nextinQueue($count = 0)
     {
@@ -28,6 +39,7 @@ class Project extends Model
     // Send invite for project to next user in queue
     public function sendInvite()
     {
+        dd('poop');
         $nextInvite = $this->next_invite;
         $user = $this->nextinQueue($nextInvite);
         $user->invite = $this->id;

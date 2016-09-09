@@ -179,7 +179,7 @@ class UsersController extends Controller
         if ($project->next_invite < $count)
         {
             $project->next_invite += 1;
-            $project->save();
+            $project->save();   
         }
         $user->invite = null;
         $user->save();

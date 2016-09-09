@@ -154,6 +154,9 @@ class UsersController extends Controller
         $user->invite = null;
         $user->active_project = $project->id;
         $user->save();
+        session()->forget('invite');
+        return redirect()->action('UsersController@show', $user->id);
+
     }
 
     public function rejectInvite(Request $request)
@@ -169,5 +172,7 @@ class UsersController extends Controller
         $user->invite = null;
         $user->save();
         $project->sendInvite();
+        session()->forget('invite');
+        return redirect()->action('UsersController@show', $user->id);
     }
 }

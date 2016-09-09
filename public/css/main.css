@@ -497,15 +497,15 @@
 /*Edit User Profile, Edit Project, User Project Invite*/
 
   .form-container{
-    margin-top:5%;
-    color: white;
+    margin-top:10%;
     margin-bottom: 5%;
   }
 
   .title{
-    color: white;
+    color: black;
     margin-top: 10%;
-    text-align: center;
+    margi
+    
   }
 
   #footnote{
@@ -517,6 +517,20 @@
 
   .button-container{
     margin-bottom: 30px;
+  }
+
+  #edit-data:hover{
+    cursor: pointer;
+    color: #118489;
+  }
+
+  .edit{
+    background-color: white;
+    color: black;
+    height: auto;
+    width: auto;
+    padding: 20px;
+    margin-bottom: 20px;
   }
 
 /*Client Form*/

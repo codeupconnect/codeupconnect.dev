@@ -19,6 +19,7 @@ Route::get('create-board', 'ApiController@createTrelloBoard');
 Route::post('trello', 'ApiController@trelloLogin');
 Route::post('submit', 'ProjectsController@store');
 Route::get('admin', 'ProjectsController@showUnapproved');
+Route::get('all-projects', 'ProjectsController@index');
 Route::get('show-project/{id}', 'ProjectsController@showProject');
 Route::get('edit/{id}', 'ProjectsController@edit');
 Route::put('approve/{id}', 'ProjectsController@update');
@@ -32,5 +33,3 @@ Route::get('reject', 'UsersController@rejectInvite');
 
 // *Caution* public/js/trello.js is direct referencing /accept-project in createOrViewBoard().
 Route::post('accept-project', 'UsersController@acceptProject');
-
-

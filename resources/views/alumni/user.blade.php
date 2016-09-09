@@ -39,10 +39,18 @@
 							Résumé </a>
 						</li>
 						<li>
-							<form method="PUT">
-							<a href="{{ action('UsersController@enterQueue', $myUser->id) }}">
-							<i class="glyphicon glyphicon-plus"></i>
-							Add Me to the Queue </a></form>
+							<a href="{{ action('ProjectsController@index') }}">
+							<i class="glyphicon glyphicon-briefcase"></i>
+							Approved Projects</a>
+						</li>
+						<li>
+							<form action="{{ action('UsersController@enterQueue', $myUser->id) }}" method="POST">
+							{!! csrf_field() !!}
+							{!! method_field("PUT") !!}
+								<button type="submit" class="link btn-link text-center">
+								<i class="glyphicon glyphicon-plus"></i>
+								Add Me to the Queue </button>
+							</form>
 						</li>
 					</ul>
 				</div>
@@ -58,14 +66,13 @@
 					</div>
 				</div>
 			</div>
-			<div class="profile-content col-xs-12" id="queue">
+			<div class="profile-content col-xs-12" class="tables">
 				@include('partials.queue')
-				</div>
+			</div>
 		</div>
 	</div>
 </div>
-<br>
-<br>
+
 
 @section('bottom-scripts')
 	<script>

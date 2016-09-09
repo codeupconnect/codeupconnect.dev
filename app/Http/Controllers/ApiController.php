@@ -12,9 +12,13 @@ use App\Http\Controllers\Controller;
 
 class ApiController extends Controller
 {
-    public function viewTrello()
+    public function viewTrelloLogin()
     {
-        return view('alumni.trello');
+        return view('alumni.trello-login');
+    }
+    public function viewNewBoard()
+    {
+        return view('alumni.trello')->with('data', session('data'));
     }
 
     public function trelloLogin(Request $request)
@@ -27,46 +31,27 @@ class ApiController extends Controller
         $user->save();
 
         $project = Project::findorFail($user->active_project);
-        
-        $data['first_member'] = false;
+
         $data['board_name'] = $project->organization_name . "-" . $project->id;
-        $data['project_id'] = $user->active_project;
+        $data['project_id'] = $project->id;
         $data['board_id'] = $project->trello_id;
 
-        // Count Team Members for this Project
-        if ($project->trello_id)
-        {
-            $data['first_member'] = true;
-        }
-
-        return view('alumni.trello')->with('data', $data);
+        return $data;
     }
 
-    public static function createTrelloBoard()
+
+    public static function createTrelloBoard(Request $request)
     {
         $userId = session()->get('login_' . md5("Illuminate\Auth\Guard"));
-        $trelloId = $request->get('trello_id');
-        $boardId = $request->input('board_id');
         $user = User::findorFail($userId);
-        $user->trello_id = $trelloId;
-        $user->save();
-
         $project = Project::findorFail($user->active_project);
-        $project->trello_id = $boardId;
+        $project->trello_id = $request->get('board_id');
         $project->save();
 
         $data['project_id'] = $user->active_project;
-        $data['first_member'] = false;
         $data['board_name'] = $project->organization_name . "-" . $project->id;
-        $data['board_id'] = $boardId;
-        // Count Team Members for this Project
-        $count = TeamMember::where('project_id', $project->id)->where('user_id', $userId)->first();
-        if ($count === null)
-        {
-            $data['first_member'] = true;
-        }
-
-        return view('alumni.trello')->with('data', $data);
+        $data['board_id'] = $request->get('board_id');
+        return redirect('new-trello-board')->with('data', $data);
     }
 
     /**

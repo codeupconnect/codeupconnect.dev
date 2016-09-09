@@ -221,26 +221,25 @@
 	// Create New Board if first_member is true, otherwise view
 	function createOrViewBoard()
 	{
-		if ($('#first-member').val() == "true")
+		// Create New
+		if ($('#first-member').val() !== "true")
 		{
 			Trello.post('/boards/', {name: $('#board_name').val, idBoardSource: '57ccac05a9c89e70ce374d64'})
 				.done(function(board)
 				{ 
-					console.log(board);
 					// Post Board ID and Redirect to Laravel Function for Storing
-				    $('#board-id').attr('value', board.id);
-				    document.forms['operations'].submit();
+				    $('#board-id').val(board.id);
+				    dump('poop');
+				    // $('#operations').submit();
 				})
 		} else
+		// View Existing
 		{
-			// view board. future: add self to board.
-			loadBoard();
+			// Future: add logged in user to board.
+			// loadBoard();
+			dump('frick!')
 		}
 	}
-
-	// ***
-	// Redirect to Update Database via Laravel
-	// ***
 
 
 
@@ -252,7 +251,7 @@
 	{
 		var token = $('#token').val();
 		$.ajax({
-			url: "/trello-login",
+			url: "/trello",
 			type: "POST",
 			data: {
 			'trello_id' : Trello.token(),

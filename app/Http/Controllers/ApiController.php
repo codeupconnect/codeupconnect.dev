@@ -21,13 +21,38 @@ class ApiController extends Controller
     {
         $userId = session()->get('login_' . md5("Illuminate\Auth\Guard"));
         $trelloId = $request->get('trello_id');
-        $boardId = $request->get('board_id');
+        
         $user = User::findorFail($userId);
         $user->trello_id = $trelloId;
         $user->save();
 
         $project = Project::findorFail($user->active_project);
-        $project->trello_id = $trelloId;
+        
+        $data['first_member'] = false;
+        $data['board_name'] = $project->organization_name . "-" . $project->id;
+        $data['project_id'] = $user->active_project;
+        $data['board_id'] = $project->trello_id;
+
+        // Count Team Members for this Project
+        if ($project->trello_id)
+        {
+            $data['first_member'] = true;
+        }
+
+        return view('alumni.trello')->with('data', $data);
+    }
+
+    public static function createTrelloBoard()
+    {
+        $userId = session()->get('login_' . md5("Illuminate\Auth\Guard"));
+        $trelloId = $request->get('trello_id');
+        $boardId = $request->input('board_id');
+        $user = User::findorFail($userId);
+        $user->trello_id = $trelloId;
+        $user->save();
+
+        $project = Project::findorFail($user->active_project);
+        $project->trello_id = $boardId;
         $project->save();
 
         $data['project_id'] = $user->active_project;
@@ -41,12 +66,7 @@ class ApiController extends Controller
             $data['first_member'] = true;
         }
 
-        return $data;
-    }
-
-    public static function createTrelloBoard()
-    {
-        return view('alumni.trello');
+        return view('alumni.trello')->with('data', $data);
     }
 
     /**

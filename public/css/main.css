@@ -504,8 +504,10 @@
   .title{
     color: black;
     margin-top: 10%;
-    
-    
+  }
+
+  .color-block{
+    background-color: #022648;
   }
 
   #footnote{
@@ -517,6 +519,7 @@
 
   .button-container{
     margin-bottom: 30px;
+    margin-left:27%;
   }
 
   #edit-data:hover{
@@ -531,6 +534,7 @@
     width: auto;
     padding: 20px;
     margin-bottom: 20px;
+    margin-top:5%;
   }
 
 /*Client Form*/

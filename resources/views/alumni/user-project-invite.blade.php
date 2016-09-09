@@ -3,9 +3,8 @@
 
 @section('content')
 
-{{ dd( $project, $user )}}
 
-<h2 class="title">Your Project, Should You Choose to Accept It</h2>
+<h3 class="title">Your Project, Should You Choose to Accept It</h3>
 
 <div class="container">	
 	<div class="form-container container">

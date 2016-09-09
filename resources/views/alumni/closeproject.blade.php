@@ -13,7 +13,4 @@
 	  <a type="button" class="btn btn-success" >Completed</a>
 </div>
 
-
-
-
 @stop

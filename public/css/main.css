@@ -479,6 +479,7 @@
     .tables{
       height: auto;
       margin-bottom: 30%;
+      width: 115%;
     }
 
 /*Footer */
@@ -493,22 +494,20 @@
     color:white;
    }*/
 
-/*Edit User Profile, Edit Project, User Project Invite*/
+/*Edit User Profile, Edit Project, User Project Invite, Project*/
 
   .form-container{
-    margin-top:5%;
-    color: white;
+    margin-top:10%;
     margin-bottom: 5%;
   }
 
   .title{
-    color: white;
+    color: black;
     margin-top: 10%;
-    text-align: center;
   }
 
   #footnote{
-    color: white;
+    color: #022648;
     text-align: center;
     padding-top: 5px;
     margin-bottom: 5%;
@@ -516,6 +515,34 @@
 
   .button-container{
     margin-bottom: 30px;
+    margin-left:27%;
+  }
+
+  #edit-data:hover{
+    cursor: pointer;
+    color: #118489;
+  }
+
+  .teal-font{
+    color:#00999E;
+  }
+
+  .edit{
+    background-color: white;
+    color: black;
+    height: auto;
+    width: auto;
+    padding: 20px;
+    margin-bottom: 20px;
+    margin-top:5%;
+    border-style:solid;
+    border-color:#022648;
+    border-width:20px;
+  }
+
+  #single-button{
+    margin-left:45%;
+    margin-bottom:5%;
   }
 
 /*Client Form*/

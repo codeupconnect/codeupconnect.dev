@@ -29,7 +29,7 @@
 							{{ $myUser->nickname }} </a>
 						</li>
 						<li>
-							<a href="{{ action('ProjectsController@edit') }}">
+							<a href="{{ action('UsersController@edit', Auth::user()->id) }}">
 							<i class="glyphicon glyphicon-pencil"></i>
 							Edit Profile </a>
 						</li>
@@ -56,17 +56,19 @@
 				</div>
 			</div>
 		</div>
+		
 
 		<div class="col-md-9">
-			<div class="profile-content" id="current-project">
-				<div class="container">
-					<h3>Current Project: {{ $myUser->active_project }}</h3>
-					<div class="container">
-						<h4>Current Team:</h4>
+			
+				@if($myUser->active_project !== "")
+					<div class="profile-content" id="current-project">
+						<div class="container">
+							<h3>Current Project: {{ $myUser->organization_name }}</h3>
+						</div>
 					</div>
-				</div>
-			</div>
-			<div class="profile-content col-xs-12" class="tables">
+				@endif
+			
+			<div class="profile-content col-xs-12 tables">
 				@include('partials.queue')
 			</div>
 		</div>

@@ -4,8 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+
 class Project extends Model
 {
+
     public static $rules = [
             'organization_name' => 'required',
             'point_person' => 'required',
@@ -13,17 +15,7 @@ class Project extends Model
             'project_details' => 'required',
         ];
 
-    public function createOrViewTrello($create)
-    {
-        // if ()
-        // {
-        //     // create
-        // }
-        // else
-        // {
-        //     // view
-        // }
-    }
+    protected $fillable=['status', 'organization_name', 'point_person', 'email', 'project_details'];
 
     public function nextinQueue($count = 0)
     {
@@ -44,5 +36,10 @@ class Project extends Model
         $user = $this->nextinQueue($nextInvite);
         $user->invite = $this->id;
         $user->save();
+    }
+
+    public function users()
+    {
+        return $this->belongsToMany('App\User');
     }
 }

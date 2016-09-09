@@ -61,7 +61,19 @@ class UsersController extends Controller
     public function show($id)
     {
         $myUser = DB::table('users')->where('id', $id)->first();
+        
+        if($myUser->active_project !== "")
+
+        {
+            $userCurrentProject = Project::find($myUser->active_project);
+        
+                    $currentProjectName = $userCurrentProject->organization_name;
+        
+                    $myUser->organization_name = $currentProjectName;
+        }
+
         $users = User::where('queue', '<>', "")->orderBy('queue', 'asc')->get();
+        
         return view('alumni.user', ['myUser' => $myUser, 'users' => $users]);
     }
 
@@ -154,6 +166,9 @@ class UsersController extends Controller
         $user->invite = null;
         $user->active_project = $project->id;
         $user->save();
+        session()->forget('invite');
+        return redirect()->action('UsersController@show', $user->id);
+
     }
 
     public function rejectInvite(Request $request)
@@ -169,5 +184,7 @@ class UsersController extends Controller
         $user->invite = null;
         $user->save();
         $project->sendInvite();
+        session()->forget('invite');
+        return redirect()->action('UsersController@show', $user->id);
     }
 }

@@ -223,7 +223,7 @@
 	function createOrViewBoard()
 	{
 		// Create New
-		if ($('#board-id').val() == "" && $('#board-id').val() == null)
+		if ($('#board-id').val() == "null" || $('#board-id').val() == null)
 		{
 			Trello.post('/boards/', {name: $('#board-name').val(), idBoardSource: '57ccac05a9c89e70ce374d64'})
 				.done(function(board)

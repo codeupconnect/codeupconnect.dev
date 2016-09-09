@@ -1,4 +1,4 @@
-<div class="">
+<div>
 	<h3>Queue</h3>
 	<table class="table table-bordered table-striped table-hover" >
 		<thead>
@@ -8,6 +8,7 @@
 				<td>Github</td>
 				<td>URL</td>
 				<td>Email</td>
+				<td>Send Invite?</td>
 			</tr>
 		</thead>
 		<tbody>
@@ -18,6 +19,7 @@
 				<td>{{ $user->github_id }}</td>
 				<td>{{ $user->url }}</td>
 				<td>{{ $user->email }}</td>
+				<td><button class="btn btn-success"><i class="glyphicon glyphicon-envelope"> Invite</i></button></td>
 			</tr>
 		@endforeach
 		</tbody>

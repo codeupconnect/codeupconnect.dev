@@ -3,6 +3,8 @@
 
 @section('content')
 
+{{ dd( $project, $user )}}
+
 <h2 class="title">Your Project, Should You Choose to Accept It</h2>
 
 <div class="container">	

@@ -16,16 +16,16 @@
 				@endforeach
 			</div>
 			<div class="container edit">
-			<h3 class="text-center">Additional Preferences</h3>
-			@foreach ($boolean as $key => $value)
-				@if ($value == 0)
-			  	<h4> {{ $key }} </h4>
-			  	@endif
-			@endforeach
+				<h3 class="text-center">Additional Preferences</h3>
+					@foreach ($boolean as $key => $value)
+						@if ($value == 0)
+				  			<h4> {{ $key }} </h4>
+				  		@endif
+					@endforeach
 			</div>
 
-			<button class="btn btn-success">Accept</button>
-			<!-- <a type="submit" class="btn btn-success" href="{{ action('ProjectsController@update', $boolean['id']) }}">Accept</a> -->
+			<button class="btn btn-success" id="single-button">Accept</button>
+			
 
 		</form>
 	</div>

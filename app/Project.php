@@ -14,8 +14,8 @@ class Project extends Model
             'email' => 'required|email',
             'project_details' => 'required',
         ];
-        
-    protected $fillable=['organization_name', 'point_person', 'email', 'project_details'];
+
+    protected $fillable=['status', 'organization_name', 'point_person', 'email', 'project_details'];
 
     public function nextinQueue($count = 0)
     {

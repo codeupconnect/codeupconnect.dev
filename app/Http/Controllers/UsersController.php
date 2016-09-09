@@ -136,27 +136,36 @@ class UsersController extends Controller
         User::where('id', $userId)->update(['queue' => null]);
 
         return view("alumni.trello")->with('boardId', $boardId);
-    }
+    }   
 
-    public function acceptInvite($id)
+    public function acceptInvite(Request $request)
     {
-        $user = User::findOrFail($id);
+        $user = User::findOrFail($request->id);
         $project = Project::findOrFail($user->invite);
-
         $project->next_invite = null;
+        $project->save();
+
+        TeamMember::insert([
+            'user_id' => $user->id,
+            // 'role' => $role,
+            'project_id' => $project->id
+            ]);
 
         $user->invite = null;
         $user->active_project = $project->id;
+        $user->save();
     }
 
-    public function rejectInvite($id)
+    public function rejectInvite(Request $request)
     {
-        $user = User::findorFail($id);
+        $user = User::findorFail($request->id);
         $project = Project::findOrFail($user->invite);
-
-        $project->next_invite += 1;
-        $project->save();
-
+        $count = User::all()->count();
+        if ($project->next_invite < $count)
+        {
+            $project->next_invite += 1;
+            $project->save();
+        }
         $user->invite = null;
         $user->save();
         $project->sendInvite();

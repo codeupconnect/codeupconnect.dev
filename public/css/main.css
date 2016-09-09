@@ -506,10 +506,6 @@
     margin-top: 10%;
   }
 
-  .color-block{
-    background-color: #022648;
-  }
-
   #footnote{
     color: white;
     text-align: center;
@@ -527,6 +523,10 @@
     color: #118489;
   }
 
+  .teal-font{
+    color:#118489;
+  }
+
   .edit{
     background-color: white;
     color: black;
@@ -535,6 +535,9 @@
     padding: 20px;
     margin-bottom: 20px;
     margin-top:5%;
+    border-style:solid;
+    border-color:#022648;
+    border-width:20px;
   }
 
 /*Client Form*/

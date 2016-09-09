@@ -252,7 +252,7 @@
 		var token = $('#token').val();
 		if (window.location.href == "http://codeupconnect.dev/trello")
 		{
-			dump('logging in');
+			dump('logging in', Trello.token());
 			$.ajax({
 				url: "/trello-login",
 				type: "POST",

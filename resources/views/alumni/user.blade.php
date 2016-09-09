@@ -29,7 +29,7 @@
 							{{ $myUser->nickname }} </a>
 						</li>
 						<li>
-							<a href="#">
+							<a href="{{ action('UsersController@edit', Auth::user()->id) }}">
 							<i class="glyphicon glyphicon-pencil"></i>
 							Edit Profile </a>
 						</li>

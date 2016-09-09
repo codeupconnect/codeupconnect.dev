@@ -22,11 +22,18 @@
 			  	<h4> {{ $key }} </h4>
 			  	@endif
 			@endforeach
+		</form>
 
-			<div class="container button-container">	  
-	  <a type="button" href="{{ action('UsersController@acceptInvite', $user->id) }}" class="btn btn-success" >Accept</a>
-	  <a type="submit" href="{{ action('UsersController@rejectInvite', $user->id) }}" class="btn btn-danger" >Pass</a>
-</div>
+	<div class="container button-container">
+	<form method="POST" action="{{ action('UsersController@acceptInvite') }}">
+    {!! csrf_field() !!}  
+	  <button name="id" value="{{ $user->id }}" class="btn btn-success" >Accept</button>
+	</form>
+	<form method="POST" action="{{ action('UsersController@rejectInvite') }}">
+    {!! csrf_field() !!}    
+	  <button name="id" value="{{ $user->id }}" class="btn btn-danger" >Pass</button>
+	</form>
+	</div>
 
 
 

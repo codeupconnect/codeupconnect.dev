@@ -224,12 +224,6 @@ class ProjectsController extends Controller
         $projectId = $request->project_id;
         $boardId = $request->input('board');
         
-        // Add to team member table & trello board
-        TeamMember::insert([
-            'user_id' => $userId,
-            'role' => $role,
-            'project_id' => $projectId
-            ]);
         $teamMembers = TeamMember::where('project_id', $projectId)->count();
 
         if ($teamMembers >= 2)

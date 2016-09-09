@@ -3,15 +3,16 @@
 @section('head-includes')
 
 	<link href="/css/trello.css" rel="stylesheet">
+@stop
 @section('content')
     
-	<form hidden id="operations" action='/accept-project' name='submit' method='post' style='display:none;'>
+	<form hidden id="operations" action="{{ action('ApiController@trelloLogin') }}" name='submit' method='post' style='display:none;'>
 		{!! csrf_field() !!}
-    	<input hidden id="token" value="{{ session()->token() }}">
-    	<input hidden id="first-member" name="first_member" value=""></input>
-    	<input hidden id="board-name" name="board_name" value=""></input>
-    	<input hidden id="project-id" name="project_id" value=""></input>
-    	<input hidden id="board-id" name="board_id" value=""></input>
+    	<input type="hidden" id="token" value="{{ session()->token() }}">
+    	<input type="hidden" id="board-id" name="board_id" value="">
+    	<input type="hidden" id="first-member" name="first_member" value="">
+    	<input type="hidden" id="board-name" name="board_name" value="">
+    	<input type="hidden" id="project-id" name="project_id" value="">
     </form>
     <div class="container">		      
     	<h1>Trello Dashboard</h1>
@@ -26,7 +27,7 @@
 	    </div>
     </div> 
 		    
-
+@stop
 
 @section('bottom-scripts')
 

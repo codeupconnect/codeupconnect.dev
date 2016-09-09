@@ -14,6 +14,7 @@ Route::get('auth/login', 'Auth\AuthController@redirectToProvider');
 Route::get('login', 'Auth\AuthController@redirectToProvider');
 Route::get('logout', 'Auth\AuthController@logout');
 Route::get('auth', 'Auth\AuthController@handleProviderCallback');
+Route::get('accept-project', 'UsersController@acceptProject');
 Route::get('trello-login', 'ApiController@viewTrello');
 Route::get('create-board', 'ApiController@createTrelloBoard');
 Route::post('trello', 'ApiController@trelloLogin');
@@ -27,9 +28,9 @@ Route::put('enter-queue/{id}', 'UsersController@enterQueue');
 Route::get('users', 'UsersController@index');
 Route::get('form', function(){return view('public.clientform');});
 Route::get('account/{id}', 'UsersController@show');
-Route::get('invite/{id}', 'ProjectsController@viewInvite');
-Route::get('accept', 'UsersController@acceptInvite');
-Route::get('reject', 'UsersController@rejectInvite');
+Route::get('invite', 'ProjectsController@viewInvite');
+Route::post('accept', 'UsersController@acceptInvite');
+Route::post('reject', 'UsersController@rejectInvite');
 
 // *Caution* public/js/trello.js is direct referencing /accept-project in createOrViewBoard().
 Route::post('accept-project', 'UsersController@acceptProject');

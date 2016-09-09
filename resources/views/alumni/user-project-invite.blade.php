@@ -7,26 +7,33 @@
 
 <div class="container">	
 	<div class="form-container container">
-		<h1 id="edit-data">Edit and Approve</h1>
-		<form method="GET" action="{{ action('ProjectsController@showProject', $boolean['id']) }}">
+		<h1 id="edit-data">Accept or Pass on Project</h1>
+		<form method="GET" action="{{ action('ProjectsController@showProject', $project['id']) }}">
             {!! csrf_field() !!}
-			@foreach ($data as $key => $value)
+			@foreach ($project as $key => $value)
 				<div class="form-group">
 					<h3 class="static-option">{{ $key }}: {{ $value }}</h3>
 					<input name="{{ $key }}" style="display:none;" type="text" class="form-control edit-option" value="{{ $value }}" >
 				</div>
 			@endforeach
 
-			@foreach ($boolean as $key => $value)
+			@foreach ($user as $key => $value)
 				@if ($value == 0)
 			  	<h4> {{ $key }} </h4>
 			  	@endif
 			@endforeach
+		</form>
 
-			<div class="container button-container">	  
-	  <a type="button" href="{{ action('UsersController@acceptInvite', $user->id) }}" class="btn btn-success" >Accept</a>
-	  <a type="submit" href="{{ action('UsersController@rejectInvite', $user->id) }}" class="btn btn-danger" >Reject</a>
-</div>
+	<div class="container button-container">
+	<form method="POST" action="{{ action('UsersController@acceptInvite') }}">
+    {!! csrf_field() !!}  
+	  <button name="id" value="{{ $user->id }}" class="btn btn-success" >Accept</button>
+	</form>
+	<form method="POST" action="{{ action('UsersController@rejectInvite') }}">
+    {!! csrf_field() !!}    
+	  <button name="id" value="{{ $user->id }}" class="btn btn-danger" >Pass</button>
+	</form>
+	</div>
 
 
 

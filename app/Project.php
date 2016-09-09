@@ -33,4 +33,9 @@ class Project extends Model
         $user->invite = $this->id;
         $user->save();
     }
+
+    public function users()
+    {
+        return $this->belongsToMany('App\User');
+    }
 }

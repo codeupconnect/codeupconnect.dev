@@ -7,14 +7,15 @@
 	<div class="container">
 		<h2 class="static-option text-center teal-font">{{ $project->organization_name }}</h2>
 		<div class="form-group edit">
-			<h3>Website: </h3>
-			<h4>{{ $project->site_url }}</h4> 
-			<h4>Start Date: {{ $project->start_date }}</h4> 
-			<h4 class="static-option">End Date: {{ $project->end_date }}</h4> 
-			<h4 class="static-option">Contact: {{ $project->point_person }}</h4> 
-			<h4 class="static-option">Phone Number: {{ $project->phone }}</h4> 
-			<h4 class="static-option">Email: {{ $project->email }}</h4> 
-			<h4 class="static-option">Project Details: {{ $project->project_details }}</h4> 
+			<h3>Website: {{ $project->site_url }}</h3> 
+			<div class="container">
+				<h4>Start Date: {{ $project->start_date }}</h4> 
+				<h4 class="static-option">End Date: {{ $project->end_date }}</h4> 
+				<h4 class="static-option">Contact: {{ $project->point_person }}</h4> 
+				<h4 class="static-option">Phone Number: {{ $project->phone }}</h4> 
+				<h4 class="static-option">Email: {{ $project->email }}</h4> 
+				<h4 class="static-option">Project Details: {{ $project->project_details }}</h4> 
+			</div>
 			<h3 class="static-option">Additional Requests:</h3> 
 			<ul>
 				<li>
@@ -84,20 +85,7 @@
 				</li>
 			</ul>
 		</div>
-		<div class="container button-container col-xs-12">
-			<div class="col-xs-4">
-				<form method="POST" action="{{ action('UsersController@acceptInvite') }}">
-		   			{!! csrf_field() !!}  
-					<button name="id" value="{{ $user->id }}" class="btn btn-success" >Accept</button>
-				</form>
-			</div>
-			<div class="col-xs-4">
-				<form method="POST" action="{{ action('UsersController@rejectInvite') }}">
-			    	{!! csrf_field() !!}    
-					<button name="id" value="{{ $user->id }}" class="btn btn-danger" >Pass</button>
-				</form>
-			</div>
-		</div>
+		
 	</div>
 </div>
 

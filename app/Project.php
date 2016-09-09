@@ -31,7 +31,6 @@ class Project extends Model
     // Send invite for project to next user in queue
     public function sendInvite()
     {
-        dd('poop');
         $nextInvite = $this->next_invite;
         $user = $this->nextinQueue($nextInvite);
         $user->invite = $this->id;

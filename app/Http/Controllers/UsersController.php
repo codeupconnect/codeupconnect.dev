@@ -61,12 +61,16 @@ class UsersController extends Controller
     public function show($id)
     {
         $myUser = DB::table('users')->where('id', $id)->first();
+        
+        if($myUser->active_project !== "")
 
-        $userCurrentProject = Project::find($myUser->active_project);
-
-        $currentProjectName = $userCurrentProject->organization_name;
-
-        $myUser->organization_name = $currentProjectName;
+        {
+            $userCurrentProject = Project::find($myUser->active_project);
+        
+                    $currentProjectName = $userCurrentProject->organization_name;
+        
+                    $myUser->organization_name = $currentProjectName;
+        }
 
         $users = User::where('queue', '<>', "")->orderBy('queue', 'asc')->get();
         

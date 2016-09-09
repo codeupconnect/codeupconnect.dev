@@ -59,12 +59,15 @@
 		
 
 		<div class="col-md-9">
-			<div class="profile-content" id="current-project">
-				<div class="container">
-					<h3>Current Project: {{ $myUser->organization_name }}</h3>
-					
-				</div>
-			</div>
+			
+				@if($myUser->active_project !== "")
+					<div class="profile-content" id="current-project">
+						<div class="container">
+							<h3>Current Project: {{ $myUser->organization_name }}</h3>
+						</div>
+					</div>
+				@endif
+			
 			<div class="profile-content col-xs-12 tables">
 				@include('partials.queue')
 			</div>

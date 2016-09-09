@@ -15,7 +15,7 @@ class ProjectsTableSeeder extends Seeder
     // Project::ungaurd();
         $data = [
     		[
-	    		'status' => 'uapproved',
+	    		'status' => 'approved',
 	    		'organization_name' => 'United Way',
 	            'point_person' => 'United Way',
 	            'email' => 'united@way.com',

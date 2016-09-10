@@ -21,7 +21,7 @@
 					<li><a href="{{ action('UsersController@show', Auth::user()->id) }}">Profile</a></li>
 					<li><a href="#">Team Hub</a></li>
 					<li role="separator" class="divider"></li>
-					<li><a href="{{action('Auth\AuthController@logout')}}">Logout</a></li>
+					<li id="logout"><a href="{{action('Auth\AuthController@logout')}}">Logout</a></li>
 				</ul>
 			</li>	
 		</ul>

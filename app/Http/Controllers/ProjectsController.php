@@ -175,7 +175,7 @@ class ProjectsController extends Controller
     // One Project that is viewed when clicked
     public function showProject($id)
     {
-        $project = Project::find($id);
+        $project = Project::findorFail($id);
         $data = new Project();
         $data->organization_name = $project->organization_name;
         $data->site_url = $project->site_url;
@@ -203,9 +203,12 @@ class ProjectsController extends Controller
         $boolean->stripe = $project->stripe;
 
         if ($project->status == 'unapproved')
+        {
             return view("admin.editproject")->with('data', $data['attributes'])->with('boolean', $boolean['attributes']);
-        else
+        } else
+        {    
             return view("alumni.project")->with('data', $data['attributes'])->with('boolean', $boolean['attributes'])->with('project', $project);
+        }
     }
 
     public function viewInvite()

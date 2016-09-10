@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container admin text-center">
-	<h3 id="header-spacing">Approved Projects</h3>
+	<h3 id="header-spacing" class="teal-font">Approved Projects</h3>
 	<div class="container edit">
 	<table class="table table-bordered table-striped table-hover tables">
 		<thead>

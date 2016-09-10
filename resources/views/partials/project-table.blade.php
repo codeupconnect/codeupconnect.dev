@@ -2,6 +2,7 @@
 	<table class="table table-bordered table-striped table-hover">
 		<thead>
 			<tr>
+				<td>Organization</td>
 				<td>Website</td>
 				<td>Timeframe</td>
 				<td>Contact</td>

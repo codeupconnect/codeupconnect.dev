@@ -390,6 +390,10 @@
       margin-top:50px;
     }
 
+    .add-queue{
+      margin:10%;
+    }
+
     /*Profile Pic*/
       .profile-userpic img {
           width: 100px;
@@ -400,7 +404,7 @@
           -moz-border-radius: 50%;
           border-radius: 50%;
           border: 5px solid rgba(255,255,255,0.5);
-          margin-left: 25%;
+          margin-left: 29%;
       }
 
     /*User Name/Preferences*/
@@ -472,8 +476,9 @@
       margin-top: 50px;
     }
 
-    #current-project{
+    .current-project{
       height: 200px;
+      width: 115%;
     }
 
     .tables{
@@ -507,7 +512,6 @@
   }
 
   #footnote{
-    color: #022648;
     text-align: center;
     padding-top: 5px;
     margin-bottom: 5%;
@@ -543,6 +547,14 @@
   #single-button{
     margin-left:45%;
     margin-bottom:5%;
+  }
+
+  #back-to-projects{
+    margin-left:7%;
+  }
+
+  .margin-top{
+    margin-top: -50px;
   }
 
 /*Client Form*/

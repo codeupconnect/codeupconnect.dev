@@ -181,9 +181,9 @@ class UsersController extends Controller
             $project->next_invite += 1;
             $project->save();   
         }
+        $project->sendInvite();
         $user->invite = null;
         $user->save();
-        $project->sendInvite();
         session()->forget('invite');
         return redirect()->action('UsersController@show', $user->id);
     }

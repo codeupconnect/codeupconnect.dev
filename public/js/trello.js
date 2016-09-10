@@ -266,8 +266,17 @@
 				$('#board-id').val(data['board_id']);
 				createOrViewBoard();
 			});
-		}
-		else
+		} else if (window.location.href == "http://codeupconnect.dev/trello")
+		{
+			$.ajax({
+				url: "/add-trello-user",
+				type: "POST",
+				data: {
+				'trello_id' : Trello.token(),
+				'_token' : token,
+				}
+			}).done(function(data) {
+		}else
 		{
 		loadBoard();
 		}

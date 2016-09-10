@@ -56,17 +56,14 @@ class ApiController extends Controller
 
     public function addNewTrelloUser(Request $request)
     {
-        $invitee = User::findorFail($request->invitee);
-        $project = Project::findorFail($inviter->active_project);
+        $user = User::findorFail($request->user_id);
+        $project = Project::findorFail($user->active_project);
 
-        $inviterToken = $inviter->trello_id;
         $boardId = $project->trello_id;
         $trello_key = "06255aa30ed43a51b57297877330a541";
-        // get inviter's id
-        // get inviter's trello token
-        // write request
+        
         $ch = curl_init(); 
-        $url = "https://api.trello.com/1/boards/" . $boardId . "/members?key=" . $trello_key . "&token=" . $inviteeToken ;
+        $url = "https://api.trello.com/1/boards/" . $boardId . "/members?key=" . $trello_key . "&token=" . $user->trello_id ;
         // set url 
         curl_setopt($ch, CURLOPT_URL, "example.com"); 
 

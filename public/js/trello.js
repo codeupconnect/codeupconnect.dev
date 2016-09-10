@@ -25,22 +25,22 @@
 // -------------------------------
 
 	// Load board upon selection from dropdown
-    // $('#boards').change(function() 
-    // {
-    // 	// Get selected board id and load boards
-   	// 	boardId = $("option:selected", this).val();
-    // 	loadBoard();
-    // });
+    $('#boards').change(function() 
+    {
+    	// Get selected board id and load boards
+   		boardId = $("option:selected", this).val();
+    	loadBoard();
+    });
 
 	// Get the users boards		      
-	// var loadAllBoards = function() 
-	// {	
-	// 	Trello.get(
-	// 		'/members/me/boards/',		        
-	// 		loadedBoards,		        
-	// 		function() { console.log("Failed to load boards"); }
-	// 	);		    
-	// };
+	var loadAllBoards = function() 
+	{	
+		Trello.get(
+			'/members/me/boards/',		        
+			loadedBoards,		        
+			function() { console.log("Failed to load boards"); }
+		);		    
+	};
 
 	// Show user's boards
     var loadedBoards = function(boards) 
@@ -69,7 +69,7 @@
     function loadBoard()
     {
 		boardId = $('#board-id').val();
-		console.log('boardId: ', boardId);
+		dump('boardId: ', boardId);
 	    //	Clear loaded lists
     	$('#lists').empty();
 	// Get the selected board's lists
@@ -266,17 +266,13 @@
 				$('#board-id').val(data['board_id']);
 				createOrViewBoard();
 			});
-		} else if (window.location.href == "http://codeupconnect.dev/trello")
+		} else if (window.location.href == "http://codeupconnect.dev/add-user")
 		{
-			$.ajax({
-				url: "/add-trello-user",
-				type: "POST",
-				data: {
-				'trello_id' : Trello.token(),
-				'_token' : token,
-				}
-			}).done(function(data) {
-		}else
+			// Create and submit a form instead of AJAX?
+			// no...
+			// shoot me plz.
+
+		} else
 		{
 		loadBoard();
 		}

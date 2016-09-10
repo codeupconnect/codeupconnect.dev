@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">	
 	<div class="form-container container">
-		<h2 id="edit-data" class="text-center">Edit and Approve</h2>
+		<h2 id="edit-data" class="text-center teal-font">Edit and Approve</h2>
 		<form method="POST" action="{{ action('ProjectsController@update', $boolean['id']) }}"> 
 			<div class="edit">
 	            {!! csrf_field() !!}
@@ -15,13 +15,21 @@
 					</div>
 				@endforeach
 			</div>
-			<div class="container edit">
-				<h3 class="text-center">Additional Preferences</h3>
-					@foreach ($boolean as $key => $value)
-						@if ($value == 0)
-				  			<h4> {{ $key }} </h4>
-				  		@endif
-					@endforeach
+			<div class="container col-md-3">
+				<div class="profile-sidebar">
+					<div class="profile-usermenu">
+						
+							<h4 class="text-center">Additional Preferences</h4>
+							<ul class="nav">
+								@foreach ($boolean as $key => $value)
+									@if ($value == 0)
+						  				<li><a> {{ $key }} </a></li>
+						  			@endif
+								@endforeach
+							</ul>
+						
+					</div>
+				</div>
 			</div>
 
 			<button class="btn btn-success" id="single-button">Accept</button>

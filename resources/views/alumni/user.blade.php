@@ -19,55 +19,26 @@
 						{{ $myUser->proficiencies }}
 					</div>
 				</div>
-
-				<!-- Menu -->
-				<div class="profile-usermenu">
-					<ul class="nav">
-						<li>
-							<a href="#">
-							<i class="fa fa-github"></i>
-							{{ $myUser->nickname }} </a>
-						</li>
-						<li>
-							<a href="{{ action('UsersController@edit', Auth::user()->id) }}">
-							<i class="glyphicon glyphicon-pencil"></i>
-							Edit Profile </a>
-						</li>
-						<li>
-							<a href="/{{ $myUser->resume_url }}">
-							<i class="glyphicon glyphicon-user"></i>
-							Résumé </a>
-						</li>
-						<li>
-							<a href="{{ action('ProjectsController@index') }}">
-							<i class="glyphicon glyphicon-briefcase"></i>
-							Approved Projects</a>
-						</li>
-						<li>
-							<form action="{{ action('UsersController@enterQueue', $myUser->id) }}" method="POST">
-							{!! csrf_field() !!}
-							{!! method_field("PUT") !!}
-								<button type="submit" class="link btn-link text-center">
-								<i class="glyphicon glyphicon-plus"></i>
-								Add Me to the Queue </button>
-							</form>
-						</li>
-					</ul>
-				</div>
+				@include('partials.user-profile-menu')
+			</div>
+			<div class="container col-xs-12 add-queue">
+				<form action="{{ action('UsersController@enterQueue', $myUser->id) }}" method="POST">
+					{!! csrf_field() !!}
+					{!! method_field("PUT") !!}
+					<button type="submit" class="btn btn-info text-center">
+					<i class="glyphicon glyphicon-plus"></i>
+					    Add Me to the Queue </button>
+				</form>
 			</div>
 		</div>
-		
-
 		<div class="col-md-9">
-			
-				@if($myUser->active_project !== "")
-					<div class="profile-content" id="current-project">
-						<div class="container">
-							<h3>Current Project: {{ $myUser->organization_name }}</h3>
-						</div>
+			@if($myUser->active_project !== "")
+				<div class="profile-content current-project">
+					<div class="container">
+						<h3>Current Project: {{ $myUser->organization_name }}</h3>
 					</div>
-				@endif
-			
+				</div>
+			@endif
 			<div class="profile-content col-xs-12 tables">
 				@include('partials.queue')
 			</div>
@@ -75,10 +46,8 @@
 	</div>
 </div>
 
-
 @section('bottom-scripts')
 	<script>
-
 		// Get API url from user-info data-value
 		var api = $('#user-info').data();
 		// api['value'] is now the string we are looking for
@@ -90,8 +59,6 @@
 			$('#github-id').text(data['login']);
 			$('#name').text(data['name']);
 		});
-
-
 	</script>
 @stop
 		

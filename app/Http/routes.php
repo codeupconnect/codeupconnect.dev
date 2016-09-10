@@ -17,9 +17,11 @@ Route::get('auth', 'Auth\AuthController@handleProviderCallback');
 Route::get('accept-project', 'UsersController@acceptProject');
 
 Route::get('trello', 'ApiController@viewTrelloLogin');
-Route::post('trello-login', 'ApiController@trelloLogin');
 Route::get('new-trello-board', 'ApiController@viewNewBoard');
-Route::get('new-trello-user', 'ApiController@viewNewBoard');
+
+// Both of the following URLs are directly targeted. Do not change URL.
+Route::post('trello-login', 'ApiController@trelloLogin');
+Route::post('add-trello-user', 'ApiController@addNewTrelloUser');
 
 Route::post('load-board', 'ApiController@createTrelloBoard');
 Route::post('submit', 'ProjectsController@store');

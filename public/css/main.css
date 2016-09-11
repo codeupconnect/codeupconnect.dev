@@ -46,7 +46,7 @@
 
   /*Slide One: CodeupConnect*/
     #slide-1 {
-      background-color: #022648;
+      background-color: transparent;
       color: #ffffff;
         -webkit-background-size: 100%;
         -moz-background-size: 100%;
@@ -78,6 +78,15 @@
       }
     }
 
+    .video {
+      position: fixed;
+      top: 50%; left: 50%;
+      z-index: -1;
+      width: 110%;
+      height: 110%;
+      transform: translate(-50%, -50%);
+    }
+    
     #home-row-1,
     #home-row-2 {
       padding-top: 25px;

@@ -2,15 +2,15 @@
 @extends('layout.master')
 
 
-@section('content')
-        <div class="slide story" id="slide-1" data-slide="1">
+    <div class="slide story" id="slide-1" data-slide="1">
+	<video id="home-video" class="video" autoplay="autoplay">
+	  <source src="video/westward-view.mp4" type="video/mp4" />
+	</video>
 		<div class="container">
 			<div id="home-row-1" class="row clearfix">
 				<div class="col-12">
-					<h1 class="font-thin">Codeup<span class="font-semibold">Connect</span></h1>
+					<img class="img-responsive" src="/images/logo.png" style="max-height: 150px; margin: auto; margin-top:90px;">
 					<h4 class="font-thin">We are a team of <span class="font-semibold">Codeup graduates</span> looking to give back to the community.</h4>
-					<br>
-					<br>
 				</div>
 				<div class="container">
     				<a class="btn-0" href="/form">Make a Request</a>
@@ -85,4 +85,13 @@
 		<!-- </div> --><!-- /container -->
 	<!-- </div> --><!-- /slide4 -->
 
-@stop
+	<script>
+		$(function() {
+	        $('video').cover({
+	        	ratio: 1080 / 1920;
+	        });
+	    	$(window).resize(function() {
+	        	$('video').cover('set');
+	        });
+	    });
+	</script>

@@ -121,10 +121,14 @@ class UsersController extends Controller
 
     public function enterQueue($id)
     {
-        $user = User::where('id', $id)->update(
-            [
-            'queue' => time(),
-            ]);
+        $user = User::findOrFail($id);
+        $queued = $user->queue;
+        $active = $user->active_project;
+        if (!$queued && !$active)
+        {
+           $user->queue = time();
+            $user->save();
+        }
         return redirect()->action('UsersController@show', $id);
     }
 

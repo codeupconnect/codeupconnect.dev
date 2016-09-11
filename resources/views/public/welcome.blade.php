@@ -14,10 +14,10 @@
 				</div>
 				<div class="container">
     				<a class="btn-0" href="/form">Make a Request</a>
-    			</div><!-- /col-12 -->
-			</div><!-- /row -->
+    			</div>
+			</div>
 			
-		</div><!-- /container -->
+		</div>
 	</div><!-- /slide1 -->
 	
 	<!-- === Slide 2 === -->

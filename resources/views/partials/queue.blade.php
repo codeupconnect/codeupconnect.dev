@@ -5,8 +5,6 @@
 			<tr>
 				<td>User ID</td>
 				<td>Name</td>
-				<td>Github</td>
-				<td>URL</td>
 				<td>Email</td>
 				<td>Send Invite?</td>
 			</tr>
@@ -16,8 +14,6 @@
 			<tr class="table-row">
 				<td>{{ $user->id }}</td>
 				<td>{{ $user->name }}</td>
-				<td>{{ $user->github_id }}</td>
-				<td>{{ $user->url }}</td>
 				<td>{{ $user->email }}</td>
 				<td><button class="btn btn-success"><i class="glyphicon glyphicon-envelope"> Invite</i></button></td>
 			</tr>

@@ -37,6 +37,9 @@
 					<div class="container">
 						<h3>Current Project: {{ $myUser->organization_name }}</h3>
 					</div>
+					<div>
+						<a class="btn btn-info" id="current-project-btn"><i class="glyphicon glyphicon-th-list"></i> Details</a>
+					</div>
 				</div>
 			@endif
 			<div class="profile-content col-xs-12 tables">

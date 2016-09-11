@@ -4,9 +4,8 @@
 
 @include('partials.single-project-view')
 
-	</div>
-</div>
-	<div class="container button-container col-xs-12" id="single-button">
+
+	<div class="container button-container col-xs-12" id="single-button pass-reject">
  		<div class="col-xs-4" >
  			<form method="POST" action="{{ action('UsersController@acceptInvite') }}">
  	   			{!! csrf_field() !!}  

@@ -141,6 +141,13 @@
       }
     }
 
+    /*CodeupConnect logo*/
+      #codeupconnect{
+        max-height: 150px; 
+        margin: auto; 
+        margin-top:90px;
+      }
+
     /*Request Button*/
       .wrap {
         width: 50%;
@@ -281,109 +288,6 @@
   #header {
   padding:10px;
   }
-
-  /*Github Button*/
-
-    .btn-social{
-      position:relative;
-      margin-top:1.5px;
-      padding-left:44px;
-      text-align:left;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
-    }
-
-    .btn-social :first-child{
-      position:absolute;
-      left:0;
-      top:0;
-      bottom:0;
-      width:32px;
-      line-height:34px;
-      font-size:1.6em;
-      text-align:center;
-      border-right:1px solid rgba(0,0,0,0.2);
-    }
-
-    .btn-social.btn-lg{
-      padding-left:61px;
-    }
-
-    .btn-social.btn-lg :first-child{
-      line-height:45px;
-      width:45px;
-      font-size:1.8em;
-    }
-
-    .btn-social-icon{
-      position:relative;
-      padding-left:44px;
-      text-align:left;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
-      height:34px;
-      width:34px;
-      padding-left:0;
-      padding-right:0;
-    }
-
-    .btn-social-icon :first-child{
-      position:absolute;
-      left:0;
-      top:0;
-      bottom:0;
-      width:32px;
-      line-height:34px;
-      font-size:1.6em;
-      text-align:center;
-      border-right:1px solid rgba(0,0,0,0.2)
-    }
-
-    .btn-social-icon.btn-lg{
-      padding-left:61px;
-    }
-
-    .btn-social-icon.btn-lg :first-child{
-      line-height:45px;
-      width:45px;
-      font-size:1.8em;
-    }
-
-    .btn-social-icon :first-child{
-      border:none;
-      text-align:center;
-      width:100% !important
-    }
-
-    .btn-social-icon.btn-lg{
-      height:45px;
-      width:45px;
-      padding-left:0;
-      padding-right:0;
-    }
-
-    .btn-github{
-      color:#fff;
-      background-color:#444;
-      border-color:rgba(0,0,0,0.2);
-    }
-
-    .btn-github:hover,.btn-github:focus,.btn-github:active,.btn-github.active,.open .dropdown-toggle.btn-github{
-      color:#fff;
-      background-color:#303030;
-      border-color:rgba(0,0,0,0.2);
-    }
-
-    .btn-github:active,.btn-github.active,.open .dropdown-toggle.btn-github{
-      background-image:none;
-    }
-
-    .btn-github.disabled,.btn-github[disabled],fieldset[disabled] .btn-github,.btn-github.disabled:hover,.btn-github[disabled]:hover,fieldset[disabled] .btn-github:hover,.btn-github.disabled:focus,.btn-github[disabled]:focus,fieldset[disabled] .btn-github:focus,.btn-github.disabled:active,.btn-github[disabled]:active,fieldset[disabled] .btn-github:active,.btn-github.disabled.active,.btn-github[disabled].active,fieldset[disabled] .btn-github.active{
-      background-color:#444;
-      border-color:rgba(0,0,0,0.2);
-    }
 
 /*User Profile*/
 
@@ -575,6 +479,10 @@
     margin-left:45%;
   }
 
+  #pass-reject{
+    margin-top:5%;
+  }
+
 /*Client Form*/
 
   .navbar-margin{
@@ -610,3 +518,113 @@
     margin-bottom:-30px;
   }
   
+
+/*Login*/
+  #login{
+    margin:20%;
+    margin-left:37%;
+  }
+  /*Github Button*/
+
+    .btn-social{
+      position:relative;
+      margin-top:1.5px;
+      padding-left:44px;
+      text-align:left;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+
+    .btn-social :first-child{
+      position:absolute;
+      left:0;
+      top:0;
+      bottom:0;
+      width:32px;
+      line-height:34px;
+      font-size:1.6em;
+      text-align:center;
+      border-right:1px solid rgba(0,0,0,0.2);
+    }
+
+    .btn-social.btn-lg{
+      padding-left:61px;
+    }
+
+    .btn-social.btn-lg :first-child{
+      line-height:45px;
+      width:45px;
+      font-size:1.8em;
+    }
+
+    .btn-social-icon{
+      position:relative;
+      padding-left:44px;
+      text-align:left;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      height:34px;
+      width:34px;
+      padding-left:0;
+      padding-right:0;
+    }
+
+    .btn-social-icon :first-child{
+      position:absolute;
+      left:0;
+      top:0;
+      bottom:0;
+      width:32px;
+      line-height:34px;
+      font-size:1.6em;
+      text-align:center;
+      border-right:1px solid rgba(0,0,0,0.2)
+    }
+
+    .btn-social-icon.btn-lg{
+      padding-left:61px;
+    }
+
+    .btn-social-icon.btn-lg :first-child{
+      line-height:45px;
+      width:45px;
+      font-size:1.8em;
+    }
+
+    .btn-social-icon :first-child{
+      border:none;
+      text-align:center;
+      width:100% !important
+    }
+
+    .btn-social-icon.btn-lg{
+      height:45px;
+      width:45px;
+      padding-left:0;
+      padding-right:0;
+    }
+
+    .btn-github{
+      color:#fff;
+      background-color:#444;
+      border-color:rgba(0,0,0,0.2);
+    }
+
+    .btn-github:hover,.btn-github:focus,.btn-github:active,.btn-github.active,.open .dropdown-toggle.btn-github{
+      color:#fff;
+      background-color:#303030;
+      border-color:rgba(0,0,0,0.2);
+    }
+
+    .btn-github:active,.btn-github.active,.open .dropdown-toggle.btn-github{
+      background-image:none;
+    }
+
+    .btn-github.disabled,.btn-github[disabled],fieldset[disabled] .btn-github,.btn-github.disabled:hover,.btn-github[disabled]:hover,fieldset[disabled] .btn-github:hover,.btn-github.disabled:focus,.btn-github[disabled]:focus,fieldset[disabled] .btn-github:focus,.btn-github.disabled:active,.btn-github[disabled]:active,fieldset[disabled] .btn-github:active,.btn-github.disabled.active,.btn-github[disabled].active,fieldset[disabled] .btn-github.active{
+      background-color:#444;
+      border-color:rgba(0,0,0,0.2);
+    }
+
+

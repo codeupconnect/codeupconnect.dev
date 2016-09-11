@@ -9,7 +9,7 @@
 		<div class="container">
 			<div id="home-row-1" class="row clearfix">
 				<div class="col-12">
-					<img class="img-responsive" src="/images/logo.png" style="max-height: 150px; margin: auto; margin-top:90px;">
+					<img class="img-responsive" src="/images/logo.png" id="codeupconnect">
 					<h4 class="font-thin">We are a team of <span class="font-semibold">Codeup graduates</span> looking to give back to the community.</h4>
 				</div>
 				<div class="container">

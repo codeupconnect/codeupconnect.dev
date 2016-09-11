@@ -39,3 +39,5 @@ Route::post('accept', 'UsersController@acceptInvite');
 Route::post('reject', 'UsersController@rejectInvite');
 Route::get('add-user', 'ApiController@testAddUser');
 
+Route::get('alumni/1100', function(){return view('alumni.login');});
+

@@ -1,3 +1,4 @@
+
 <nav class="navbar navbar-default navbar-fixed-top navbar-custom col-xs-12">
 	<div class="container-fluid">
 		<!-- Brand and toggle get grouped for better mobile display -->
@@ -27,7 +28,7 @@
 		</ul>
 		@else
 		<div class="navbar-collapse collapse">
-			<ul class="nav navbar-nav">
+			<ul class="nav navbar-nav navbar-right">
 				<li data-slide="2"><a id="menu-link-2" href="/#slide-2" title="Next Section">Mission </a></li>
 				<li><a>|</a></li>
 				<li data-slide="3"><a id="menu-link-3" href="/#slide-3" title="Next Section">Portfolio</a></li>
@@ -36,20 +37,10 @@
 				<li><a>|</a></li>
 				<li><a href="/admin">Admin</a></li>
 			</ul>
-			<ul class="nav navbar-nav navbar-right">
-				<div>
-					<li>
-						<a href="/login" class="btn btn-block btn-social btn-lg btn-github">
-						<i class="fa fa-github"></i>
-						Sign in with Github
-						</a>
-					</li>
-				</div>
+			
 		@endif
-			</ul>
+			
 		</div><!-- /.navbar-collapse -->
 	</div><!-- /.container-fluid -->
 
 </nav>
-
-

@@ -1,6 +1,6 @@
 <div>
 	<h3>Queue</h3>
-	<table class="table table-bordered table-striped table-hover" >
+	<table class="table table-bordered table-striped table-hover">
 		<thead>
 			<tr>
 				<td>User ID</td>

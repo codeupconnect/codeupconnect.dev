@@ -19,9 +19,10 @@ Route::get('accept-project', 'UsersController@acceptProject');
 Route::get('trello', 'ApiController@viewTrelloLogin');
 Route::get('new-trello-board', 'ApiController@viewNewBoard');
 
-// Both of the following URLs are directly targeted. Do not change URL.
+// The following URLs are directly targeted. Do not change URL.
 Route::post('trello-login', 'ApiController@trelloLogin');
 Route::post('add-trello-user', 'ApiController@addNewTrelloUser');
+Route::post('accept-project', 'UsersController@acceptProject');
 
 Route::post('load-board', 'ApiController@createTrelloBoard');
 Route::post('submit', 'ProjectsController@store');
@@ -38,5 +39,3 @@ Route::post('accept', 'UsersController@acceptInvite');
 Route::post('reject', 'UsersController@rejectInvite');
 Route::get('add-user', 'ApiController@testAddUser');
 
-// *Caution* public/js/trello.js is direct referencing /accept-project in createOrViewBoard().
-Route::post('accept-project', 'UsersController@acceptProject');

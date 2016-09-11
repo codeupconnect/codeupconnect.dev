@@ -3,9 +3,11 @@
 
 
     <div class="slide story" id="slide-1" data-slide="1">
-	<video id="home-video" class="video" autoplay="autoplay">
-	  <source src="video/westward-view.mp4" type="video/mp4" />
-	</video>
+		<div class="col-md-12">
+			<video id="home-video" class="video" autoplay="autoplay">
+			  <source src="video/westward-view.mp4" type="video/mp4" />
+			</video>
+		</div>
 		<div class="container">
 			<div id="home-row-1" class="row clearfix">
 				<div class="col-12">

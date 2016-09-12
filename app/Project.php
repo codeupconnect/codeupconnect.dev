@@ -19,7 +19,7 @@ class Project extends Model
 
     public function nextinQueue($count = 0)
     {
-        $users = User::whereNotNull('queue')->where('active_project', '')->where('invite', '')->orderBy('queue', 'desc')->get();
+        $users = User::whereNotNull('queue')->where('active_project', '')->where('invite', '')->orderBy('queue', 'asc')->get();
         $all_users = $users->all();
         if (empty($all_users)) {
             dd("There are no alumni currently available to invite! Recruit some devs, or try again later.");

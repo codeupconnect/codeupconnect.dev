@@ -134,6 +134,14 @@ class UsersController extends Controller
         return redirect()->action('UsersController@show', $id);
     }
 
+    public function exitQueue($id)
+    {
+        $user = User::findOrFail($id);
+        $user->queue = null;
+        $user->save();
+        return redirect()->action('UsersController@show', $id);
+    }
+
     public function acceptProject(Request $request)
     {
         // Gather Project and Team Member info

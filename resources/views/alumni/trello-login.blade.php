@@ -1,8 +1,8 @@
 @extends('layout.master')
 
 @section('head-includes')
-
 	<link href="/css/trello.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 @stop
 @section('content')
     
@@ -14,19 +14,20 @@
     	<input type="hidden" id="board-name" name="board_name" value="">
     	<input type="hidden" id="project-id" name="project_id" value="">
     </form>
-    <div class="container">		      
-<!--     	<button id="newBoard">New Board</button>		
-      	<form class="form-horizontal" id="boards_form">		        
-	      	<div class="form-group">
-	      		<label class="control-label">Choose your board</label>
-	      	    <select class="form-control" id="boards"></select>		        
-	      	</div>    
-	    </form> -->
-	    <div id="lists" class="container text-center">
-	    	<br><br><br>
-	    	<h1> Please wait while we redirect you to your board. </h1>
+    <div class="col-sm-12 title">
+	    <a href="http://trello.com">
+	    	<img src="/images/trello-logo.png" height="40px">
+	    </a>
+	   	<h1 id="project-name">
+	   	@if (isset($data))
+	   	{{ $data['board_name'] }}	      
+	    @endif
+	    </h1>	
+
+	    <div id="lists" class="col-sm-12">
+	    	<h1> Please Log In to View Your Project Board. </h1>
 	    </div>
-    </div> 
+    </div>
 		    
 @stop
 

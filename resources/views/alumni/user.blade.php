@@ -21,7 +21,7 @@
 				</div>
 				@include('partials.user-profile-menu')
 			</div>
-			<div class="container col-xs-12 add-queue">
+			<div class="container col-xs-9 add-queue">
 				<form action="{{ action('UsersController@enterQueue', $myUser->id) }}" method="POST">
 					{!! csrf_field() !!}
 					{!! method_field("PUT") !!}
@@ -38,13 +38,11 @@
 						<h3>Current Project: {{ $myUser->organization_name }}</h3>
 					</div>
 					<div>
-						<a class="btn btn-info" id="current-project-btn"><i class="glyphicon glyphicon-th-list"></i> Details</a>
+						<a class="btn btn-info" id="current-project-btn" href="{{ action('ProjectsController@showProject', $myUser->project_id) }}"><i class="glyphicon glyphicon-th-list"></i> Details</a>
 					</div>
 				</div>
 			@endif
-			<div class="profile-content col-xs-12 tables">
-				@include('partials.queue')
-			</div>
+			@include('partials.queue')
 		</div>
 	</div>
 </div>

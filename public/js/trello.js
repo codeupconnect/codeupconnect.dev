@@ -72,11 +72,12 @@
 		dump('boardId: ', boardId);
 	    //	Clear loaded lists
     	$('#lists').empty();
+
 	// Get the selected board's lists
      	Trello.get(
         	'/boards/' + boardId + '/lists',
         	loadedLists,
-       		function() { dump("Failed to load lists"); }
+       		function() { console.log("Failed to load lists"); }
       	);
     }
 
@@ -95,7 +96,7 @@
 
     		// Create div with table for each list, with name in table head 
     		var listText = 
-    		$("<div class='col-sm-3 lists'><input type='text' placeholder='Create New Card' class='newCard' data-id='" + list.id + "'><table><thead><tr><th>" + list.name + "</th></tr></thead><tbody id='" + list.id + "'></tbody></table></div>");
+    		$("<div class='lists col-sm-3'><table><thead><tr><th>" + list.name + "</th></tr></thead><tbody id='" + list.id + "'></tbody></table><input type='text' placeholder='Create New Card' class='newCard' data-id='" + list.id + "'></div>");
 
     		$('#lists').append(listText);
     		
@@ -128,8 +129,9 @@
 			// Click listener placed on each card
 			$("#"+card.id).click(function() 
 			{
+				$("#"+card.id).attr('class', 'edit-delete');
 				// Create textarea, edit button, discard button, and delete link
-				var cardHtml = "<textarea id='editing'>"+ card.name + "</textarea><button id='edit'>Edit Card</button><button id='discard'>Discard Changes</button><a id='delete' href='javascript'>Delete</a>";
+				var cardHtml = "<textarea id='editing'>"+ card.name + "</textarea><p><button id='edit'>Edit Card</button><button id='discard'>Discard Changes</button></p>";
 
 				// Add links to move card to other lists
 				var moveLinks = createMoveLinks();
@@ -185,7 +187,7 @@
 			// Create New Card
 			var newCard = {
 				name: $(this).val(), 
-				desc: 'This is the description of our new card.',
+				desc: 'Card Created by CodeupConnect API.',
 			  	idList: listId,
 			  	pos: 'top'
 			};
@@ -196,7 +198,7 @@
 	// Create Links to Move Card to Another List
 	function createMoveLinks()
 	{
-		var moveLinks = '<ul>';
+		var moveLinks = "<ul><li><a id='delete' href='javascript'>Delete Card</a></li></ul><ul>";
 		$.each(listNames, function(index, name)
 		{
 			// Create new anchor for each list
@@ -250,7 +252,7 @@
 	var authorizeSuccess = function() 
 	{
 		var token = $('#token').val();
-		if (window.location.href == "http://codeupconnect.dev/trello")
+		if (window.location.href == "http://codeupconnect.com/trello")
 		{
 			dump('logging in', Trello.token());
 			$.ajax({
@@ -261,16 +263,15 @@
 				'_token' : token,
 				}
 			}).done(function(data) {
+				$('#project-name').text(data['board_name']);
 				$('#board-name').val(data['board_name']);
 				$('#project-id').val(data['project_id']);
 				$('#board-id').val(data['board_id']);
 				createOrViewBoard();
 			});
-		} else if (window.location.href == "http://codeupconnect.dev/add-user")
-		{
-			// Create and submit a form instead of AJAX?
-			// no...
-			// shoot me plz.
+		// } else if (window.location.href == "http://codeupconnect.com/add-user")
+		// {
+			// Add new user to trello board
 
 		} else
 		{
@@ -293,5 +294,4 @@
 	  success: authorizeSuccess,
 	  error: authorizeFailure
 	});
-
 

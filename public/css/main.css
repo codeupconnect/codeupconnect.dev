@@ -12,7 +12,6 @@
 
   body {
     background-color: #D5D5D5;
-    font-family: 'Source Sans Pro', sans-serif;
     font-weight: normal;
     overflow-x: hidden;
     
@@ -22,6 +21,10 @@
      font-family: 'Lato', sans-serif;
   }
 
+  table {
+    table-layout: fixed;
+    width: 100%;
+  }
 /*Font styling*/
   .font-thin {
     font-weight: 200;
@@ -390,8 +393,7 @@
     }
 
     .current-project{
-      height: 150px;
-      width: 115%;
+      width: 100%;
     }
 
     .tables{

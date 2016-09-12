@@ -1,21 +1,22 @@
 @extends('layout.master')
 
 @section('head-includes')
-
 	<link href="/css/trello.css" rel="stylesheet">
 @stop
+
 @section('content')
 	<div id="operations">
 		<input hidden name="logged-in" value="true">
 		<input hidden name="board-id" value="{{ $data['board_id'] }}">
 		<input hidden name="project-id" value="{{ $data['project_id'] }}">
 	</div>
-    <div class="container">
-    	<h1 id="board-name">{{ $data['board_name'] }}</h1>		      
-	    <div id="lists" class="container text-center">
-	    </div>
-    </div> 
-		    
+	<div class="container">
+	    <div id="title" class="col-sm-12">
+	    	<h1 id="board-name">{{ $data['board_name'] }}</h1>		      
+		    <div id="lists" class="container text-center">
+		    </div>
+	    </div>    
+	</div>
 @stop
 
 @section('bottom-scripts')

@@ -6,7 +6,7 @@
 				<!-- Username/Preference -->
 				<div class="profile-usertitle">
 					<div class="profile-usertitle-name">
-						Additional Requests:
+						Optional Requests:
 					</div>
 				</div>
 				@include('partials.project-menu')

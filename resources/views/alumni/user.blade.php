@@ -38,7 +38,7 @@
 						<h3>Current Project: {{ $myUser->organization_name }}</h3>
 					</div>
 					<div>
-						<a class="btn btn-info" id="current-project-btn"><i class="glyphicon glyphicon-th-list"></i> Details</a>
+						<a class="btn btn-info" id="current-project-btn" href="{{ action('ProjectsController@showProject', $myUser->project_id) }}"><i class="glyphicon glyphicon-th-list"></i> Details</a>
 					</div>
 				</div>
 			@endif

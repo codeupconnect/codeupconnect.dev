@@ -67,9 +67,11 @@ class UsersController extends Controller
         {
             $userCurrentProject = Project::find($myUser->active_project);
         
-                    $currentProjectName = $userCurrentProject->organization_name;
+            $currentProjectName = $userCurrentProject->organization_name;
         
-                    $myUser->organization_name = $currentProjectName;
+            $myUser->organization_name = $currentProjectName;
+            $myUser->project_id = $userCurrentProject->id;
+
         }
 
         $users = User::where('queue', '<>', "")->orderBy('queue', 'asc')->get();

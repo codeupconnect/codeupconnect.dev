@@ -170,16 +170,15 @@ class UsersController extends Controller
         
         $user = User::where('id', $userId)->first();
 
-        Project::where('id', $user->active_project)->update(['status', 'closed']);
+        $project = Project::findOrFail($user->active_project);
+        $project->status = 'closed';
+        $project->save();
 
-        User::where('id', $userId)->update(
-            [
-                'queue' => time(),
-                'active_project' => "",
-            ]);
+        $user->queue = time();
+        $user->active_project = "";
+        $user->save();
 
-        return view("public.welcome");
-
+        return redirect()->action('UsersController@show', $userId);
     }
 
     public function acceptInvite(Request $request)

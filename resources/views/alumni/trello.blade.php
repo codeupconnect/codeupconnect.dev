@@ -10,14 +10,20 @@
 		<input hidden name="board-id" value="{{ $data['board_id'] }}">
 		<input hidden name="project-id" value="{{ $data['project_id'] }}">
 	</div>
-	<div class="container">
-	    <div id="title" class="col-sm-12">
-	    	<img src="/images/trello-logo.png">
-	    	<h1 id="project-name">{{ $data['board_name'] }}</h1>		      
-		    <div id="lists" class="container text-center">
-		    </div>
-	    </div>    
-	</div>
+    <div class="col-sm-12 title">
+	    <a href="http://trello.com">
+	    	<img src="/images/trello-logo.png" height="40px">
+	    </a>
+	   	<h1 id="project-name">
+	   	@if (isset($data))
+	   	{{ $data['board_name'] }}	      
+	    @endif
+	    </h1>	
+
+	    <div id="lists" class="col-sm-12">
+	    	<h1> Please Log In to View Your Project Board. </h1>
+	    </div>
+    </div>
 @stop
 
 @section('bottom-scripts')

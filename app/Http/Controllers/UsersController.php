@@ -163,6 +163,25 @@ class UsersController extends Controller
         return view("alumni.trello")->with('boardId', $boardId);
     }   
 
+    public function closeProject(Request $request)
+    {
+        // Gather Project and Team Member info
+        $userId = session()->get('login_' . md5("Illuminate\Auth\Guard"));
+        
+        $user = User::where('id', $userId)->first();
+
+        Project::where('id', $user->active_project)->update(['status', 'closed']);
+
+        User::where('id', $userId)->update(
+            [
+                'queue' => time(),
+                'active_project' => "",
+            ]);
+
+        return view("public.welcome");
+
+    }
+
     public function acceptInvite(Request $request)
     {
         $user = User::findOrFail($request->id);

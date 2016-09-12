@@ -474,7 +474,7 @@
   }
 
   .margin-top{
-    margin-top: -50px;
+    margin-top: 16%;
   }
 
   .margin-left{
@@ -482,17 +482,23 @@
   }
 
   #pass-reject{
-    margin-top:5%;
+    margin-top:-25%;
+    margin-left:45%;
   }
 
 /*Client Form*/
 
   .navbar-margin{
-    margin-top: 60px;
+    margin-top: 65px;
   }
 
   .form-font{
     color:black;
+  }
+
+  .margins{
+    margin-left: 8%;
+    margin-top: 2%;
   }
 
 /*Admin Portal*/
@@ -523,9 +529,10 @@
 
 /*Login*/
   #login{
-    margin:20%;
-    margin-left:37%;
+    margin:5%;
+    margin-left:25%;
   }
+
   /*Github Button*/
 
     .btn-social{
@@ -628,5 +635,3 @@
       background-color:#444;
       border-color:rgba(0,0,0,0.2);
     }
-
-

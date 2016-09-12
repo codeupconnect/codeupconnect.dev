@@ -4,7 +4,7 @@
 <div class="container"> 
 	<h2 id="edit-data" class="title text-center teal-font">Edit and Approve</h2>
 	<div class="row profile">
-		@if($boolean == 1)
+	
 			<div class="col-md-3">
 				<div class="profile-sidebar margin-top edit">
 					<div class="profile-usermenu">
@@ -19,10 +19,9 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-md-9 ">
-		@else
-			<div class="col-md-12">
-		@endif
+		
+			<div class="col-md-9">
+		
 				<form method="POST" action="{{ action('ProjectsController@update', $boolean['id']) }}"> 
 					<div class="edit">
 			            {!! csrf_field() !!}

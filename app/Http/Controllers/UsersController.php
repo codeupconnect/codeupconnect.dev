@@ -71,7 +71,6 @@ class UsersController extends Controller
         
             $myUser->organization_name = $currentProjectName;
             $myUser->project_id = $userCurrentProject->id;
-
         }
 
         $users = User::where('queue', '<>', "")->orderBy('queue', 'asc')->get();

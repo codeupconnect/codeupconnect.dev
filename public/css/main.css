@@ -22,6 +22,10 @@
      font-family: 'Lato', sans-serif;
   }
 
+  table {
+    table-layout: fixed;
+    width: 100%;
+  }
 /*Font styling*/
   .font-thin {
     font-weight: 200;
@@ -390,8 +394,7 @@
     }
 
     .current-project{
-      height: 150px;
-      width: 115%;
+      width: 100%;
     }
 
     .tables{

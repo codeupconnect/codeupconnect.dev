@@ -474,7 +474,7 @@
   }
 
   .margin-top{
-    margin-top: -50px;
+    margin-top: 16%;
   }
 
   .margin-left{
@@ -489,7 +489,7 @@
 /*Client Form*/
 
   .navbar-margin{
-    margin-top: 60px;
+    margin-top: 65px;
   }
 
   .form-font{
@@ -497,7 +497,8 @@
   }
 
   .margins{
-    margin-left: 7%;
+    margin-left: 8%;
+    margin-top: 2%;
   }
 
 /*Admin Portal*/
@@ -528,8 +529,8 @@
 
 /*Login*/
   #login{
-    margin:20%;
-    margin-left:37%;
+    margin:5%;
+    margin-left:25%;
   }
 
   /*Github Button*/

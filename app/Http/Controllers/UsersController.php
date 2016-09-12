@@ -195,9 +195,9 @@ class UsersController extends Controller
 
         User::where('id', $request->id)->update(
             [
-                'invite' = null;
-                'active_project' = $project->id;
-                'queue' = "";
+                'invite' = null,
+                'active_project' = $project->id,
+                'queue' = "",
             ]);
 
         session()->forget('invite');

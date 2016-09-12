@@ -1,3 +1,15 @@
+body
+{
+	background-color: #0079BF;
+    font-weight: normal;
+    overflow-x: hidden;
+}
+
+img
+{
+	margin: auto;
+}
+
 #lists 
 {
 	display: flex;
@@ -5,35 +17,76 @@
 	justify-content: space-around;
 	margin-left: -10px;
 	margin-right: -10px;
-	margin-top:150px;
 	font-size: 1.5em;
-}
-
-#lists th
-{
-	text-align: center;
-	justify-content: space-around;
-	width: 100%;
-	margin: auto;
 }
 
 .lists 
 {
 	text-align: center;
+	margin: 2px;
+	padding: 15px;
+	background-color: #e5e5e5;
+	border-radius: 5px;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+	color:#5a5a5a;
+}
+
+table
+{
+	table-layout: fixed;
+	width: 100%;
+	border-collapse:separate; 
+    border-spacing: 0 8px;
+}
+
+th
+{
+	text-align: center;
 	margin: auto;
-	margin: 5px;
-	background-color: #f9f9f9;
+	background-color: #e5e5e5;
+	color: #222;
+}
+
+input
+{
+	font-weight: lighter;
 }
 
 td 
 {
-    border-style: solid;
-    border-width: medium;
-    margin-top: 5px;
+    border-radius: 3px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+    padding: 3px;
 }
 
-#title 
+.title 
 {
-	margin-top:75px;
-	padding-top:75px;
+	margin-top: 65px;
+	text-align: center;
+	color: #fff;
+
+}
+
+#edit
+{
+	font-size: .75em;
+}
+#discard
+{
+	font-size: .75em;
+
+}
+
+.edit-delete
+{
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	font-size: .9em;
+}
+
+#delete
+{
+	color:red;
 }

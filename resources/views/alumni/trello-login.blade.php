@@ -2,6 +2,7 @@
 
 @section('head-includes')
 	<link href="/css/trello.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 @stop
 @section('content')
     
@@ -13,9 +14,19 @@
     	<input type="hidden" id="board-name" name="board_name" value="">
     	<input type="hidden" id="project-id" name="project_id" value="">
     </form>
-    <div id="lists">
-    	<br><br><br>
-    	<h1> Please wait while we redirect you to your board. </h1>
+    <div class="col-sm-12 title">
+	    <a href="http://trello.com">
+	    	<img src="/images/trello-logo.png" height="40px">
+	    </a>
+	   	<h1 id="project-name">
+	   	@if (isset($data))
+	   	{{ $data['board_name'] }}	      
+	    @endif
+	    </h1>	
+
+	    <div id="lists" class="col-sm-12">
+	    	<h1> Please wait while we redirect you to your board. </h1>
+	    </div>
     </div>
 		    
 @stop

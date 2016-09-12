@@ -31,7 +31,8 @@ Route::get('all-projects', 'ProjectsController@index');
 Route::get('show-project/{id}', 'ProjectsController@showProject');
 Route::put('approve/{id}', 'ProjectsController@update');
 Route::put('enter-queue/{id}', 'UsersController@enterQueue');
-Route::get('exit-queue/{id}', 'UsersController@exitQueue');
+Route::put('exit-queue/{id}', 'UsersController@exitQueue');
+
 Route::get('close-project/{id}', 'UsersController@closeProject');
 Route::get('users', 'UsersController@index');
 Route::get('form', function(){return view('public.clientform');});

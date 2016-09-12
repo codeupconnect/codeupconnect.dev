@@ -76,7 +76,7 @@
      	Trello.get(
         	'/boards/' + boardId + '/lists',
         	loadedLists,
-       		function() { dump("Failed to load lists"); }
+       		function() { console.log("Failed to load lists"); }
       	);
     }
 
@@ -95,7 +95,7 @@
 
     		// Create div with table for each list, with name in table head 
     		var listText = 
-    		$("<div class='col-sm-3 lists'><input type='text' placeholder='Create New Card' class='newCard' data-id='" + list.id + "'><table><thead><tr><th>" + list.name + "</th></tr></thead><tbody id='" + list.id + "'></tbody></table></div>");
+    		$("<div class='lists'><table><thead><tr><th>" + list.name + "</th></tr><tr><th><input type='text' placeholder='Create New Card' class='newCard' data-id='" + list.id + "'></th></tr></thead><tbody id='" + list.id + "'></tbody></table></div>");
 
     		$('#lists').append(listText);
     		

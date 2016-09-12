@@ -14,6 +14,7 @@
 		<!-- Collect the nav links, forms, and other content for toggling -->
 	
 		<!-- some kinda error here. unsure. -->
+		<div class="navbar-collapse collapse">
 		@if(session()->has('login_' . md5("Illuminate\Auth\Guard")))
 		<ul class="nav navbar-nav navbar-right">
 			<li class="dropdown">
@@ -27,7 +28,6 @@
 			</li>	
 		</ul>
 		@else
-		<div class="navbar-collapse collapse">
 			<ul class="nav navbar-nav navbar-right">
 				<li data-slide="2"><a id="menu-link-2" href="/#slide-2" title="Next Section">Mission </a></li>
 				<li><a>|</a></li>

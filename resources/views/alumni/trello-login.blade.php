@@ -25,7 +25,7 @@
 	    </h1>	
 
 	    <div id="lists" class="col-sm-12">
-	    	<h1> Please wait while we redirect you to your board. </h1>
+	    	<h1> Please Log In to View Your Project Board. </h1>
 	    </div>
     </div>
 		    

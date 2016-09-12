@@ -96,7 +96,7 @@
 
     		// Create div with table for each list, with name in table head 
     		var listText = 
-    		$("<div class='lists col-sm-3'><table><thead><tr><th>" + list.name + "</th></tr><tr><th><input type='text' placeholder='Create New Card' class='newCard' data-id='" + list.id + "'><hr></th></tr></thead><tbody id='" + list.id + "'></tbody></table></div>");
+    		$("<div class='lists col-sm-3'><table><thead><tr><th>" + list.name + "</th></tr></thead><tbody id='" + list.id + "'></tbody></table><input type='text' placeholder='Create New Card' class='newCard' data-id='" + list.id + "'></div>");
 
     		$('#lists').append(listText);
     		
@@ -296,5 +296,4 @@
 	  success: authorizeSuccess,
 	  error: authorizeFailure
 	});
-
 

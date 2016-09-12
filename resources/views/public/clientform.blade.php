@@ -4,10 +4,10 @@
 @section('content')
 
 <div class="container form-font">
-    <h1 class="navbar-margin text-center">Submit a Project</h1>
+    <h1 class="navbar-margin text-center teal-font">Submit a Project</h1>
 	<div class="container-fluid form-group">
-        <div class="col-sm-12">
-	    	<form class="form.horizontal" method="POST" action="{{ action('ProjectsController@store') }}">
+        
+	    	<form class="form.horizontal" method="POST" action="{{ action('ProjectsController@store') }}"><div class="col-sm-6 edit margins">
  
                 {!! csrf_field() !!}
                 
@@ -40,9 +40,11 @@
                 @if($errors->has('project_details'))
 		    		{!! $errors->first('project_details', '<p><span class="help-block alert alert-warning">:message</span></p>') !!}
 				@endif
-
-				<p>Do you have collateral prepared for your project? <input type="checkbox" name="collateral" value="true"> </p>
-      
+				<h4 class="teal-font text-center">Check Yes if Applicable</h4>
+				<p>Do you have a logo and/or graphics prepared for your project? <input type="checkbox" name="collateral" value="true"> </p>
+			</div>
+			<div class="col-sm-6 edit margins">
+      			<h4 class="teal-font text-center">Would you like any of the following:</h4>
 				<p>Facebook integration? <input type="checkbox" name="facebook" value="true"> </p>
               
 				<p>LinkedIn integration? <input type="checkbox" name="linkedin" value="true"> </p>
@@ -69,12 +71,11 @@
         
         		<input type="hidden" name="trello_id" value="null">
         		<input type="hidden" name="status" value="unapproved">  
-
-                <p class="text-center"><input type="submit" class="button btn-success"></p>                  
-            </form>
-        </div>    
-
-    </div>
+                <p class="text-center"><input type="submit" class="button btn-success"></p>
+            </div> 
+        </form>
+    </div>    
 </div>
+
 
 @stop

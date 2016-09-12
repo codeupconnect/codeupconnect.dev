@@ -480,7 +480,8 @@
   }
 
   #pass-reject{
-    margin-top:5%;
+    margin-top:-25%;
+    margin-left:45%;
   }
 
 /*Client Form*/
@@ -491,6 +492,10 @@
 
   .form-font{
     color:black;
+  }
+
+  .margins{
+    margin-left: 7%;
   }
 
 /*Admin Portal*/
@@ -524,6 +529,7 @@
     margin:20%;
     margin-left:37%;
   }
+
   /*Github Button*/
 
     .btn-social{
@@ -626,5 +632,3 @@
       background-color:#444;
       border-color:rgba(0,0,0,0.2);
     }
-
-

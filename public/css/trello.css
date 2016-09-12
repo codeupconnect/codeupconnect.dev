@@ -1,16 +1,39 @@
-#lists {
+#lists 
+{
+	display: flex;
+	flex-wrap:wrap;
+	justify-content: space-around;
 	margin-left: -10px;
 	margin-right: -10px;
+	margin-top:150px;
+	font-size: 1.5em;
 }
 
-.lists {
+#lists th
+{
+	text-align: center;
+	justify-content: space-around;
+	width: 100%;
+	margin: auto;
+}
+
+.lists 
+{
+	text-align: center;
 	margin: auto;
 	margin: 5px;
-	background-color: #fff;
+	background-color: #f9f9f9;
 }
 
-td {
+td 
+{
     border-style: solid;
     border-width: medium;
     margin-top: 5px;
+}
+
+#title 
+{
+	margin-top:75px;
+	padding-top:75px;
 }

@@ -252,7 +252,7 @@
 	var authorizeSuccess = function() 
 	{
 		var token = $('#token').val();
-		if (window.location.href == "http://codeupconnect.dev/trello")
+		if (window.location.href == "http://codeupconnect.com/trello")
 		{
 			dump('logging in', Trello.token());
 			$.ajax({
@@ -269,7 +269,7 @@
 				$('#board-id').val(data['board_id']);
 				createOrViewBoard();
 			});
-		} else if (window.location.href == "http://codeupconnect.dev/add-user")
+		} else if (window.location.href == "http://codeupconnect.com/add-user")
 		{
 			// Create and submit a form instead of AJAX?
 			// no...

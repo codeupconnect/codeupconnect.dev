@@ -74,20 +74,20 @@ class ProjectsController extends Controller
         
 
         // Instantiate the client.
-        $mgClient = new Mailgun('key-d4c9cd89b2a9f10666d87de18d44652f');
+        // $mgClient = new Mailgun('key-d4c9cd89b2a9f10666d87de18d44652f');
 
-        // Errors before dump/die
-        // Due to unrecognized model 'mailgun'
-        dd($mgClient);
+        // // Errors before dump/die
+        // // Due to unrecognized model 'mailgun'
+        // dd($mgClient);
         
-        $domain = "sandboxc3c56cf00e7b4ca78c11792a06851869.mailgun.org";
+        // $domain = "sandboxc3c56cf00e7b4ca78c11792a06851869.mailgun.org";
 
-        # Make the call to the client.
-        $result = $mgClient->sendMessage("$domain", array(
-                'from'    => 'Mailgun Sandbox <postmaster@sandboxc3c56cf00e7b4ca78c11792a06851869.mailgun.org>',
-                'to'      => 'Eddie <beijingtexan@gmail.com>',
-                'subject' => 'Hello Eddie',
-                'text'    => 'Congratulations Eddie, you just sent an email with Mailgun!  You are truly awesome!  You can see a record of this email in your logs: https://mailgun.com/cp/log .  You can send up to 300 emails/day from this sandbox server.  Next, you should add your own domain so you can send 10,000 emails/month for free.'));
+        // # Make the call to the client.
+        // $result = $mgClient->sendMessage("$domain", array(
+        //         'from'    => 'Mailgun Sandbox <postmaster@sandboxc3c56cf00e7b4ca78c11792a06851869.mailgun.org>',
+        //         'to'      => 'Eddie <beijingtexan@gmail.com>',
+        //         'subject' => 'Hello Eddie',
+        //         'text'    => 'Congratulations Eddie, you just sent an email with Mailgun!  You are truly awesome!  You can see a record of this email in your logs: https://mailgun.com/cp/log .  You can send up to 300 emails/day from this sandbox server.  Next, you should add your own domain so you can send 10,000 emails/month for free.'));
 
         return redirect()->action("HomeController@index");
     }

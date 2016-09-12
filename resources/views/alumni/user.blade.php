@@ -32,7 +32,7 @@
 			</div>
 		</div>
 		<div class="col-md-9">
-			@if($myUser->active_project !== "")
+			{{ dd($myUser) }}
 				<div class="profile-content current-project">
 					<div class="container">
 						<h3>Current Project: {{ $myUser->organization_name }}</h3>

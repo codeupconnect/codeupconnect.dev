@@ -183,6 +183,7 @@ class UsersController extends Controller
     public function acceptInvite(Request $request)
     {
         $user = User::findOrFail($request->id);
+        dd($user);
         $project = Project::findOrFail($user->invite);
         $project->next_invite = null;
         $project->save();
@@ -195,9 +196,9 @@ class UsersController extends Controller
 
         $user->invite = null;
         $user->active_project = $project->id;
-        $user->queue = null;
-
+        $user->queue = "";
         $user->save();
+
         session()->forget('invite');
         return redirect()->action('UsersController@show', $user->id);
 

@@ -25,9 +25,15 @@
 				<form action="{{ action('UsersController@enterQueue', $myUser->id) }}" method="POST">
 					{!! csrf_field() !!}
 					{!! method_field("PUT") !!}
+					@if ($myUser->queue == "null")
 					<button type="submit" class="btn btn-info text-center">
 					<i class="glyphicon glyphicon-plus"></i>
 					    Add Me to the Queue </button>
+					@else
+					<button type="submit" class="btn btn-info text-center">
+					<i class="glyphicon glyphicon-plus"></i>
+					    Remove Me from Queue </button>
+					$endif
 				</form>
 			</div>
 		</div>

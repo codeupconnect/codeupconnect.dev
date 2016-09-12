@@ -158,7 +158,6 @@ class UsersController extends Controller
             'project_id' => $projectId
             ]);
         Project::where('id', $projectId)->update(['trello_id' => $boardId]);
-        User::where('id', $userId)->update(['queue' => null]);
 
         return view("alumni.trello")->with('boardId', $boardId);
     }   
@@ -197,6 +196,8 @@ class UsersController extends Controller
 
         $user->invite = null;
         $user->active_project = $project->id;
+        $user->queue = null;
+
         $user->save();
         session()->forget('invite');
         return redirect()->action('UsersController@show', $user->id);

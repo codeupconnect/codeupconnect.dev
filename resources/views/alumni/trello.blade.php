@@ -12,7 +12,8 @@
 	</div>
 	<div class="container">
 	    <div id="title" class="col-sm-12">
-	    	<h1 id="board-name">{{ $data['board_name'] }}</h1>		      
+	    	<img src="/images/trello-logo.png">
+	    	<h1 id="project-name">{{ $data['board_name'] }}</h1>		      
 		    <div id="lists" class="container text-center">
 		    </div>
 	    </div>    

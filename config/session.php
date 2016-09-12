@@ -135,7 +135,7 @@ return [
     |
     */
 
-    'domain' => 'codeupconnect.dev',
+    'domain' => 'codeupconnect.com',
 
     /*
     |--------------------------------------------------------------------------

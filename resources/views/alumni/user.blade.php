@@ -25,20 +25,20 @@
 				<form action="{{ action('UsersController@enterQueue', $myUser->id) }}" method="POST">
 					{!! csrf_field() !!}
 					{!! method_field("PUT") !!}
-					@if ($myUser->queue == "null")
-					<button type="submit" class="btn btn-info text-center">
-					<i class="glyphicon glyphicon-plus"></i>
-					    Add Me to the Queue </button>
+					@if ($myUser->queue == "")
+						<button type="submit" class="btn btn-info text-center">
+						<i class="glyphicon glyphicon-plus"></i>
+						    Add Me to the Queue </button>
 					@else
-					<button type="submit" class="btn btn-info text-center">
-					<i class="glyphicon glyphicon-plus"></i>
-					    Remove Me from Queue </button>
-					$endif
+						<button type="submit" class="btn btn-info text-center">
+						<i class="glyphicon glyphicon-minus"></i>
+						    Remove Me From Queue </button>
+					@endif
 				</form>
 			</div>
 		</div>
 		<div class="col-md-9">
-			{{ dd($myUser) }}
+			@if($myUser->active_project !== "")
 				<div class="profile-content current-project">
 					<div class="container">
 						<h3>Current Project: {{ $myUser->organization_name }}</h3>

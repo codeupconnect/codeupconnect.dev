@@ -252,7 +252,7 @@
 	var authorizeSuccess = function() 
 	{
 		var token = $('#token').val();
-		if (window.location.href == "http://codeupconnect.com/trello")
+		if (window.location.pathname == "/trello")
 		{
 			dump('logging in', Trello.token());
 			$.ajax({
@@ -269,7 +269,7 @@
 				$('#board-id').val(data['board_id']);
 				createOrViewBoard();
 			});
-		// } else if (window.location.href == "http://codeupconnect.com/add-user")
+		// } else if (window.location.pathname == "/add-user")
 		// {
 			// Add new user to trello board
 		} else

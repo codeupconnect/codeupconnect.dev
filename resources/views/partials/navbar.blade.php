@@ -29,13 +29,15 @@
 		</ul>
 		@else
 			<ul class="nav navbar-nav navbar-right">
-				<li data-slide="2"><a id="menu-link-2" href="/#slide-2" title="Next Section">Mission </a></li>
+				<li data-slide="1"><a id="menu-link-1" href="/#slide-1" title="Next Section">Home</a></li>
 				<li><a>|</a></li>
-				<li data-slide="3"><a id="menu-link-3" href="/#slide-3" title="Next Section">Portfolio</a></li>
+				<li data-slide="2"><a id="menu-link-2" href="/#slide-2" title="Next Section"> Mission </a></li>
 				<li><a>|</a></li>
-				<li data-slide="4"><a id="menu-link-4" href="/#slide-4" title="Next Section">Featured Freelancers</a></li>
+				<li data-slide="3"><a id="menu-link-3" href="/#slide-3" title="Next Section"> What's Codeup?</a></li>
 				<li><a>|</a></li>
-				<li><a href="/admin">Admin</a></li>
+				<li data-slide="4"><a id="menu-link-4" href="/#slide-4" title="Next Section"> Contact</a></li>
+				<li><a>|</a></li>
+				<li><a href="/admin"> Admin</a></li>
 			</ul>
 			
 		@endif

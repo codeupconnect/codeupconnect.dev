@@ -42,50 +42,58 @@
 	</div><!-- /slide2 -->
 
 		<!-- === Slide 3 - Portfolio -->
-	<!-- <div class="slide story" id="slide-3" data-slide="3">
+	<div class="slide story" id="slide-3" data-slide="3">
 		<div class="container">
 			<div class="row title-row">
-				<div class="col-xs-12 font-thin"><span class="font-semibold">Portfolio</div> -->
-			<!-- </div> --><!-- /row -->
-			<!-- <div class="row line-row">
+				<div class="col-xs-12 font-thin"><span class="font-semibold">What's <a href="http://www.codeup.com">Codeup</a>?</div>
+			</div><!-- /row -->
+			<div class="row line-row">
 				<div class="hr">&nbsp;</div>
-			</div> --><!-- /row -->
-			<!-- <div class="row subtitle-row">
+			</div> <!-- /row -->
+			<div class="row subtitle-row">
 				<div class="col-xs-1 hidden-xs">&nbsp;</div>
-				<div class="col-xs-12 col-xs-10 font-light"><p>Here's where we brag about clients we've worked with...whenever that actually happens.</p> <p>For now...dancing Schmidty.</p></div>
-				<div class="col-xs-1 hidden-xs">&nbsp;</div>
-			</div> --><!-- /row -->
-			<!-- <div class="row content-row col-xs-12">
-				
-				<div class="col-xs-6 img-responsive"><img src="giphy.gif" alt=""></div>
-				<div class="col-xs-6 img-responsive"><img src="giphy.gif" alt=""></div>
-				
-			</div> --><!-- /row -->
-		<!-- </div> --><!-- /container -->
-	<!-- </div> --><!-- /slide3 -->
+				<div class="col-xs-12 col-xs-10 font-light">
+					@include('partials.codeup')
+				</div>
+				<div class="col-xs-1 hidden-xs">&nbsp;</div><img src="/images/codeup-img.jpg">
+			</div> <!-- /row --> 
+		</div> <!-- /container-->
+	 </div> <!-- /slide3 -->
 
 	<!-- === Slide 4 - Freelancers === -->
-	<!-- <div class="slide story" id="slide-4" data-slide="4">
+	<div class="slide story" id="slide-4" data-slide="4">
 		<div class="container">
 			<div class="row title-row">
-				<div class="col-xs-12 font-thin">Featured Freelancers</span></div>
-			</div> --><!-- /row -->
-			<!-- <div class="row line-row">
+				<div class="col-12 font-semibold">Connect <span class="font-thin">With Us!</span></div>
+			</div><!-- /row -->
+			<div class="row line-row">
 				<div class="hr">&nbsp;</div>
-			</div> --><!-- /row -->
-			<!-- <div class="row subtitle-row">
-				<div class="col-xs-1 hidden-xs">&nbsp;</div>
-				<div class="col-xs-12 col-xs-10 font-light"><p>And when we have freelancers to display, this is where they'd go!</p>
-				<p>Until then...more Dancing Schmidty.</p>
-				</div>
+			</div><!-- /row -->
+			<div class="row subtitle-row">
+				<div class="col-sm-1 hidden-sm">&nbsp;</div>
+			</div><!-- /row -->
+			<div id="contact-row-4" class="row">
 				
-		
-				<div class="col-xs-12 img-responsive"><img src="giphy.gif" alt=""></div>
-		
-				<div class="col-xs-1 hidden-xs">&nbsp;</div>
-			</div> --><!-- /row -->
-		<!-- </div> --><!-- /container -->
-	<!-- </div> --><!-- /slide4 -->
+				<div class="col-12 col-sm-3">
+					<p><a target="_blank" href="mailto:codeupconnect@gmail.com"><i class="fa fa-envelope fa-5x"></i></a></p><p>codeupconnect@gmail.com</p>
+					</a>
+				</div><!-- /col12 -->
+				<div class="col-12 col-sm-3 with-hover-text">
+					<p><i class="fa fa-phone fa-5x" aria-hidden="true"></i></p><p>(210) 802-7397</p>
+					</a>
+				</div><!-- /col12 -->
+				<div class="col-12 col-sm-3 with-hover-text">
+					<p><a target="_blank" href="#"><i class="fa fa-facebook fa-5x"></i></a></p>
+					<span class="font-light">codeupconnect</span></a>
+				</div><!-- /col12 -->
+				<div class="col-12 col-sm-3 with-hover-text">
+					<p><a target="_blank" href="#"><i class="fa fa-twitter fa-5x"></i></a></p>
+					<span class="hover-text font-light ">@CodeupConnect</span></a>
+				</div><!-- /col12 -->
+				<div class="col-sm-1 hidden-sm">&nbsp;</div>
+			</div><!-- /row -->
+		</div><!-- /container -->
+	</div><!-- /Slide 4 -->
 
 	<script>
 		$(function() {

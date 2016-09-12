@@ -1,7 +1,7 @@
 <div class="profile-usermenu">
 	<ul class="nav">
 		<li>
-			<a href="#">
+			<a href="http://www.github.com/{{ $myUser->nickname }}">
 			<i class="fa fa-github"></i>
 			{{ $myUser->nickname }} </a>
 		</li>

@@ -1,21 +1,25 @@
-
 @extends('layout.master')
 
 @section('content')
 
-<h2 class="title">Your Project, Should You Choose to Accept It</h2>
+@include('partials.single-project-view')
 
-<div class="container">	
-	
-	<h4>Project</h4>
-	<p><textarea>Yay project</textarea></p>
+
+	<div class="container button-container col-xs-12" id="pass-reject">
+ 		<div class="col-xs-4" >
+ 			<form method="POST" action="{{ action('UsersController@acceptInvite') }}">
+ 	   			{!! csrf_field() !!}  
+ 				<button name="id" value="{{ $user->id }}" class="btn btn-success" >Accept</button>
+ 			</form>
+ 		</div>
+ 		<div class="col-xs-4 ">
+ 			<form method="POST" action="{{ action('UsersController@rejectInvite') }}">
+ 		    	{!! csrf_field() !!}    
+ 				<button name="id" value="{{ $user->id }}" class="btn btn-danger" >Pass</button>
+ 			</form>
+ 		</div>
+	</div>
 </div>
-<div class="container button-container">	  
-	  <a type="button" href="{{ action('UsersController@acceptInvite', $user->id) }}" class="btn btn-success" >Accept</a>
-	  <a type="submit" href="{{ action('UsersController@rejectInvite', $user->id) }}" class="btn btn-danger" >Reject</a>
-</div>
-
-
 
 
 @stop

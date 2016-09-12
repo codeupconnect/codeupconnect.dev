@@ -14,9 +14,11 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
+
             $table->string('name')->nullable();
             $table->string('nickname')->unique();
             $table->string('github_id')->unique();
+            $table->string('trello_id')->unique();
             $table->string("url")->unique();
             $table->string('email')->nullable()->unique();
             $table->boolean('is_admin');
@@ -27,6 +29,8 @@ class CreateUsersTable extends Migration
             $table->string('active_project');
             $table->string('resume_url');
             $table->nullableTimestamps();
+            $table->string('avatar');
+
         });
     }
 

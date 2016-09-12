@@ -3,7 +3,7 @@
 	<head>
 		@if (Auth::check() && Auth::user()->invite != null)
 			{{ session(['invite' => Auth::user()->invite]) }}
-		@elseif (Auth::check() && Auth::user()->invite != 0)
+		@else
 			{{ session()->forget('invite') }}
 		@endif
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -15,7 +15,7 @@
 		<link href="/css/main.css" rel="stylesheet">
 
 		<!-- Fonts -->
-		<link href="https://fonts.googleapis.com/css?family=Antic+Slab" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Lato|Source+Sans+Pro" rel="stylesheet">
 
 		@yield('head-includes')		
 
@@ -23,19 +23,22 @@
 	
 	</head>
 	<body>
+		<div id="wrapper">
 		
 		@include('partials.navbar')
-	
+
+		
 		@yield('content')
 
-		@include('partials.footer')
-	
+		
+		</div>
 		<!-- Scripts -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 		<script src="/js/bootstrap.min.js"></script>
 		<script src="/js/common.js"></script>	
-		
+		<script src="/js/trello-logout.js"></script>
 		@yield('bottom-scripts')
+
 		
 	</body>
 

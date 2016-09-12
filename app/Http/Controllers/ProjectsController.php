@@ -10,6 +10,10 @@ use App\TeamMember;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+// Mailgun
+require __DIR__ . '/../../../vendor/autoload.php';
+use Mailgun\Mailgun;
+
 class ProjectsController extends Controller
 {
     public function __construct()
@@ -52,21 +56,34 @@ class ProjectsController extends Controller
         $project->phone = $request->phone;
         $project->email = $request->email;
         $project->project_details = $request->project_details;
-        (isset($request->collateral) ? true : false);
-        (isset($request->facebook) ? true : false);
-        (isset($request->linkedin) ? true : false);
-        (isset($request->twitter) ? true : false);
-        (isset($request->youtube) ? true : false);
-        (isset($request->instagram) ? true : false);
-        (isset($request->tumblr) ? true : false);
-        (isset($request->blog) ? true : false);
-        (isset($request->comments_feedback) ? true : false);
-        (isset($request->member_signup) ? true : false);
-        (isset($request->contact_form) ? true : false);
-        (isset($request->existing_database) ? true : false);
-        (isset($request->stripe) ? true : false);
+        $project->collateral = (isset($request->collateral) ? 0 : 1);
+        $project->facebook = (isset($request->facebook) ? 0 : 1);
+        $project->linkedin = (isset($request->linkedin) ? 0 : 1);
+        $project->twitter = (isset($request->twitter) ? 0 : 1);
+        $project->youtube = (isset($request->youtube) ? 0 : 1);
+        $project->instagram = (isset($request->instagram) ? 0 : 1);
+        $project->tumblr = (isset($request->tumblr) ? 0 : 1);
+        $project->blog = (isset($request->blog) ? 0 : 1);
+        $project->comments = (isset($request->comments) ? 0 : 1);
+        $project->member_signup = (isset($request->member_signup) ? 0 : 1);
+        $project->contact_form = (isset($request->contact_form) ? 0 : 1);
+        $project->existing_database = (isset($request->existing_database) ? 0 : 1);
+        $project->stripe = (isset($request->stripe) ? 0 : 1);
         $project->save();
         $request->session()->flash('message', 'Thank you! Your project is being reviewed by our team of devs! We will follow up soon.');
+        
+        # Instantiate the client.
+        // $mgClient = new Mailgun('key-d4c9cd89b2a9f10666d87de18d44652f');
+        // dd($mgClient);
+        // $domain = "sandboxc3c56cf00e7b4ca78c11792a06851869.mailgun.org";
+
+        // # Make the call to the client.
+        // $result = $mgClient->sendMessage("$domain", array(
+        //         'from'    => 'Mailgun Sandbox <postmaster@sandboxc3c56cf00e7b4ca78c11792a06851869.mailgun.org>',
+        //         'to'      => 'Eddie <beijingtexan@gmail.com>',
+        //         'subject' => 'Hello Eddie',
+        //         'text'    => 'Congratulations Eddie, you just sent an email with Mailgun!  You are truly awesome!  You can see a record of this email in your logs: https://mailgun.com/cp/log .  You can send up to 300 emails/day from this sandbox server.  Next, you should add your own domain so you can send 10,000 emails/month for free.'));
+
         return redirect()->action("HomeController@index");
     }
 
@@ -94,7 +111,7 @@ class ProjectsController extends Controller
     // Updates handled by admin, not outside clients
     public function update(Request $request, $id)
     {
-        $project = Project::findorFail($id);
+        $project = Project::findOrFail($id);
         $project->organization_name = $request->organization_name;
         $project->site_url = $request->site_url;
         $project->start_date = $request->start_date;
@@ -102,14 +119,16 @@ class ProjectsController extends Controller
         $project->point_person = $request->point_person;
         $project->phone = $request->phone;
         $project->email = $request->email;
-        $project->project_details = $request->project_details;
+        $project->project_details = $request->project_details; 
         $project->status = 'approved';
+        $project->next_invite = '0';
         $project->save();
+
         $request->session()->flash('message', 'You have updated and approved the project.');
 
         $project->sendInvite();
 
-        return redirect()->action("HomeController@showWelcome");
+        return redirect()->action("ProjectsController@showUnapproved");
     }
 
 
@@ -124,7 +143,7 @@ class ProjectsController extends Controller
     // only admin can destroy
     public function destroy($id)
     {
-        $project = Project::findorFail($id);
+        $project = Project::findOrFail($id);
         if(!$project) {
             Log::info("Project with ID $id cannot be found");
             abort(404);
@@ -145,8 +164,8 @@ class ProjectsController extends Controller
     // At this point projects are either unassigned or assigned - pending team member
     public function index()
     {
-        $projects = Project::where('status', 'approved')->get();
-        $projects = $projects->orderBy('projects.created_at', 'DESC')->paginate(10);
+        $projects = Project::where('status', 'approved');
+        $projects = $projects->orderBy('projects.created_at', 'ASC')->paginate(10);
         return view("alumni.approvedprojects")->with("projects", $projects);
     }
     
@@ -173,7 +192,7 @@ class ProjectsController extends Controller
     // One Project that is viewed when clicked
     public function showProject($id)
     {
-        $project = Project::find($id);
+        $project = Project::findorFail($id);
         $data = new Project();
         $data->organization_name = $project->organization_name;
         $data->site_url = $project->site_url;
@@ -201,16 +220,19 @@ class ProjectsController extends Controller
         $boolean->stripe = $project->stripe;
 
         if ($project->status == 'unapproved')
+        {
             return view("admin.editproject")->with('data', $data['attributes'])->with('boolean', $boolean['attributes']);
-        else
-            return view("alumni.project")->with('data', $data['attributes'])->with('boolean', $boolean['attributes']);
+        } else
+        {    
+            return view("alumni.project")->with('data', $data['attributes'])->with('boolean', $boolean['attributes'])->with('project', $project);
+        }
     }
 
     public function viewInvite()
     {
         $id = session()->get('login_' . md5("Illuminate\Auth\Guard"));
-        $user = User::findorFail($id);
-        $project = Project::findorFail($user->invite);
+        $user = User::findOrFail($id);
+        $project = Project::findOrFail($user->invite);
         return view('alumni.user-project-invite')->with('user', $user)->with('project', $project);
     }
 

@@ -6,17 +6,16 @@
 
 	var listIds = new Array();
 	var listNames = new Array();
-	var boardId = "{{ $boardId }}";
-
+	var boardId;
 
 
 // ---------------------
 // --- Test Function ---
 // ---------------------
 
-	function dump(data)
+	function dump(data1, data2)
 	{
-		console.log(data);
+		console.log(data1, data2);
 	}
 
 
@@ -69,9 +68,10 @@
 
     function loadBoard()
     {
-    //	Clear loaded lists
+		boardId = $('#board-id').val();
+		dump('boardId: ', boardId);
+	    //	Clear loaded lists
     	$('#lists').empty();
-
 	// Get the selected board's lists
      	Trello.get(
         	'/boards/' + boardId + '/lists',
@@ -105,6 +105,7 @@
   		for (var i=0; i<listIds.length; i++)
   		{
 			$("#"+listIds[i]).empty();    			
+			dump(listIds[i]);    			
       		var url = '/lists/' + listIds[i] + '/cards';
       		Trello.get(
 	        		url,
@@ -143,18 +144,18 @@
 
 				// Create listeners for move links
 				$('.moveList').bind('click',function(e){
-						e.preventDefault();	
+					e.preventDefault();	
 					Trello.put('/cards/' + card.id + "/idList?value=" + $(this).attr('data-list'));
 					loadBoard();
 				});
 
 				// Create listeners on buttons and delete link
-				$(document).on('click', '#edit', function() 
+				$('#edit').bind('click', function(e) 
 				{
 					Trello.put('/cards/'+card.id, {name: $('#editing').val()});
 					loadBoard();
    				});
-   				$(document).on('click', '#discard', function() 
+   				$('#discard').bind('click', function() 
 				{
 					loadBoard();
   				});       				
@@ -211,21 +212,34 @@
 // --- New Project ---
 // -------------------
 
-	// Create New Board on Click
+	// Create New Board on Click (for testing)
 	$(document).on('click', '#newBoard', function() 
 	{
-		Trello.post('/boards/', {name: 'Clone', idBoardSource: '57ccac05a9c89e70ce374d64'})
-			.done(function(board)
-			{ 
-				// Post Board ID and Redirect to Laravel Function for Storing
-			    $('#inset_form').html("<form action='{{ ApiController@acceptProject }}' name='submit' method='post' style='display:none;''><input type='text' name='board' value='" + board.id + "' /></form>");
-			    document.forms['submit'].submit();
-			})
+		var name = $(this).val();
+		createOrViewBoard(name);
 	});
 
-	// ***
-	// Redirect to Update Database via Laravel
-	// ***
+	// Create New Board if first_member is true, otherwise view
+	function createOrViewBoard()
+	{
+		// Create New
+		if ($('#board-id').val() == "null" || $('#board-id').val() == null)
+		{
+			Trello.post('/boards/', {name: $('#board-name').val(), idBoardSource: '57ccac05a9c89e70ce374d64'})
+				.done(function(board)
+				{ 
+					// Post Board ID and Redirect to Laravel Function for Storing
+				    $('#board-id').val(board.id);
+				    $('#operations').submit();
+				});
+		} 
+		else
+		// View Existing
+		{
+			// Future: add logged in user to board.
+			loadBoard();
+		}
+	}
 
 
 
@@ -235,13 +249,33 @@
 
 	var authorizeSuccess = function() 
 	{
-		$.ajax({
-			url: "/trello-login",
-			data: Trello.token();,
-		}).done(function() {
-			dump("ajax sent", data);
-		});
-		// continue with logic ...
+		var token = $('#token').val();
+		if (window.location.href == "http://codeupconnect.dev/trello")
+		{
+			dump('logging in', Trello.token());
+			$.ajax({
+				url: "/trello-login",
+				type: "POST",
+				data: {
+				'trello_id' : Trello.token(),
+				'_token' : token,
+				}
+			}).done(function(data) {
+				$('#board-name').val(data['board_name']);
+				$('#project-id').val(data['project_id']);
+				$('#board-id').val(data['board_id']);
+				createOrViewBoard();
+			});
+		} else if (window.location.href == "http://codeupconnect.dev/add-user")
+		{
+			// Create and submit a form instead of AJAX?
+			// no...
+			// shoot me plz.
+
+		} else
+		{
+		loadBoard();
+		}
 	}
 
 	var authorizeFailure = function() 

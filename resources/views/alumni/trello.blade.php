@@ -3,23 +3,20 @@
 @section('head-includes')
 
 	<link href="/css/trello.css" rel="stylesheet">
-
+@stop
 @section('content')
-    
-    <div class="container">		      
-    	<h1>Trello Dashboard</h1>
-    	<!-- <button id="newBoard">New Board</button>		
-      	<form class="form-horizontal" id="boards_form">		        
-	      	<div class="form-group">		          
-	      		<label class="control-label">Choose your board</label>
-	      	    <select class="form-control" id="boards"></select>		        
-	      	</div>    
-	    </form> -->
-	    <div id="lists">
+	<div id="operations">
+		<input hidden name="logged-in" value="true">
+		<input hidden name="board-id" value="{{ $data['board_id'] }}">
+		<input hidden name="project-id" value="{{ $data['project_id'] }}">
+	</div>
+    <div class="container">
+    	<h1 id="board-name">{{ $data['board_name'] }}</h1>		      
+	    <div id="lists" class="container text-center">
 	    </div>
     </div> 
 		    
-
+@stop
 
 @section('bottom-scripts')
 

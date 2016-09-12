@@ -7,28 +7,31 @@
   html, body {
     height: 100%;
     width: 100%;
+    margin:0;
   }
 
   body {
     background-color: #D5D5D5;
-    font-family: "Antic Slab", sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     font-weight: normal;
     overflow-x: hidden;
+    
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+     font-family: 'Lato', sans-serif;
   }
 
 /*Font styling*/
   .font-thin {
-    font-family: 'Antic Slab', serif;
     font-weight: 200;
   }
 
   .font-semibold {
-    font-family: 'Antic Slab', serif;
     font-weight: 600;
   }
 
   .font-light {
-    font-family: 'Antic Slab', serif;
     font-weight: 300;
   }
 
@@ -43,7 +46,7 @@
 
   /*Slide One: CodeupConnect*/
     #slide-1 {
-      background-color: #022648;
+      background-color: transparent;
       color: #ffffff;
         -webkit-background-size: 100%;
         -moz-background-size: 100%;
@@ -75,6 +78,15 @@
       }
     }
 
+    .video {
+      position: fixed;
+      top: 50%; left: 50%;
+      z-index: -1;
+      width: 110%;
+      height: 110%;
+      transform: translate(-50%, -50%);
+    }
+    
     #home-row-1,
     #home-row-2 {
       padding-top: 25px;
@@ -128,6 +140,13 @@
         font-size: 16px;
       }
     }
+
+    /*CodeupConnect logo*/
+      #codeupconnect{
+        max-height: 150px; 
+        margin: auto; 
+        margin-top:90px;
+      }
 
     /*Request Button*/
       .wrap {
@@ -248,11 +267,9 @@
 
   .navbar-default {
     background-color:#118489;
-    font-family: 'Antic Slab', serif;
    }
 
    .navbar-default .navbar-nav>li>a, .navbar-default .navbar-brand {
-    font-family: 'Antic Slab', serif;
     color: #D5D5D5;
    }
 
@@ -268,12 +285,250 @@
     }
   }
 
+  #header {
+  padding:10px;
+  }
+
+/*User Profile*/
+
+  /* Profile Container */
+    .profile {
+      margin: 15px 0;
+    }
+
+  /* Profile Sidebar */
+    .profile-sidebar {
+      padding: 20px 0 10px 0;
+      background: #fff;
+      margin-top:50px;
+    }
+
+    .add-queue{
+      margin:10%;
+    }
+
+    /*Profile Pic*/
+      .profile-userpic img {
+          width: 100px;
+          height: 100px;
+          max-width: 100px;
+          max-height: 100px;
+          -webkit-border-radius: 50%;
+          -moz-border-radius: 50%;
+          border-radius: 50%;
+          border: 5px solid rgba(255,255,255,0.5);
+          margin-left: 29%;
+      }
+
+    /*User Name/Preferences*/
+
+      .profile-usertitle {
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      .profile-usertitle-name {
+        color: #5a7391;
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 7px;
+      }
+
+      .profile-usertitle-job {
+        text-transform: uppercase;
+        color: #5b9bd1;
+        font-size: 12px;
+        font-weight: 600;
+        margin-bottom: 15px;
+      }
+      
+    /*Menu*/
+      .profile-usermenu {
+        margin-top: 30px;
+      }
+
+      .profile-usermenu ul li {
+        border-bottom: 1px solid #f0f4f7;
+      }
+
+      .profile-usermenu ul li:last-child {
+        border-bottom: none;
+      }
+
+      .profile-usermenu ul li a {
+        color: #93a3b5;
+        font-size: 14px;
+        font-weight: 400;
+      }
+
+      .profile-usermenu ul li a i {
+        margin-right: 8px;
+        font-size: 14px;
+      }
+
+      .profile-usermenu ul li a:hover {
+        background-color: #fafcfd;
+        color: #5b9bd1;
+      }
+
+      .profile-usermenu ul li.active {
+        border-bottom: none;
+      }
+
+      .profile-usermenu ul li.active a {
+        color: #5b9bd1;
+        background-color: #f6f9fb;
+        border-left: 2px solid #5b9bd1;
+        margin-left: -2px;
+      }
+
+  /* Profile Content */
+    .profile-content {
+      padding: 20px;
+      background: #fff;
+      margin-top: 50px;
+    }
+
+    .current-project{
+      height: 150px;
+      width: 115%;
+    }
+
+    .tables{
+      height: auto;
+      margin-bottom: 30%;
+      width: 115%;
+    }
+
+    #current-project-btn{
+      margin-left:43%;
+    }
+
+/*Footer */
+
+  /*#footer{
+    color:#D5D5D5;
+    background-color: #118489;
+    height:50px;
+  }
+
+   footer div a{
+    color:white;
+   }*/
+
+/*Edit User Profile, Edit Project, User Project Invite, Project*/
+
+  .form-container{
+    margin-top:10%;
+    margin-bottom: 5%;
+  }
+
+  .title{
+    color: black;
+    margin-top: 7%;
+  }
+
+  #footnote{
+    text-align: center;
+    padding-top: 5px;
+    margin-bottom: 5%;
+  }
+
+  .button-container{
+    margin-bottom: 30px;
+    margin-left:27%;
+  }
+
+  #edit-data:hover{
+    cursor: pointer;
+    color: #118489;
+  }
+
+  .teal-font{
+    color:#00999E;
+  }
+
+  .edit{
+    background-color: white;
+    color: black;
+    height: auto;
+    width: auto;
+    padding: 20px;
+    margin-bottom: 20px;
+    margin-top:5%;
+    border-style:solid;
+    border-color:#022648;
+    border-width:20px;
+  }
+
+  #single-button{
+    margin-left:45%;
+    margin-bottom:8%;
+  }
+
+  #back-to-projects{
+    margin-left:35%;
+    margin-top:5%;
+  }
+
+  .margin-top{
+    margin-top: -50px;
+  }
+
+  .margin-left{
+    margin-left:45%;
+  }
+
+  #pass-reject{
+    margin-top:-25%;
+    margin-left:45%;
+  }
+
+/*Client Form*/
+
+  .navbar-margin{
+    margin-top: 65px;
+  }
+
+  .form-font{
+    color:black;
+  }
+
+  .margins{
+    margin-left: 8%;
+    margin-top: 2%;
+  }
+
+/*Admin Portal*/
+
+  .admin{
+    margin-top: 70px;
+  }
+
+  #header-spacing{
+    margin-bottom: 50px;
+  }
+
+  thead{
+    background-color:#022648;
+    color: #D5D5D5;
+  }
+
+/*Banner Project Invite*/
+
   #alert-notification{
     margin-top:90px;
     text-align:center;
     max-width: 700px;
     margin-left: 26%;
     margin-bottom:-30px;
+  }
+  
+
+/*Login*/
+  #login{
+    margin:5%;
+    margin-left:25%;
   }
 
   /*Github Button*/
@@ -378,151 +633,3 @@
       background-color:#444;
       border-color:rgba(0,0,0,0.2);
     }
-
-/*User Profile*/
-
-  /* Profile Container */
-    .profile {
-      margin: 20px 0;
-
-    }
-
-  /* Profile Sidebar */
-    .profile-sidebar {
-      padding: 20px 0 10px 0;
-      background: #fff;
-      margin-top:50px;
-    }
-
-    /*Profile Pic*/
-      .profile-userpic img {
-          width: 100px;
-          height: 100px;
-          max-width: 100px;
-          max-height: 100px;
-          -webkit-border-radius: 50%;
-          -moz-border-radius: 50%;
-          border-radius: 50%;
-          border: 5px solid rgba(255,255,255,0.5);
-          margin-left: 25%;
-      }
-
-    /*User Name/Preferences*/
-
-      .profile-usertitle {
-        text-align: center;
-        margin-top: 20px;
-      }
-
-      .profile-usertitle-name {
-        color: #5a7391;
-        font-size: 16px;
-        font-weight: 600;
-        margin-bottom: 7px;
-      }
-
-      .profile-usertitle-job {
-        text-transform: uppercase;
-        color: #5b9bd1;
-        font-size: 12px;
-        font-weight: 600;
-        margin-bottom: 15px;
-      }
-      
-    /*Menu*/
-      .profile-usermenu {
-        margin-top: 30px;
-      }
-
-      .profile-usermenu ul li {
-        border-bottom: 1px solid #f0f4f7;
-      }
-
-      .profile-usermenu ul li:last-child {
-        border-bottom: none;
-      }
-
-      .profile-usermenu ul li a {
-        color: #93a3b5;
-        font-size: 14px;
-        font-weight: 400;
-      }
-
-      .profile-usermenu ul li a i {
-        margin-right: 8px;
-        font-size: 14px;
-      }
-
-      .profile-usermenu ul li a:hover {
-        background-color: #fafcfd;
-        color: #5b9bd1;
-      }
-
-      .profile-usermenu ul li.active {
-        border-bottom: none;
-      }
-
-      .profile-usermenu ul li.active a {
-        color: #5b9bd1;
-        background-color: #f6f9fb;
-        border-left: 2px solid #5b9bd1;
-        margin-left: -2px;
-      }
-
-  /* Profile Content */
-    .profile-content {
-      padding: 20px;
-      background: #fff;
-      min-height: 504px;
-      margin-top: 50px;
-    }
-
-    .cc-portfolio{
-      margin-top:13%;
-      margin-bottom: 30%;
-    }
-
-/*Footer */
- 
-  .footer{
-    background-color: #118489;
-    color:white;
-    height: 45px;
-  }
-
-/*Edit User Profile, Edit Project, User Project Invite*/
-
-  .form-container{
-    margin-top:5%;
-    color: white;
-    opacity: .7;
-    margin-bottom: 5%;
-  }
-
-  .title{
-    color: white;
-    margin-top: 10%;
-    text-align: center;
-  }
-
-  #footnote{
-    color: white;
-    text-align: center;
-    padding-top: 5px;
-    margin-bottom: 5%;
-  }
-
-  .button-container{
-    margin-bottom: 30px;
-  }
-
-/*Client Form*/
-
-  .navbar-margin{
-    margin-top: 60px;
-  }
-
-  .form-font{
-    color:black;
-    
-  }

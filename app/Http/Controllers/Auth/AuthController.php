@@ -49,6 +49,7 @@ class AuthController extends Controller
             'url' => $githubUser->user['url'],
             'email' => $githubUser->email,
             'github_id' => $githubUser->id,
+            'avatar' =>$githubUser->avatar,
         ]);
     }
 
@@ -64,7 +65,7 @@ class AuthController extends Controller
             'login_' . md5("Illuminate\Auth\Guard") => $authUser->id,
             ]);
 
-        return redirect()->action('UsersController@index');
+        return redirect()->action('UsersController@show', $authUser->id );
     }
 
     public function logout()

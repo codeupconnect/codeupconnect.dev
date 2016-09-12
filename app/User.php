@@ -16,7 +16,12 @@ class User extends Model implements AuthenticatableContract,
 {
     use Authenticatable, Authorizable, CanResetPassword;
 
-    protected $fillable = ['name', 'email', 'nickname', 'url', 'github_id'];
+    protected $fillable = ['name', 'email', 'nickname', 'url', 'github_id', 'avatar'];
 
     protected $hidden = ['password', 'remember_token'];
+
+    public function projects()
+    {
+    	return $this->belongsToMany('App\Project', 'team_members');
+    }
 }

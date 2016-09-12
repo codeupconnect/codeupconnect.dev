@@ -193,12 +193,10 @@ class UsersController extends Controller
             'project_id' => $project->id
             ]);
 
-        User::where('id', $request->id)->update(
-            [
-                'invite' = null,
-                'active_project' = $project->id,
-                'queue' = "",
-            ]);
+        $user->invite = null;
+        $user->active_project = $project->id;
+        $user->queue = '';
+        $user->save();
 
         session()->forget('invite');
         return redirect()->action('UsersController@show', $user->id);

@@ -128,7 +128,7 @@ class UsersController extends Controller
         $active = $user->active_project;
         if (!$queued && !$active)
         {
-           $user->queue = time();
+            $user->queue = time();
             $user->save();
         }
         return redirect()->action('UsersController@show', $id);

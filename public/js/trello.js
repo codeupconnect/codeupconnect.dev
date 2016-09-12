@@ -272,7 +272,6 @@
 		// } else if (window.location.href == "http://codeupconnect.com/add-user")
 		// {
 			// Add new user to trello board
-
 		} else
 		{
 		loadBoard();

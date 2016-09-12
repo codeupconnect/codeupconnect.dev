@@ -136,7 +136,7 @@ class UsersController extends Controller
     public function exitQueue($id)
     {
         $user = User::findOrFail($id);
-        $user->queue = null;
+        $user->queue = "";
         $user->save();
         return redirect()->action('UsersController@show', $id);
     }

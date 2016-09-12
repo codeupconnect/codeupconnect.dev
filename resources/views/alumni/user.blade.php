@@ -22,15 +22,17 @@
 				@include('partials.user-profile-menu')
 			</div>
 			<div class="container col-xs-9 add-queue">
-					{!! csrf_field() !!}
-					{!! method_field("PUT") !!}
 					@if ($myUser->queue == "")
 				<form action="{{ action('UsersController@enterQueue', $myUser->id) }}" method="POST">
+					{!! csrf_field() !!}
+					{!! method_field("PUT") !!}
 						<button type="submit" class="btn btn-info text-center">
 						<i class="glyphicon glyphicon-plus"></i>
 						    Add Me to the Queue </button>
 					@else
 				<form action="{{ action('UsersController@exitQueue', $myUser->id) }}" method="POST">
+					{!! csrf_field() !!}
+					{!! method_field("PUT") !!}
 						<button type="submit" class="btn btn-info text-center">
 						<i class="glyphicon glyphicon-minus"></i>
 						    Remove Me From Queue </button>

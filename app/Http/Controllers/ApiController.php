@@ -51,7 +51,7 @@ class ApiController extends Controller
         $data['project_id'] = $user->active_project;
         $data['board_name'] = $project->organization_name . "-" . $project->id;
         $data['board_id'] = $request->get('board_id');
-        return view('alumni.trello')->with('data', $data);
+        return view('alumni.trello-login')->with('data', $data);
     }
 
     public function addNewTrelloUser(Request $request)

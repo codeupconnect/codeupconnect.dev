@@ -16,7 +16,7 @@
 	    </a>
 	   	<h1 id="project-name">
 	   	@if (isset($data))
-	   	{{ $data['board_name'] }}	      
+	   		{{ $data['board_name'] }}	      
 	    @endif
 	    </h1>	
 

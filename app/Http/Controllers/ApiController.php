@@ -14,10 +14,11 @@ class ApiController extends Controller
 {
     public function viewTrelloLogin()
     {
-        return view('alumni.trello');
+        return view('alumni.trello-login');
     }
     public function viewNewBoard()
     {
+        dd(session())->all();
         return view('alumni.trello')->with('data', session('data'));
     }
 

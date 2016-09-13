@@ -1,6 +1,7 @@
 
 @extends('layout.master')
 
+@section('content')
 
     <div class="slide story" id="slide-1" data-slide="1" data-type="background" data-speed="10">
 		<div class="col-md-12">
@@ -102,6 +103,9 @@
 			</article>
 		</div><!-- /container -->
 	</div><!-- /Slide 4 -->
+@stop
+
+@section('bottom-scripts')
 
 	<script>
 		$(function() {
@@ -115,3 +119,4 @@
 	    
 	    
 	</script>
+@stop

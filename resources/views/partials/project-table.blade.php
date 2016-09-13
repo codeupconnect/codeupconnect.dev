@@ -17,19 +17,19 @@
 	<table class="table table-bordered table-striped table-hover">
 		<tbody>
 			<tr class="table-row">
-				<td><h5>Point Person</h5></td>
+				<td><h5 class="font-semibold">Point Person</h5></td>
 				<td>{{ $project->point_person }}</td>
 		
 			<tr class="table-row">	
-				<td><h5>Phone</h5></td>
+				<td><h5 class="font-semibold">Phone</h5></td>
 				<td>{{ $project->phone }}</td>
 			
 			<tr class="table-row">	
-				<td><h5>Email</h5></td>
+				<td><h5 class="font-semibold">Email</h5></td>
 				<td>{{ $project->email }}</td>
 			
 			<tr class="table-row">	
-				<td><h5>Additional Details</h5></td>
+				<td><h5 class="font-semibold">Additional Details</h5></td>
 				<td>{{ $project->project_details }}</td>
 			</tr>
 		</tbody>

@@ -51,7 +51,7 @@
 		<div class="container">
 			<article>
 				<div class="row title-row">
-					<div class="col-xs-12 font-thin"><span class="font-semibold">What's</span> <a href="http://www.codeup.com">Codeup</a>?</div>
+					<div class="col-xs-12 font-thin"><span class="font-semibold">What's</span> <a id="codeup-link" href="http://www.codeup.com">Codeup</a>?</div>
 				</div><!-- /row -->
 				<div class="row line-row">
 					<div class="hr">&nbsp;</div>

@@ -9,7 +9,8 @@
 		<link href="/css/main.css" rel="stylesheet">
 
 		<!-- Fonts -->
-		<link href="https://fonts.googleapis.com/css?family=Lato|Source+Sans+Pro" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
+
 
 		<link rel="shortcut icon" href="images/icon.png" type="favicon/ico" />
 

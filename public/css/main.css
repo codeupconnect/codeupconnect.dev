@@ -14,11 +14,14 @@
 	background-color: #D5D5D5;
 	font-weight: normal;
 	overflow-x: hidden;
-	
   }
 
   h1, h2, h3, h4, h5, h6 {
 	 font-family: 'Lato', sans-serif;
+  }
+
+  h2 {
+  	font-size: 2.75em;
   }
 
   table {
@@ -262,10 +265,14 @@
 
   /*Slide Three: What's Codeup?*/
 		#slide-3 {
-		  background-color: #002648;
+		  background-color: #006265;
 		  color: #e4e6e5;
 		  padding-top: 8%;
 		  height:100%;
+		}
+
+		#codeup-link{
+			color:white;
 		}
 
 		#img-top{
@@ -286,15 +293,14 @@
 /*Navigation Bar*/
 
   .navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-header>a:hover{
-	color: #D5D5D5;
+	color: #6B6B6B;
+
   }
 
-  .navbar-default {
-	background-color:#118489;
-   }
+ 
 
    .navbar-default .navbar-nav>li>a, .navbar-default .navbar-brand {
-	color: #D5D5D5;
+	color: #6B6B6B;
    }
 
    @media (min-width: 768px) {
@@ -490,7 +496,7 @@
   }
 
   .teal-font{
-	color:#00999E;
+	color:#545454;
   }
 
   .edit{
@@ -564,8 +570,9 @@
   }
 
   thead{
-	background-color:#022648;
-	color: #D5D5D5;
+	background-color:#0079BF;
+	color: #fff;
+	font-size:1.1em;
   }
 
 /*Banner Project Invite*/
@@ -583,6 +590,11 @@
   .login-margins{
 	width:40%;
 	margin-left:6%;
+  }
+
+  .login-font{
+  	font-size: 1.3em;
+  	line-height:130%;
   }
 
   /*Github Button*/

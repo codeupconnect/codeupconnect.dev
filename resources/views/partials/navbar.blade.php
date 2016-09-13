@@ -9,7 +9,7 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="{{ action('HomeController@index') }}">CodeupConnect</a>
+	<a class="navbar-logo" href="{{ action('HomeController@index') }}"><img height="50px" src="/images/header-logo.png"></a>
 		</div>
 		<!-- Collect the nav links, forms, and other content for toggling -->
 	

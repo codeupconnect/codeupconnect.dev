@@ -10,9 +10,14 @@
 		{!! csrf_field() !!}
 		<input hidden name="logged-in" value="true">
     	<input type="hidden" id="token" value="{{ session()->token() }}">
-    	<input type="hidden" id="board-id" name="board_id" value="">
     	<input type="hidden" id="board-name" name="board_name" value="">
-    	<input type="hidden" id="project-id" name="project_id" value="">
+    	@if (isset($data))
+    		<input hidden name="board-id" value="{{ $data['board_id'] }}">
+			<input hidden name="project-id" value="{{ $data['project_id'] }}">
+    	@else
+    		<input type="hidden" id="board-id" name="board_id" value="">
+    		<input type="hidden" id="project-id" name="project_id" value="">
+		@endif
     </form>
     <div class="col-sm-12 title">
 	    <a href="http://trello.com">

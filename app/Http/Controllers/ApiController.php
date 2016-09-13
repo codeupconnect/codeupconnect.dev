@@ -14,7 +14,7 @@ class ApiController extends Controller
 {
     public function viewTrelloLogin()
     {
-        return view('alumni.trello-login');
+        return view('alumni.trello');
     }
     public function viewNewBoard()
     {

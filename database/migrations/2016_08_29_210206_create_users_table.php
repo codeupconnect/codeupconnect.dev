@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('name')->nullable();
             $table->string('nickname')->unique();
             $table->string('github_id')->unique();
-            $table->string('trello_id')->unique();
+            $table->string('trello_id')->nullable();
             $table->string("url")->unique();
             $table->string('email')->nullable()->unique();
             $table->boolean('is_admin');

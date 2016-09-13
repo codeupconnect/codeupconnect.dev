@@ -1,8 +1,7 @@
 <div class="profile-usermenu">
 	<ul class="nav">
-
-		@if($project->collateral != 1)
-			<li><a><i class="fa fa-check-square" aria-hidden="true"></i> Has Collateral (Graphics/Logos etc.)</li></a>
+		@if($project->Collateral != 1)
+			<li><a><i class="fa fa-check-square" aria-hidden="true"></i> Has Collateral (Graphics/Logo etc.)</li></a>
 		@endif
 		
 		@if($project->facebook != 1)
@@ -51,7 +50,7 @@
 		
 		@if($project->stripe != 1)
 			<li><a><i class="fa fa-cc-stripe" aria-hidden="true"></i> Stripe Integration</li></a>
-
+		@endif
 		
 	</ul>
 </div>

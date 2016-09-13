@@ -71,7 +71,6 @@ class UsersController extends Controller
         
             $myUser->organization_name = $currentProjectName;
             $myUser->project_id = $userCurrentProject->id;
-
         }
 
         $users = User::where('queue', '<>', "")->orderBy('queue', 'asc')->get();
@@ -134,6 +133,14 @@ class UsersController extends Controller
         return redirect()->action('UsersController@show', $id);
     }
 
+    public function exitQueue($id)
+    {
+        $user = User::findOrFail($id);
+        $user->queue = "";
+        $user->save();
+        return redirect()->action('UsersController@show', $id);
+    }
+
     public function acceptProject(Request $request)
     {
         // Gather Project and Team Member info
@@ -151,10 +158,27 @@ class UsersController extends Controller
             'project_id' => $projectId
             ]);
         Project::where('id', $projectId)->update(['trello_id' => $boardId]);
-        User::where('id', $userId)->update(['queue' => null]);
 
         return view("alumni.trello")->with('boardId', $boardId);
     }   
+
+    public function closeProject(Request $request)
+    {
+        // Gather Project and Team Member info
+        $userId = session()->get('login_' . md5("Illuminate\Auth\Guard"));
+        
+        $user = User::where('id', $userId)->first();
+
+        $project = Project::findOrFail($user->active_project);
+        $project->status = 'closed';
+        $project->save();
+
+        $user->queue = time();
+        $user->active_project = "";
+        $user->save();
+
+        return redirect()->action('UsersController@show', $userId);
+    }
 
     public function acceptInvite(Request $request)
     {
@@ -171,7 +195,9 @@ class UsersController extends Controller
 
         $user->invite = null;
         $user->active_project = $project->id;
+        $user->queue = '';
         $user->save();
+
         session()->forget('invite');
         return redirect()->action('UsersController@show', $user->id);
 
@@ -186,6 +212,11 @@ class UsersController extends Controller
         {
             $project->next_invite += 1;
             $project->save();   
+        }
+        else
+        {
+            $project->next_invite = 0;
+            $project->save();               
         }
         $project->sendInvite();
         $user->invite = null;

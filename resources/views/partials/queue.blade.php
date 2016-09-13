@@ -1,5 +1,5 @@
-<div>
-	<br><br><br>
+<div class="queue">
+	
 	<h3>Queue</h3>
 	<table class="table table-bordered table-striped table-hover">
 		<thead>

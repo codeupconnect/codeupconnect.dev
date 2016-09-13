@@ -20,5 +20,10 @@
 			<i class="glyphicon glyphicon-briefcase"></i>
 			Approved Projects</a>
 		</li>
+		<li>
+			<a href="{{ action('ApiController@viewTrelloLogin') }}">
+			<i class="fa fa-trello-square"></i>
+			Team Trello Board</a>
+		</li>
 	</ul>
 </div>

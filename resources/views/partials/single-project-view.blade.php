@@ -6,14 +6,14 @@
 				<!-- Username/Preference -->
 				<div class="profile-usertitle">
 					<div class="profile-usertitle-name">
-						Optional Requests:
+						Additional Requests:
 					</div>
 				</div>
 				@include('partials.project-menu')
 			</div>
 		</div>
 		<div class="col-md-9">
-			<div class="profile-content current-project auto-width">
+			<div class="profile-content current-project">
 				@include('partials.project-table')
 			</div>
 		</div>

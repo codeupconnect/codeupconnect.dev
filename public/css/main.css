@@ -25,6 +25,7 @@
 	table-layout: fixed;
 	width: 100%;
   }
+
 /*Font styling*/
   .font-thin {
 	font-weight: 200;
@@ -203,7 +204,7 @@
 		#slide-2 {
 		  background-color: #A1B290;
 		  color: #e4e6e5;
-		  padding-top: 20%;
+		  padding-top: 10%;
 		  height:100%;
 		}
 
@@ -265,6 +266,7 @@
 
 		#img-top{
 			margin-top:3%;
+			margin-bottom:3%;
 		}
 
   /*Slide Four: Contact*/
@@ -504,8 +506,6 @@
   	margin-top:-3%;
   	margin-left:70%;
   }
-
-  
 
 /*Client Form*/
 

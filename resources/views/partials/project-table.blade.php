@@ -11,18 +11,11 @@
 		<tbody>
 			<tr class="table-row">
 				<td>{{ $project->site_url }}</td>
-			</tr>
-			<tr class="table-row">
 				<td>{{ $project->start_date }}</td>
-			<tr class="table-row">
 				<td>{{ $project->end_date }}</td>
-			<tr class="table-row">
 				<td>{{ $project->point_person }}</td>
-			<tr class="table-row">
 				<td>{{ $project->phone }}</td>
-			<tr class="table-row">
 				<td>{{ $project->email }}</td>
-			<tr class="table-row">
 				<td>{{ $project->project_details }}</td>
 			</tr>
 		</tbody>

@@ -13,7 +13,7 @@
 				<article>
 					<div class="col-12">
 						<img class="img-responsive" src="/images/logo.png" id="codeupconnect">
-						<h4 class="font-thin">We are a team of <span class="font-semibold">Codeup graduates</span> looking to give back to the community.</h4>
+						<h4 class="font-thin">Making the world a better place <span class="font-semibold">one website</span> at a time.</h4>
 					</div>
 					<div class="container">
 	    				<a class="btn-0" href="/form">Make a Request</a>

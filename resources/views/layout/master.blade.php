@@ -11,6 +11,8 @@
 		<!-- Fonts -->
 		<link href="https://fonts.googleapis.com/css?family=Lato|Source+Sans+Pro" rel="stylesheet">
 
+		<link rel="shortcut icon" href="images/icon.png" type="favicon/ico" />
+
 		@yield('head-includes')		
 
 		<title>CodeupConnect</title>

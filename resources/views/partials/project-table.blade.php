@@ -23,31 +23,21 @@
 </div>
 <div>
 	<table class="table table-bordered table-striped table-hover">
-		<thead>
-			<tr class="table-row">
-				<td>Point Person</td>
-			</tr>
-			<tr class="table-row">	
-				<td>Phone</td>
-			</tr>
-			<tr class="table-row">	
-				<td>Email</td>
-			</tr>
-			<tr class="table-row">	
-				<td>Additional Details</td>
-			</tr>
-		</thead>
 		<tbody>
 			<tr class="table-row">
+				<td>Point Person</td>
 				<td>{{ $project->point_person }}</td>
-			
-			
-				<td>{{ $project->phone }}</td>
 		
+			<tr class="table-row">	
+				<td>Phone</td>
+				<td>{{ $project->phone }}</td>
 			
+			<tr class="table-row">	
+				<td>Email</td>
 				<td>{{ $project->email }}</td>
 			
-			
+			<tr class="table-row">	
+				<td>Additional Details</td>
 				<td>{{ $project->project_details }}</td>
 			</tr>
 		</tbody>

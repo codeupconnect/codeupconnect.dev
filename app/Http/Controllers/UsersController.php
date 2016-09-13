@@ -213,6 +213,11 @@ class UsersController extends Controller
             $project->next_invite += 1;
             $project->save();   
         }
+        else
+        {
+            $project->next_invite = 0;
+            $project->save();               
+        }
         $project->sendInvite();
         $user->invite = null;
         $user->save();

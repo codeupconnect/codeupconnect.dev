@@ -1,17 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		@if (Auth::check() && Auth::user()->invite != null)
-			{{ session(['invite' => Auth::user()->invite]) }}
-		@else
-			{{ session()->forget('invite') }}
-		@endif
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 		<!-- Stylesheets -->
 		<link href="/css/bootstrap.min.css" rel="stylesheet">
 		<link href="/css/font-awesome.min.css" rel="stylesheet">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js" type="text/css" media="screen">
 		<link href="/css/main.css" rel="stylesheet">
 
 		<!-- Fonts -->
@@ -26,6 +20,11 @@
 		
 		@include('partials.navbar')
 
+		@if (Auth::check() && Auth::user()->invite != null)
+			{{ session(['invite' => Auth::user()->invite]) }}
+		@else
+			{{ session()->forget('invite') }}
+		@endif
 		
 		@yield('content')
 

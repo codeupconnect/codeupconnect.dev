@@ -13,7 +13,7 @@
 			</div>
 		</div>
 		<div class="col-md-9">
-			<div class="profile-content current-project edit">
+			<div class="profile-content current-project auto-width">
 				@include('partials.project-table')
 			</div>
 		</div>

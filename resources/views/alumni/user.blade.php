@@ -4,7 +4,7 @@
 @include('partials.project-invite')
 <div class="container">
 	<div class="row profile">
-		<div class="col-md-3">
+		<div class="col-md-3" id="sidebar-container">
 			<div class="profile-sidebar">
 				<!-- Profile Pic -->
 				<div class="profile-userpic">
@@ -21,7 +21,7 @@
 				</div>
 				@include('partials.user-profile-menu')
 			</div>
-			<div class="container col-xs-9 add-queue">
+			<div class="container col-xs-12 text-center add-queue">
 					@if ($myUser->queue == "")
 				<form action="{{ action('UsersController@enterQueue', $myUser->id) }}" method="POST">
 					{!! csrf_field() !!}

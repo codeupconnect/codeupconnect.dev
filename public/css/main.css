@@ -26,6 +26,10 @@
 	width: 100%;
   }
 
+  td {
+  	word-wrap: break-word;
+  	}
+
 /*Font styling*/
   .font-thin {
 	font-weight: 200;
@@ -312,20 +316,41 @@
 /*User Profile*/
 
   /* Profile Container */
+  	#sidebar-container {
+  		display:flex;
+  		flex-direction: column;
+  	}
 	.profile {
 	  margin: 15px 0;
 	}
 
   /* Profile Sidebar */
 	.profile-sidebar {
+	  display:flex;
+  	  flex-direction: column;
 	  padding: 20px 0 10px 0;
 	  background: #fff;
 	  margin-top:50px;
 	}
 
-	.add-queue{
-	  margin:10%;
+	.add-queue {
+		margin-top: 20px;
 	}
+
+	.profile-userpic {
+	  display:flex;
+	  justify-content: center;
+	}
+
+	.queue{
+	background-color: white;
+	color: black;
+	height: auto;
+	width: auto;
+	padding: 20px;
+	margin-bottom: 20px;
+	margin-top:6%;
+  }
 
 	/*Profile Pic*/
 	  .profile-userpic img {
@@ -337,7 +362,6 @@
 		  -moz-border-radius: 50%;
 		  border-radius: 50%;
 		  border: 5px solid rgba(255,255,255,0.5);
-		  margin-left: 29%;
 	  }
 
 	/*User Name/Preferences*/
@@ -403,6 +427,8 @@
 	  }
 
   /* Profile Content */
+
+
 	.profile-content {
 	  padding: 20px;
 	  background: #fff;
@@ -477,7 +503,7 @@
 	margin-top:5%;
 	border-style:solid;
 	border-color:#022648;
-	border-width:20px;
+	
   }
 
   #single-button{
@@ -498,9 +524,13 @@
 	margin-left:45%;
   }
 
-  #pass-reject{
-	margin-top:70%;
-	margin-left:45%;
+  #pass-reject {
+  	margin-top: 15px;
+  	display: flex;
+  	justify-content: space-around;
+  }
+
+  .accept-pass{	
   }
 
   #close-project{

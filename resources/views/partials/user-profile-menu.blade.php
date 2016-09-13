@@ -22,7 +22,7 @@
 		</li>
 		<li>
 			<a href="{{ action('ApiController@viewTrelloLogin') }}">
-			<i class="fa fa-trello-square"></i>
+			<i class="fa fa-trello"></i>
 			Team Trello Board</a>
 		</li>
 	</ul>

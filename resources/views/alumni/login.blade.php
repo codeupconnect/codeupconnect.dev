@@ -10,7 +10,7 @@
 				<div class="login-box text-center col-sm-5">
 					<h2>Welcome to CodeupConnect!</h2>
 
-					<h3 class="teal-font">You’ve learned a ton and earned your skills.</h3> 
+					<h3 class="slate-font">You’ve learned a ton and earned your skills.</h3> 
 
 					<h4 class="text-left login-font">Whether you are looking for the job of your dreams, or already landed it, you know that the more you code, the better you get.<p></p>
 						<p>CodeupConnect connects you, your fellow Codeup grads, and the San Antonio community organizations in need of web development help. Gain valuable experience, team building and organizational skills while working on exciting projects that help our community.</p> 
@@ -18,7 +18,7 @@
 					
 				</div>
 				<div class="login-box col-sm-5">
-					<h2 class="teal-font text-center">How Does it Work?</h2>
+					<h2 class="slate-font text-center">How Does it Work?</h2>
 					<div class="login-font">
 						 <h4><i class="fa fa-plus-square-o" aria-hidden="true"></i>   A queue is set up for grads that want to work on projects</h4>
 						 <h4><i class="fa fa-plus-square-o" aria-hidden="true"></i>  A queue is set up for projects</h4>

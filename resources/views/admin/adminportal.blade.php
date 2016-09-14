@@ -5,7 +5,7 @@
 	
 
 <div class="container admin text-center">
-	<h2 class='font-thin teal-font' id="header-spacing">Admin Portal</h2>
+	<h2 class='font-thin slate-font' id="header-spacing">Admin Portal</h2>
 	<div class="edit">
 		<table class="table table-bordered table-striped table-hover">
 			<thead>

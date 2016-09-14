@@ -54,3 +54,4 @@
 	Route::get('close-project/{id}', 'UsersController@closeProject');
 	Route::post('accept', 'UsersController@acceptInvite');
 	Route::post('reject', 'UsersController@rejectInvite');
+	Route::get('pass-fail', 'HomeController@cannotPass');

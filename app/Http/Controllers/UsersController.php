@@ -218,7 +218,11 @@ class UsersController extends Controller
             $project->next_invite = 0;
             $project->save();               
         }
-        $project->sendInvite();
+        $invited = $project->sendInvite();
+        if (!$invited) 
+        {
+            return redirect()->action("HomeController@cannotPass");
+        }
         $user->invite = null;
         $user->save();
         session()->forget('invite');

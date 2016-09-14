@@ -20,8 +20,8 @@
 		@if(session()->has('login_' . md5("Illuminate\Auth\Guard")))
 				<ul class="nav navbar-nav navbar-right">
 			
-					<li><a href="#">Welcome {{ Auth::user()->name }}</a></li>
-					<li><a href="{{ action('UsersController@show', Auth::user()->id) }}">Profile</a></li>
+					<li><a href="{{ action('UsersController@show', Auth::user()->id) }}">Welcome {{ Auth::user()->name }}</a></li>
+					<li><a href="/">Home</a></li>
 					<li role="separator" class="divider"></li>
 					<li id="logout"><a href="{{action('Auth\AuthController@logout')}}">Logout</a></li>
 			

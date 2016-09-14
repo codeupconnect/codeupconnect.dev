@@ -6,7 +6,7 @@
 
 <div class="container">	
 	@include('partials.project-invite')
-	<h2 class="title text-center teal-font">Edit Profile</h2>
+	<h2 class="title text-center slate-font">Edit Profile</h2>
 	<div class="form-container container edit">
 		<form>
 		  <div class="form-group">
@@ -32,7 +32,7 @@
 		</form>
 	</div>
 
-	<h6 id="footnote" class="teal-font">*Please note that we pull your profile information from Github so if you would like to change your picture or other information not listed on this page, you will have to visit Github to do so*</h6>
+	<h6 id="footnote" class="slate-font">*Please note that we pull your profile information from Github so if you would like to change your picture or other information not listed on this page, you will have to visit Github to do so*</h6>
 </div>
 @stop
 

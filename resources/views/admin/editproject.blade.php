@@ -2,13 +2,13 @@
 
 @section('content')
 <div class="container"> 
-	<h2 id="edit-data" class="title text-center teal-font">Edit and Approve</h2>
+	<h2 id="edit-data" class="title text-center slate-font">Edit and Approve</h2>
 	<div class="row profile">
 	
 			<div class="col-md-3">
 				<div class="profile-sidebar margin-top edit">
 					<div class="profile-usermenu">
-						<h4 class="text-center teal-font">Additional Preferences</h4>
+						<h4 class="text-center slate-font">Additional Preferences</h4>
 						<ul class="nav">
 							@foreach ($boolean as $key => $value)
 								@if ($value == 0)

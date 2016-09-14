@@ -1,5 +1,5 @@
 <div class="container">
-	<h2 class="text-center teal-font title">{{ $project->organization_name }}</h2>
+	<h2 class="text-center slate-font title">{{ $project->organization_name }}</h2>
 	<div class="row profile">
 		<div class="col-md-3">
 			<div class="profile-sidebar">

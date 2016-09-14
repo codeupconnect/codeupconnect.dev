@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container form-font">
-	<h1 class="navbar-margin text-center teal-font">Submit a Project</h1>
+	<h1 class="navbar-margin text-center slate-font">Submit a Project</h1>
 	<div class="container-fluid form-group">
 		
 		<form class="form.horizontal" method="POST" action="{{ action('ProjectsController@store') }}">
@@ -39,12 +39,12 @@
 				@if($errors->has('project_details'))
 					{!! $errors->first('project_details', '<p><span class="help-block alert alert-warning">:message</span></p>') !!}
 				@endif
-				<h4 class="teal-font text-center">Check Yes if Applicable</h4>
+				<h4 class="slate-font text-center">Check Yes if Applicable</h4>
 				<p><i class="fa fa-check-square" aria-hidden="true"></i> Do you have a logo and/or graphics prepared for your project? <input type="checkbox" name="collateral" value="true"> </p>
 				<p><i class="fa fa-database" aria-hidden="true"></i> Do you need to migrate an existing database? <input type="checkbox" name="existing_database" value="true"> </p>
 			</div>
 			<div class="col-xs-4 edit margins">
-				<h3 class="teal-font text-center">Would you like any of the following:</h3>
+				<h3 class="slate-font text-center">Would you like any of the following:</h3>
 				<p><i class="fa fa-facebook-square" aria-hidden="true"></i> Facebook integration? <input type="checkbox" name="facebook" value="true"> </p>
 			  
 				<p><i class="fa fa-linkedin-square" aria-hidden="true"></i> LinkedIn integration? <input type="checkbox" name="linkedin" value="true"> </p>

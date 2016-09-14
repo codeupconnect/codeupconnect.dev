@@ -21,8 +21,9 @@ class Project extends Model
     {
         $users = User::whereNotNull('queue')->where('active_project', '')->where('invite', '')->orderBy('queue', 'asc')->get();
         $all_users = $users->all();
-        if (empty($all_users)) {
-            dd("There are no alumni currently available to invite! Recruit some devs, or try again later.");
+        if (empty($all_users)) 
+        {
+            return null;
         }
         $user = $all_users[$count];
         return $user;
@@ -33,8 +34,13 @@ class Project extends Model
     {
         $nextInvite = $this->next_invite;
         $user = $this->nextinQueue($nextInvite);
+        if (!$user) {
+            return false;
+        }
         $user->invite = $this->id;
         $user->save();
+
+        return true;
     }
 
     public function users()

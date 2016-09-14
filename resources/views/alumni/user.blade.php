@@ -1,9 +1,9 @@
 @extends('layout.master')
 @section('content')
 
-@include('partials.project-invite')
 <div class="container">
 	<div class="row profile">
+		@include('partials.project-invite')
 		<div class="col-md-3" id="sidebar-container">
 			<div class="profile-sidebar">
 				<!-- Profile Pic -->

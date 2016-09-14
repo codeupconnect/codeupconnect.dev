@@ -1,11 +1,11 @@
 @extends('layout.master')
 
 @section('content')
-@include('partials.project-invite')
 
 
 
 <div class="container">	
+	@include('partials.project-invite')
 	<h2 class="title text-center teal-font">Edit Profile</h2>
 	<div class="form-container container edit">
 		<form>

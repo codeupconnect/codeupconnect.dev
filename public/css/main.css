@@ -480,9 +480,8 @@
 	margin-bottom: 5%;
   }
 
-  .title{
-	color: black;
-	margin-top: 7%;
+  .title {
+	margin-top: 80px;
   }
 
   #footnote{
@@ -584,19 +583,36 @@
 /*Banner Project Invite*/
 
   #alert-notification{
-	margin-top:90px;
+	margin-top:80px;
 	text-align:center;
-	max-width: 700px;
-	margin-left: 26%;
+	width: 450px;
 	margin-bottom:-30px;
+	margin-left:auto;
+	margin-right:auto;
   }
+
+@media(max-width:500px){
+	#alert-notification{
+		margin-top:70px;
+		width:350px;
+	}
+}
   
 /*Login*/
  
-  .login-margins{
-	width:40%;
-	margin-left:6%;
-  }
+ 	@media (min-width: 500px) {
+		#login-row {
+			display: flex;
+			justify-content: space-around;
+			margin-top: 10px;
+		}
+	}
+	.login-box {
+		background-color:white;
+    	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    	border-radius: 6px;
+		padding-bottom:5px;
+	}
 
   .login-font{
   	font-size: 1.3em;
@@ -608,7 +624,6 @@
 	.btn-social{
 	  position:relative;
 	  margin-top:1.5px;
-	  padding-left:44px;
 	  text-align:left;
 	  white-space:nowrap;
 	  overflow:hidden;
@@ -707,6 +722,6 @@
 	}
 
 	#github-btn{
-	  margin-top:2%;
-	  margin-left:37%;
+	  margin-top:5%;
+	  margin-bottom:5%;
 	}

@@ -15,4 +15,8 @@ class HomeController extends Controller
         return view('public.welcome');
     }
 
+    public function cannotPass()
+    {
+    	return view('alumni.pass-project');
+    }
 }

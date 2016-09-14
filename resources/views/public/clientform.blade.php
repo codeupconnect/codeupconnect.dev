@@ -1,6 +1,5 @@
 @extends('layout.master')
 
-
 @section('content')
 
 <div class="container form-font">
@@ -45,7 +44,7 @@
 				<p><i class="fa fa-database" aria-hidden="true"></i> Do you need to migrate an existing database? <input type="checkbox" name="existing_database" value="true"> </p>
 			</div>
 			<div class="col-xs-4 edit margins">
-				<h4 class="teal-font text-center">Would you like any of the following:</h4>
+				<h3 class="teal-font text-center">Would you like any of the following:</h3>
 				<p><i class="fa fa-facebook-square" aria-hidden="true"></i> Facebook integration? <input type="checkbox" name="facebook" value="true"> </p>
 			  
 				<p><i class="fa fa-linkedin-square" aria-hidden="true"></i> LinkedIn integration? <input type="checkbox" name="linkedin" value="true"> </p>

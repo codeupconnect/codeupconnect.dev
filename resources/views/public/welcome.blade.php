@@ -56,13 +56,17 @@
 				<div class="row line-row">
 					<div class="hr">&nbsp;</div>
 				</div> <!-- /row -->
-				<div class="row subtitle-row">
+				<div class="row content-row">
 					<div class="col-xs-1 hidden-xs">&nbsp;</div>
-					<div class="col-xs-12 col-xs-10 font-light">
+					<div class="col-xs-12 font-light">
 						@include('partials.codeup')
 					</div>
-					<div class="col-xs-1 hidden-xs">&nbsp;</div><img id="img-top" src="/images/codeup-img.jpg">
+					<div class="col-xs-1 hidden-xs">&nbsp;</div>
+
 				</div> <!-- /row -->
+				<div class="row content-row">
+					<img id="img-top" class="center-block img-responsive" src="/images/codeup-img.jpg">
+				</div>
 			</article>
 		</div> <!-- /container-->
 	 </div> <!-- /slide3 -->
@@ -103,20 +107,4 @@
 			</article>
 		</div><!-- /container -->
 	</div><!-- /Slide 4 -->
-@stop
-
-@section('bottom-scripts')
-
-	<script>
-		$(function() {
-	        $('video').cover({
-	        	ratio: 1080 / 1920;
-	        });
-	    	$(window).resize(function() {
-	        	$('video').cover('set');
-	        });
-	    });
-	    
-	    
-	</script>
 @stop

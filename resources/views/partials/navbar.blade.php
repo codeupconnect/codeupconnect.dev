@@ -9,23 +9,23 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-	<a class="navbar-logo" href="{{ action('HomeController@index') }}"><img height="50px" src="/images/header-logo.png"></a>
+			<a class="navbar-logo" href="{{ action('HomeController@index') }}">
+				<img height="50px" src="/images/header-logo.png">
+			</a>
 		</div>
 		<!-- Collect the nav links, forms, and other content for toggling -->
 	
 		<!-- some kinda error here. unsure. -->
-		<div class="navbar-collapse collapse">
+		<div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1">
 		@if(session()->has('login_' . md5("Illuminate\Auth\Guard")))
-		<ul class="nav navbar-nav navbar-right">
-			<li class="dropdown">
-		 		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome {{ Auth::user()->name }}<span class="caret"></span></a>
-				<ul class="dropdown-menu">
+				<ul class="nav navbar-nav navbar-right">
+			
+					<li><a href="#">Welcome {{ Auth::user()->name }}</a></li>
 					<li><a href="{{ action('UsersController@show', Auth::user()->id) }}">Profile</a></li>
 					<li role="separator" class="divider"></li>
 					<li id="logout"><a href="{{action('Auth\AuthController@logout')}}">Logout</a></li>
+			
 				</ul>
-			</li>	
-		</ul>
 		@else
 			<ul class="nav navbar-nav navbar-right">
 				<li data-slide="1" class="page-scroll"><a id="menu-link-1" href="/#slide-1" title="Next Section">Home</a></li>

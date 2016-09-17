@@ -32,7 +32,6 @@
 				<li data-slide="2" class="page-scroll"><a id="menu-link-2" href="/#slide-2" title="Next Section"> Mission </a></li>
 				<li data-slide="3" class="page-scroll"><a id="menu-link-3" href="/#slide-3" title="Next Section"> What's Codeup?</a></li>
 				<li data-slide="4" class="page-scroll"><a id="menu-link-4" href="/#slide-4" title="Next Section"> Contact</a></li>
-				<li><a href="/admin"> Admin</a></li>
 			</ul>
 			
 		@endif
